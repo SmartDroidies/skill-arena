@@ -25,7 +25,6 @@ Use 'npm start' to run the application
 - Install Expo Go(https://play.google.com/store/apps/details?id=host.exp.exponent) from google play store
 - Open Expo Go and scan the bar code on screen to run the app on mobile
 
-## trouble shooting steps
+## Troubleshooting
 
-- try 'npm config set registry https://registry.npmjs.org/' when you have trouble in node packages
-
+- Try 'npm config set registry https://registry.npmjs.org/' when you have trouble in installing node packages
