@@ -71,11 +71,7 @@ export default function App() {
           options={{
             tabBarLabel: "Schedule",
             tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons
-                name="calendar"
-                color={color}
-                size={26}
-              />
+              <MaterialCommunityIcons name="calendar" color={color} size={26} />
             ),
           }}
         />
@@ -85,11 +81,7 @@ export default function App() {
           options={{
             tabBarLabel: "Account",
             tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons
-                name="account"
-                color={color}
-                size={26}
-              />
+              <MaterialCommunityIcons name="account" color={color} size={26} />
             ),
           }}
         />
