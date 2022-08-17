@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import Course from "./Course";
 
 function HomeScreen() {
   return (
@@ -11,13 +12,6 @@ function HomeScreen() {
   );
 }
 
-function CourseScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Course screen</Text>
-    </View>
-  );
-}
 
 function ScheduleScreen() {
   return (
@@ -53,7 +47,7 @@ export default function App() {
         />
         <Tab.Screen
           name="Course"
-          component={CourseScreen}
+          component={Course}
           options={{
             tabBarLabel: "Courses",
             tabBarIcon: ({ color }) => (
