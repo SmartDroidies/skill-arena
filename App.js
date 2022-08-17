@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-
+import Home from '/Home';
 function HomeScreen() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -43,7 +43,7 @@ export default function App() {
       <Tab.Navigator>
         <Tab.Screen
           name="Home"
-          component={HomeScreen}
+          component={Home}
           options={{
             tabBarLabel: "Home",
             tabBarIcon: ({ color }) => (
