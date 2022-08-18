@@ -4,6 +4,8 @@ import { createMaterialBottomTabNavigator } from "@react-navigation/material-bot
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import search from './search';
 import schedulescreen from "./schedulescreen";
+import Home from '/Home';
+import Course from "./Course";
 
 function HomeScreen() {
   return (
@@ -44,8 +46,8 @@ export default function App() {
     <NavigationContainer>
       <Tab.Navigator>
         <Tab.Screen
-          name="search,schedulescreen"
-          component={search,schedulescreen}
+          name="Home"
+          component={Home}
           options={{
             tabBarLabel: "search",
             tabBarIcon: ({ color }) => (
