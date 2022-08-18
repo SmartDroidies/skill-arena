@@ -28,3 +28,15 @@ Use 'npm start' to run the application
 ## Troubleshooting
 
 - Try 'npm config set registry https://registry.npmjs.org/' when you have trouble in installing node packages
+
+## Coding practices
+
+### Design practices
+
+- Every component should go into its own file
+- Always use function components
+  
+### Name standard
+
+- Always use smaller case when creating folders
+- Always named the files in in pascal case

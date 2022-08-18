@@ -1,39 +1,10 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-
-function HomeScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Home!</Text>
-    </View>
-  );
-}
-
-function CourseScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Course screen</Text>
-    </View>
-  );
-}
-
-function ScheduleScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Schedule screen</Text>
-    </View>
-  );
-}
-
-function ProfileScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
+import Home from "./src/features/home/screens/Home";
+import Course from "./src/features/course/screens/Course";
+import Schedule from "./src/features/schedule/screens/Schedule";
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -43,7 +14,7 @@ export default function App() {
       <Tab.Navigator>
         <Tab.Screen
           name="Home"
-          component={HomeScreen}
+          component={Home}
           options={{
             tabBarLabel: "Home",
             tabBarIcon: ({ color }) => (
@@ -53,7 +24,7 @@ export default function App() {
         />
         <Tab.Screen
           name="Course"
-          component={CourseScreen}
+          component={Course}
           options={{
             tabBarLabel: "Courses",
             tabBarIcon: ({ color }) => (
@@ -67,7 +38,7 @@ export default function App() {
         />
         <Tab.Screen
           name="Schedule"
-          component={ScheduleScreen}
+          component={Schedule}
           options={{
             tabBarLabel: "Schedule",
             tabBarIcon: ({ color }) => (
@@ -77,7 +48,7 @@ export default function App() {
         />
         <Tab.Screen
           name="Profile"
-          component={ProfileScreen}
+          component={Home}
           options={{
             tabBarLabel: "Account",
             tabBarIcon: ({ color }) => (
