@@ -1,10 +1,10 @@
 import React from 'react';
 import { Text } from 'react-native';
 
-const search = () => {
+const Schedule = () => {
   return (
-    <Text>search icons</Text>
+    <Text>Search Icons</Text>
   );
 }
 
-export default search;
+export default Schedule;

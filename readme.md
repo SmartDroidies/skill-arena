@@ -31,4 +31,12 @@ Use 'npm start' to run the application
 
 ## Coding practices
 
+### Design practices
+
 - Every component should go into its own file
+- Always use function components
+  
+### Name standard
+
+- Always use smaller case when creating folders
+- Always named the files in in pascal case
