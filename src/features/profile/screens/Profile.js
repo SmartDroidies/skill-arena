@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Text } from "react-native";
 
 const profile = () => {
-  return <Text>name</Text>;
+  return <Text>karthi</Text>;
 };
 
 export default profile;
