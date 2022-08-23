@@ -26,7 +26,7 @@ export default function App() {
           name="Course"
           component={Course}
           options={{
-            tabBarLabel: "Courses",
+            tabBarLabel: "Course",
             tabBarIcon: ({ color }) => (
               <MaterialCommunityIcons
                 name="google-classroom"
