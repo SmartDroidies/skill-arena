@@ -5,37 +5,37 @@ import { Text, Card } from "@rneui/themed";
 const courses = [
     {
         id: 1,
-        title: "course 1 Title",
+        title: "Course 1 Title",
         author: "First Author",
         price: "Rs 500",
         image: "https://uifaces.co/our-content/donated/1H_7AxP0.jpg",
     },
     {
         id: 2,
-        title: "course 2 Title",
+        title: "Course 2 Title",
         author: "Second Author",
         price: "Rs 600",
         image: "https://uifaces.co/our-content/donated/1H_7AxP0.jpg",
     },
     {
         id: 3,
-        title: "course 3 Title",
+        title: "Course 3 Title",
         author: "Third Author",
         price: "Rs 750",
         image: "https://uifaces.co/our-content/donated/1H_7AxP0.jpg",
     },
     {
         id: 4,
-        title: "course 4 Title",
+        title: "Course 4 Title",
         author: "Final Author",
         price: "Rs 1000",
         image: "https://uifaces.co/our-content/donated/1H_7AxP0.jpg",
     },
 ];
 
-const Course = ({ course }) => (
+const course = ({ course }) => (
     <Card>
-        <Card.Title>{Course.title}</Card.Title>
+        <Card.Title>{course.title}</Card.Title>
         <Card.Divider />
         <Image
             style={styles.image}
@@ -45,22 +45,22 @@ const Course = ({ course }) => (
             }}
         />
         <Text style={styles.fonts} h4>
-            {Course.author}
+            {course.author}
         </Text>
-        <Text style={styles.fonts}>{Course.price}</Text>
+        <Text style={styles.fonts}>{course.price}</Text>
     </Card>
 );
 
 
-const course = () => {
-    const renderCourseCard = ({ item }) => <Course Course={item} />;
+const Course = () => {
+    const renderCourseCard = ({ item }) => <Course course={item} />;
 
     return (
         <>
-            <Text h4>Welcome to Course World</Text>
+            <Text h4>Let me Wonders</Text>
             <FlatList
                 horizontal={true}
-                data={course}
+                data={courses}
                 renderItem={renderCourseCard}
                 keyExtractor={(item) => item.id}
             />
@@ -71,6 +71,12 @@ const course = () => {
 
 
 const styles = StyleSheet.create({
+     // container: {	
+  //   flex: 1,	
+  //   backgroundColor: '#fff',	
+  //   alignItems: 'center',	
+  //   justifyContent: 'center',	
+  // },
 });
 
 export default Course;
