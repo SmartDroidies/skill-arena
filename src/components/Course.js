@@ -9,7 +9,7 @@ const Course = ({ course }) => (
       style={styles.course_image}
       resizeMode="cover"
       source={{
-        uri: "https://reactnative.dev/img/tiny_logo.png",
+        uri: course.image,
       }}
     />
     <Text h4>{course.author}</Text>
