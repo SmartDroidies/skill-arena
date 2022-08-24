@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Image, FlatList } from "react-native";
-import { Text, Card } from "@rneui/themed";
+import { Text, Card,} from "@rneui/themed";
 
 const courses = [
   {
@@ -34,11 +34,13 @@ const courses = [
 ];
 
 const Course = ({ course }) => (
-  <Card>
+  <Card style={{
+
+  }}>
     <Card.Title>{course.title}</Card.Title>
     <Card.Divider />
     <Image
-      style={styles.image}
+      style={{ width: "100%", height: 100 }}
       resizeMode="cover"
       source={{
         uri: "https://reactnative.dev/img/tiny_logo.png",
