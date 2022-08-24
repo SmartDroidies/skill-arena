@@ -35,6 +35,7 @@ const courses = [
 ];
 
 // FIXME - Make the height scrollable
+// FIXME - Component for section
 
 const Home = () => {
   const renderCourseCard = ({ item }) => <Course course={item} />;
