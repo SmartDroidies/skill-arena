@@ -1,6 +1,7 @@
 import React from "react";
-import { StyleSheet, Image, FlatList } from "react-native";
-import { Text, Card,} from "@rneui/themed";
+import { StyleSheet, FlatList, SafeAreaView, StatusBar } from "react-native";
+import { Text } from "@rneui/themed";
+import Course from "../../../components/Course";
 
 const courses = [
   {
@@ -33,43 +34,26 @@ const courses = [
   },
 ];
 
-const Course = ({ course }) => (
-  <Card style={{
-
-  }}>
-    <Card.Title>{course.title}</Card.Title>
-    <Card.Divider />
-    <Image
-      style={{ width: "100%", height: 100 }}
-      resizeMode="cover"
-      source={{
-        uri: "https://reactnative.dev/img/tiny_logo.png",
-      }}
-    />
-    <Text style={styles.fonts} h4>
-      {course.author}
-    </Text>
-    <Text style={styles.fonts}>{course.price}</Text>
-  </Card>
-);
-
 const Home = () => {
   const renderCourseCard = ({ item }) => <Course course={item} />;
 
   return (
-    <>
-      <Text h4>Some Text</Text>
+    <SafeAreaView style={styles.container}>
+      <Text h4>Section Header</Text>
       <FlatList
         horizontal={true}
         data={courses}
         renderItem={renderCourseCard}
         keyExtractor={(item) => item.id}
       />
-    </>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    marginTop: StatusBar.currentHeight || 0,
+  },
 });
 
 export default Home;
