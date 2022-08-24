@@ -2,13 +2,13 @@ import { StyleSheet } from "react-native";
 import { Text, View } from "react-native";
 
 const Profile = () => {
-  const userName = "Prasath B";
-  const userEMail = "PrasathB@gmail.com";
+  const name = "karthick";
+  const gmail = "karthickmohan419@gmail.com"
 
   return (
     <View style={styles.container}>
-      <Text>Name : {userName}</Text>
-      <Text>E-Mail : {userEMail}</Text>
+      <Text>name : {name}</Text>
+      <Text>gmail : {gmail}</Text>
     </View>
   );
 };
@@ -17,7 +17,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: 50,
-    marginLeft: 20,
+    paddingLeft: 25,
+    paddingTop: 250,
+    backgroundColor:"skyblue",
   },
 });
 
