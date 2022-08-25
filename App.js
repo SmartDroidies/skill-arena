@@ -5,10 +5,12 @@ import Home from "./src/features/home/screens/Home";
 import Course from "./src/features/course/screens/Course";
 import Schedule from "./src/features/schedule/screens/Schedule";
 import Profile from "./src/features/profile/screens/Profile";
+import Section from "C:\Users\LENOVO\Documents\workspace\skill-arena\src\features\home\screens\Section.js";
 
 const Tab = createMaterialBottomTabNavigator();
 
 export default function App() {
+
   return (
     <NavigationContainer>
       <Tab.Navigator>
@@ -17,6 +19,7 @@ export default function App() {
           component={Home}
           options={{
             tabBarLabel: "Home",
+            tabBarSection: "section",
             tabBarIcon: ({ color }) => (
               <MaterialCommunityIcons name="home" color={color} size={26} />
             ),
