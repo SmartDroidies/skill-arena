@@ -40,7 +40,6 @@ const courses = [
   },
 ];
 
-// FIXME - Make the height scrollable
 // FIXME - Component for section
 
 const Home = () => {
@@ -55,6 +54,7 @@ const Home = () => {
           data={courses}
           renderItem={renderCourseCard}
           keyExtractor={(item) => item.id}
+          showsHorizontalScrollIndicator={false}
         />
 
         <Text h4>Second Section Header</Text>
@@ -83,6 +83,7 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     marginHorizontal: 20,
+    marginVertical: 20,
   },
 });
 
