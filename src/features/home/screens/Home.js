@@ -1,5 +1,11 @@
 import React from "react";
-import { StyleSheet, FlatList, SafeAreaView, StatusBar } from "react-native";
+import {
+  StyleSheet,
+  FlatList,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+} from "react-native";
 import { Text } from "@rneui/themed";
 import Course from "../../../components/Course";
 
@@ -42,29 +48,31 @@ const Home = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text h4>First Section Header</Text>
-      <FlatList
-        horizontal={true}
-        data={courses}
-        renderItem={renderCourseCard}
-        keyExtractor={(item) => item.id}
-      />
+      <ScrollView style={styles.scrollView}>
+        <Text h4>First Section Header</Text>
+        <FlatList
+          horizontal={true}
+          data={courses}
+          renderItem={renderCourseCard}
+          keyExtractor={(item) => item.id}
+        />
 
-      <Text h4>Second Section Header</Text>
-      <FlatList
-        horizontal={true}
-        data={courses}
-        renderItem={renderCourseCard}
-        keyExtractor={(item) => item.id}
-      />
+        <Text h4>Second Section Header</Text>
+        <FlatList
+          horizontal={true}
+          data={courses}
+          renderItem={renderCourseCard}
+          keyExtractor={(item) => item.id}
+        />
 
-      <Text h4>Third Section Header</Text>
-      <FlatList
-        horizontal={true}
-        data={courses}
-        renderItem={renderCourseCard}
-        keyExtractor={(item) => item.id}
-      />
+        <Text h4>Third Section Header</Text>
+        <FlatList
+          horizontal={true}
+          data={courses}
+          renderItem={renderCourseCard}
+          keyExtractor={(item) => item.id}
+        />
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -72,6 +80,9 @@ const Home = () => {
 const styles = StyleSheet.create({
   container: {
     marginTop: StatusBar.currentHeight || 0,
+  },
+  scrollView: {
+    marginHorizontal: 20,
   },
 });
 
