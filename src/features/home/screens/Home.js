@@ -72,6 +72,7 @@ const Home = () => {
           renderItem={renderCourseCard}
           keyExtractor={(item) => item.id}
         />
+        <section></section>
       </ScrollView>
     </SafeAreaView>
   );
