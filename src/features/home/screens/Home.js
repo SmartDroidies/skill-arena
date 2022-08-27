@@ -47,7 +47,10 @@ const Home = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView}>
+      <ScrollView
+        style={styles.scrollView}
+        showsVerticalScrollIndicator={false}
+      >
         <Text h4>First Section Header</Text>
         <FlatList
           horizontal={true}
@@ -72,7 +75,6 @@ const Home = () => {
           renderItem={renderCourseCard}
           keyExtractor={(item) => item.id}
         />
-        <section></section>
       </ScrollView>
     </SafeAreaView>
   );
