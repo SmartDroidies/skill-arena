@@ -3,8 +3,6 @@ import { Text, Card, Image } from "@rneui/themed";
 
 const Course = ({ course }) => (
   <Card containerStyle={styles.course_card}>
-    <Card.Title>{course.title}</Card.Title>
-    <Card.Divider />
     <Image
       style={styles.course_image}
       resizeMode="cover"
@@ -12,7 +10,9 @@ const Course = ({ course }) => (
         uri: course.image,
       }}
     />
-    <Text h4>{course.author}</Text>
+    <Card.Divider />
+    <Text h4>{course.title}</Text>
+    <Text>{course.author}</Text>
     <Text>{course.price}</Text>
   </Card>
 );
