@@ -3,7 +3,7 @@ import { StyleSheet, SafeAreaView, ScrollView, StatusBar } from "react-native";
 import { Divider } from "@rneui/themed";
 import Section from "../components/Section";
 
-const courses = [
+const courses_books = [
   {
     id: 1,
     title: "Course 1",
@@ -34,6 +34,37 @@ const courses = [
   },
 ];
 
+const courses_health = [
+  {
+    id: 1,
+    title: "Health Course 1",
+    author: "First Author",
+    price: "Rs 500",
+    image: "https://reactnative.dev/img/tiny_logo.png",
+  },
+  {
+    id: 2,
+    title: "Health Course 2",
+    author: "Second Author",
+    price: "Rs 600",
+    image: "https://reactnative.dev/img/tiny_logo.png",
+  },
+  {
+    id: 3,
+    title: "Health Course 3",
+    author: "Third Author",
+    price: "Rs 750",
+    image: "https://reactnative.dev/img/tiny_logo.png",
+  },
+  {
+    id: 4,
+    title: "Health Course 4",
+    author: "Final Author",
+    price: "Rs 1000",
+    image: "https://reactnative.dev/img/tiny_logo.png",
+  },
+];
+
 
 const Home = () => {
   return (
@@ -42,13 +73,13 @@ const Home = () => {
         style={styles.scrollView}
         showsVerticalScrollIndicator={false}
       >
-        <Section head="First Section" courses={courses}></Section>
+        <Section head="First Section" courses={courses_books}></Section>
         <Divider />
 
-        <Section head="Second Section" courses={courses}></Section>
+        <Section head="Second Section" courses={courses_health}></Section>
         <Divider />
 
-        <Section head="Third Section" courses={courses}></Section>
+        <Section head="Third Section" courses={courses_health}></Section>
         <Divider />
       </ScrollView>
     </SafeAreaView>
