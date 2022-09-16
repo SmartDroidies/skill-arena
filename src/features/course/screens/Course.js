@@ -1,10 +1,18 @@
-import { React }  from "react";
-import { Text } from "react-native";
+import { React } from "react";
+import { Card } from "@rneui/themed";
 
-const Course = () => {
-  return (
-    <Text>Hello Visit my Page!</Text>
-  );
-};
+const Course = () => (
+
+  <Card>
+
+    <Card.Title></Card.Title>
+
+    <Card.Divider />
+
+  </Card>
+
+);
+
+
 
 export default Course;
