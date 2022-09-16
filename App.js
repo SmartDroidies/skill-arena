@@ -9,6 +9,7 @@ import Profile from "./src/features/profile/screens/Profile";
 const Tab = createMaterialBottomTabNavigator();
 
 export default function App() {
+
   return (
     <NavigationContainer>
       <Tab.Navigator>

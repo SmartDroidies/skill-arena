@@ -35,6 +35,7 @@ Use 'npm start' to run the application
 
 - Every component should go into its own file
 - Always use function components
+- Always apply styling with a defines style name
   
 ### Name standard
 
