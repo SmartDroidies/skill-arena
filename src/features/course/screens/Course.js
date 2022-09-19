@@ -1,6 +1,9 @@
 import { React } from "react";
 import { StyleSheet, SafeAreaView, ScrollView, StatusBar,FlatList } from "react-native";
+import { View } from "react-native-web";
 import Category from "../components/Category";
+import Flex from "../components/Flex";
+
 
 const categories = [
   {
@@ -34,7 +37,6 @@ const Course = () => (
     </ScrollView>
   </SafeAreaView>
 );
-
 const styles = StyleSheet.create({
   container: {
     marginTop: StatusBar.currentHeight || 0,
