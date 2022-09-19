@@ -2,7 +2,9 @@ import React from "react";
 import { StyleSheet, SafeAreaView, ScrollView, StatusBar } from "react-native";
 import { Divider } from "@rneui/themed";
 import Section from "../components/Section";
+import courseClient from "../../../api/courseCient";
 
+// FIXME - Hard coded data to be removed
 const courses_books = [
   {
     id: 1,
@@ -34,6 +36,7 @@ const courses_books = [
   },
 ];
 
+// FIXME - Hard coded data to be removed
 const courses_health = [
   {
     id: 1,
@@ -65,6 +68,15 @@ const courses_health = [
   },
 ];
 
+//FIXME - Move this to an hook
+courseClient
+  .get("/home")
+  .then((response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.log("Error :", error);
+  });
 
 const Home = () => {
   return (
