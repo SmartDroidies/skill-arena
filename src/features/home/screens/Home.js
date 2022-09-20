@@ -2,6 +2,8 @@ import React from "react";
 import { StyleSheet, SafeAreaView, ScrollView, StatusBar } from "react-native";
 import Section from "../components/Section";
 import courseClient from "../../../api/courseCient";
+import { useEffect, useState } from "react";
+import { Divider } from "@rneui/themed";
 
 // FIXME - Hard coded data to be removed
 const courses_books = [
@@ -68,20 +70,24 @@ const courses_health = [
 ];
 
 //FIXME - Move this to an hook
-const [course, setCourse] = useState([]);
-const getCourse = () => {
-courseClient
-  .get("/home")
-  .then((response) => {
-    setCourse(response.data);
-  })
-  .catch((error) => {
-    console.log("Error :", error);
-  });
+const hook = () => {
+  const [course, setCourse] = useState([]);
+  const getCourse = () => {
+    courseClient
+      .get("/home")
+      .then((response) => {
+        setItem(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log("Error :", error);
+      });
+    }
+    useEffect(() => {
+      getCourse();
+    }, course);
+    
 }
-useEffect(() => {
-  getCourse();
-}, course);
 
 const Home = (course) => {
   return (
