@@ -1,23 +1,5 @@
-<<<<<<< HEAD
-import axios from 'axios';
-const baseUrl = 'https://trello.com/c/6abUSJ35/51-home-screen-display-sections-and-courses-from-the-backend-service';
-
-// Passing configuration object to axios
-axios({
-  method: 'get',
-  url: `${baseUrl}/api/users/1`,
-}).then((response) => {
-  console.log(response.data);
-});
-
-// Invoking get method to perform a GET request
-axios.get(`${baseUrl}/api/users/1`).then((response) => {
-  console.log(response.data);
-});
-=======
 import React from "react";
 import { StyleSheet, SafeAreaView, ScrollView, StatusBar } from "react-native";
-import { Divider } from "@rneui/themed";
 import Section from "../components/Section";
 import courseClient from "../../../api/courseCient";
 
@@ -86,23 +68,30 @@ const courses_health = [
 ];
 
 //FIXME - Move this to an hook
+const [course, setCourse] = useState([]);
+const getCourse = () => {
 courseClient
   .get("/home")
   .then((response) => {
-    console.log(response.data);
+    setCourse(response.data);
   })
   .catch((error) => {
     console.log("Error :", error);
   });
+}
+useEffect(() => {
+  getCourse();
+}, course);
 
-const Home = () => {
+const Home = (course) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
         style={styles.scrollView}
         showsVerticalScrollIndicator={false}
       >
-        <Section head="First Section" courses={courses_books}></Section>
+        {/* <Section head="First Section" courses={courses_books}></Section> */}
+        <Section head={course.name}></Section>
         <Divider />
 
         <Section head="Second Section" courses={courses_health}></Section>
@@ -126,4 +115,3 @@ const styles = StyleSheet.create({
 });
 
 export default Home;
->>>>>>> 7b6c1c304f205aa244c6a1b4f1d62d73a15b3c05
