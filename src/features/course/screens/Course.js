@@ -1,9 +1,10 @@
 import { React } from "react";
-import { StyleSheet, SafeAreaView, ScrollView, StatusBar,FlatList } from "react-native";
+import { StyleSheet, SafeAreaView, ScrollView, StatusBar, FlatList } from "react-native";
 import { View } from "react-native-web";
 import Category from "../components/Category";
-import Flex from "../components/Flex";
-
+import courseClient from "../../../api/courseCient";
+import { useEffect, useState } from "react";
+import { Divider } from "@rneui/themed";
 
 const categories = [
   {
@@ -23,6 +24,27 @@ const categories = [
   },
 ];
 
+const hook = () => {
+  const [course, setCourse] = useState([]);
+  const getCourse = () => {
+    courseClient
+      .get("/course")
+      .then((response) => {
+        setItem(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log("Error :", error);
+      });
+  }
+  useEffect(() => {
+    getCourse();
+  }, course);
+
+}
+
+
+
 const renderCategory = ({ item }) => <Category category={item} />;
 
 const Course = () => (
@@ -36,6 +58,7 @@ const Course = () => (
       />
     </ScrollView>
   </SafeAreaView>
+
 );
 const styles = StyleSheet.create({
   container: {
@@ -46,5 +69,6 @@ const styles = StyleSheet.create({
     marginVertical: 20,
   },
 });
+
 
 export default Course;
