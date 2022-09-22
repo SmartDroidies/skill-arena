@@ -30,7 +30,7 @@ const hook = () => {
     courseClient
       .get("/course")
       .then((response) => {
-        setItem(response.data);
+        setCourse(response.data);
         console.log(response.data);
       })
       .catch((error) => {
