@@ -13,6 +13,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
     "@react-navigation/material-bottom-tabs": "^6.2.2",
     "@react-navigation/native": "^6.0.11",
     "@rneui/base": "^4.0.0-rc.6",
