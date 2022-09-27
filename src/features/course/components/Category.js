@@ -1,22 +1,16 @@
 import { StyleSheet, View } from "react-native";
 import { Card, Text } from "@rneui/themed";
 
-const Category = ({ content }) => ({
+const Category = ({ content }) => (
+  <View style={styles.sample}>
+    <Card>
+      <Card.Title>
+        <Text h4>{content.name}</Text>
+      </Card.Title>
+    </Card>
+  </View>
+);
 
-  return(
-    
-  <View style = { styles.container } >
-      <><Text h4>{content.desc}</Text>
-        <FlatList
-          horizontal={true}
-          data={content.category}
-          renderItem={renderCourseCard}
-          keyExtractor={(item) => item.id}
-          showsHorizontalScrollIndicator={false} /></>
-  </View >
-
-  );
-};
 const styles = StyleSheet.create({});
 
 export default Category;
