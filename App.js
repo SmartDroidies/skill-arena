@@ -2,9 +2,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import Home from "./src/features/home/screens/Home";
-import Course from "./src/features/course/screens/Course";
 import Schedule from "./src/features/schedule/screens/Schedule";
 import Profile from "./src/features/profile/screens/Profile";
+import ListCategory from "./src/features/course/screens/ListCategory";
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -25,7 +25,7 @@ export default function App() {
         />
         <Tab.Screen
           name="Course"
-          component={Course}
+          component={ListCategory}
           options={{
             tabBarLabel: "Courses",
             tabBarIcon: ({ color }) => (
