@@ -4,12 +4,11 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import Home from "./src/features/home/screens/Home";
 import Schedule from "./src/features/schedule/screens/Schedule";
 import Profile from "./src/features/profile/screens/Profile";
-import { CourseNavigator, CourseStack } from "./src/features/course/components/CourseStack";
+import { CourseNavigator } from "./src/features/course/components/CourseStack";
 
 const Tab = createMaterialBottomTabNavigator();
 
 export default function App() {
-
   return (
     <NavigationContainer>
       <Tab.Navigator>
