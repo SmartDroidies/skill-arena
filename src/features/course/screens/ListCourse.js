@@ -7,7 +7,7 @@ import {
   Text,
 } from "react-native";
 
-const Course = () => {
+const ListCourse = () => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
@@ -29,4 +29,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Course;
+export default ListCourse;
