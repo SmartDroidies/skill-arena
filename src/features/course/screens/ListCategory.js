@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import courseClient from "../../../api/courseClient";
 import Category from "../components/Category";
 
-const ListCategory = ({navigation}) => {
+const ListCategory = ({ navigation,route }) => {
   const [category, setCategory] = useState([]);
 
   const numColumns = 2;
@@ -33,10 +33,11 @@ const ListCategory = ({navigation}) => {
         keyExtractor={(item) => item.category_id}
         numColumns={numColumns}
       />
-
+      
       {/* {category.map((category) => (
         
       ))} */}
+      
     </SafeAreaView>
   );
 };

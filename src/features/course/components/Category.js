@@ -1,7 +1,8 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, GestureResponderHandlers, } from "react-native";
 import { Card, Text, Button } from "@rneui/themed";
 
-const Category = ({ content, navigation }) => (
+
+const Category = ({ content, navigation, route }) => (
   <View style={styles.sample}>
     <Card>
       <Card.Title>
@@ -9,7 +10,8 @@ const Category = ({ content, navigation }) => (
         <Button
           titleStyle={styles.link}
           title="Click"
-          onPress={() => navigation.navigate("ListCourse")}
+          onPress={() =>
+            navigation.navigate('ListCourse', { name: 'Categoryname' })}
           type="clear"
         />
       </Card.Title>
