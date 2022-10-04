@@ -1,17 +1,17 @@
-import { StyleSheet, View, GestureResponderHandlers, } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { Card, Text, Button } from "@rneui/themed";
 
-
-const Category = ({ content, navigation, route }) => (
+const Category = ({ content, navigation }) => (
   <View style={styles.sample}>
     <Card>
       <Card.Title>
-        <Text h4>{content.name}</Text>
+        <Text h4>{content.name} {content.code}</Text>
         <Button
           titleStyle={styles.link}
           title="Click"
           onPress={() =>
-            navigation.navigate('ListCourse', { name: 'Categoryname' })}
+            navigation.navigate("ListCourse", { code: content.code })
+          }
           type="clear"
         />
       </Card.Title>

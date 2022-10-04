@@ -1,4 +1,3 @@
-import { TabRouter } from "@react-navigation/native";
 import { React } from "react";
 import {
   StyleSheet,
@@ -8,14 +7,14 @@ import {
   Text,
 } from "react-native";
 
-const ListCourse = (route) => {
+const ListCourse = ({ route }) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
         style={styles.scrollView}
         showsVerticalScrollIndicator={false}
       >
-        <Text>This is {route.params.name}'s Categoryname</Text>
+        <Text>This is {route.params.code}'s Category Name</Text>
       </ScrollView>
     </SafeAreaView>
   );
