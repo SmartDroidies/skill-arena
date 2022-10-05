@@ -17,7 +17,7 @@ const ListCategory = () => {
     courseClient
       .get("/category")
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         setCategory(response.data);
       })
       .catch((error) => {
