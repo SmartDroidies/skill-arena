@@ -2,8 +2,29 @@ import { StyleSheet, SafeAreaView, StatusBar, FlatList } from "react-native";
 import { useEffect, useState } from "react";
 import courseClient from "../../../api/courseClient";
 import Category from "../components/Category";
+import Courses from "../components/Courses"
+
+
+
+const courses = ({navigation}) => {
+
+  const [course, setCourses] = useState([]);
+
+  useEffect(() => {
+    courseClient
+      .get("/Course")
+      .then((response) => {
+        setCourses(response.data.courses);
+      })
+      .catch((error) => {
+        console.log("Error :", error);
+      });
+  }, []);
+};
+
 
 const ListCategory = ({ navigation }) => {
+
   const [category, setCategory] = useState([]);
 
   const numColumns = 2;
@@ -13,6 +34,7 @@ const ListCategory = ({ navigation }) => {
       .get("/category")
       .then((response) => {
         setCategory(response.data);
+        setCourses(response.data.courses)
       })
       .catch((error) => {
         console.log("Error :", error);
