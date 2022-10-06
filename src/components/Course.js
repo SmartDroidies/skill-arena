@@ -23,7 +23,7 @@ const Course = ({ course }) => (
 const styles = StyleSheet.create({
   // eslint-disable-next-line react-native/no-color-literals
   course_card: {
-    borderColor: "blue",
+    borderColor: "grey",
   },
   course_image: {
     width: 100,
