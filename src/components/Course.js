@@ -2,9 +2,7 @@ import { StyleSheet, View } from "react-native";
 import { Text, Card, Image } from "@rneui/themed";
 
 const Course = ({ course }) => (
-  <View style={styles.course_align}
-  >
-
+  <View style={styles.course_align}>
     <Card containerStyle={styles.course_card}>
       <Image
         style={styles.course_image}
@@ -13,13 +11,12 @@ const Course = ({ course }) => (
           uri: course.image,
         }}
       />
-
+      <View style={styles.course_text}>
+        <Text>{course.course_name}</Text>
+        <Text>{course.author}</Text>
+        <Text>{course.price}</Text>
+      </View>
     </Card>
-    <View style={styles.course_text}>
-      <Text h4>{course.course_name}</Text>
-      <Text>RUDYARD KIPLING</Text>
-      <Text>Rs.300</Text>
-    </View>
   </View>
 );
 
