@@ -12,7 +12,7 @@ const Home = () => {
       .get("/home")
       .then((response) => {
         setSection(response.data);
-        console.log(response.data);
+        // console.log(response.data);`
       })
       .catch((error) => {
         console.log("Error :", error);

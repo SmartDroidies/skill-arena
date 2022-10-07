@@ -1,9 +1,10 @@
 import { StyleSheet, View } from "react-native";
 import { Text, Card, Image } from "@rneui/themed";
 
-const Course = ({ course }) => (
+const Course = ({ course, navigation }) => (
   <View style={styles.course_align}>
-    <Card containerStyle={styles.course_card}>
+    <Card containerStyle={styles.course_card}
+      onPress={() => navigation.navigate("coursedetail")}>
       <Image
         style={styles.course_image}
         resizeMode="cover"
@@ -12,7 +13,7 @@ const Course = ({ course }) => (
         }}
       />
       <View style={styles.course_text}>
-        <Text>{course.course_name}</Text>
+        <Text >{course.course_name}</Text>
         <Text>{course.author}</Text>
         <Text>{course.price}</Text>
       </View>
@@ -27,7 +28,7 @@ const styles = StyleSheet.create({
   },
   course_image: {
     width: 100,
-    height: 100,
+    height: 50,
   },
   course_text: {
     fontSize: 100,
