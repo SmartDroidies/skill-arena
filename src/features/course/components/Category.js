@@ -2,10 +2,10 @@ import { StyleSheet, View } from "react-native";
 import { Card, Text } from "@rneui/themed";
 
 const Category = ({ content }) => (
-  <View style={styles.sample}>
+  <View>
     <Card>
       <Card.Title>
-        <Text h4>{content.name}</Text>
+        <Text h4>{content.title}</Text>
       </Card.Title>
     </Card>
   </View>

@@ -30,7 +30,7 @@ const ListCategory = () => {
       <FlatList
         data={category}
         renderItem={({ item }) => <Category content={item}></Category>}
-        keyExtractor={(item) => item.category_id}
+        keyExtractor={(item) => item.code}
         numColumns={numColumns}
       />
 
