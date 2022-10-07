@@ -2,25 +2,7 @@ import { StyleSheet, SafeAreaView, StatusBar, FlatList } from "react-native";
 import { useEffect, useState } from "react";
 import courseClient from "../../../api/courseClient";
 import Category from "../components/Category";
-import Courses from "../components/Courses"
 
-
-
-const courses = ({navigation}) => {
-
-  const [course, setCourses] = useState([]);
-
-  useEffect(() => {
-    courseClient
-      .get("/Course")
-      .then((response) => {
-        setCourses(response.data.courses);
-      })
-      .catch((error) => {
-        console.log("Error :", error);
-      });
-  }, []);
-};
 
 
 const ListCategory = ({ navigation }) => {
