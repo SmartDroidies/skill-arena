@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createStackNavigator } from '@react-navigation/stack';
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import Home from "./src/features/home/screens/Home";
 import Schedule from "./src/features/schedule/screens/Schedule";
@@ -10,7 +10,22 @@ import Skeleton from "./src/components/Skeleton";
 
 const Tab = createMaterialBottomTabNavigator()
 
+const CourseStack = createStackNavigator();
+
+const CourseDetailScreen = () => {
+  return (
+    <CourseStack.Navigator>
+      <CourseStack.Screen
+        name="CourseDetail"
+        component={Skeleton}
+      />
+    </CourseStack.Navigator>
+  )
+}
+
 export default function App() {
+
+
 
   return (
     <NavigationContainer>

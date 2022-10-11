@@ -3,7 +3,7 @@ import { Text, Card, Image } from "@rneui/themed";
 
 const Course = ({ course, navigation }) => (
   <View style={styles.course_align}>
-    <TouchableOpacity onPress={() => navigation.navigate("ListCategory")}>
+    <TouchableOpacity onPress={() => navigation.navigate("CourseDetail")}>
       <Card containerStyle={styles.course_card}>
         <Image
           style={styles.course_image}
