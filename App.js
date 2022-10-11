@@ -59,7 +59,6 @@ export default function App() {
             ),
           }}
         />
-        <Tab.Screen name="coursedetail" component={Skeleton} />
       </Tab.Navigator>
     </NavigationContainer>
   );

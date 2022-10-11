@@ -1,23 +1,26 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, TouchableOpacity } from "react-native";
 import { Text, Card, Image } from "@rneui/themed";
 
 const Course = ({ course, navigation }) => (
   <View style={styles.course_align}>
-    <Card containerStyle={styles.course_card}
-      onPress={() => navigation.navigate("coursedetail")}>
-      <Image
-        style={styles.course_image}
-        resizeMode="cover"
-        source={{
-          uri: course.image,
-        }}
-      />
-      <View style={styles.course_text}>
-        <Text >{course.course_name}</Text>
-        <Text>{course.author}</Text>
-        <Text>{course.price}</Text>
-      </View>
-    </Card>
+    <TouchableOpacity onPress={() => navigation.navigate("ListCategory")}>
+      <Card containerStyle={styles.course_card}>
+        <Image
+          style={styles.course_image}
+          resizeMode="cover"
+          source={{
+            uri: course.image,
+          }}
+        />
+        <View style={styles.course_text}>
+          <Text>
+            {course.course_name}
+          </Text>
+          <Text>{course.author}</Text>
+          <Text>{course.price}</Text>
+        </View>
+      </Card>
+    </TouchableOpacity>
   </View>
 );
 
