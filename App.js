@@ -1,38 +1,20 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import { createStackNavigator } from '@react-navigation/stack';
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import Home from "./src/features/home/screens/Home";
 import Schedule from "./src/features/schedule/screens/Schedule";
 import Profile from "./src/features/profile/screens/Profile";
 import ListCategory from "./src/features/course/screens/ListCategory";
-import Skeleton from "./src/components/Skeleton";
+import { HomeNavigator } from "./src/features/home/components/HomeStack";
 
-const Tab = createMaterialBottomTabNavigator()
-
-const CourseStack = createStackNavigator();
-
-const CourseDetailScreen = () => {
-  return (
-    <CourseStack.Navigator>
-      <CourseStack.Screen
-        name="CourseDetail"
-        component={Skeleton}
-      />
-    </CourseStack.Navigator>
-  )
-}
+const Tab = createMaterialBottomTabNavigator();
 
 export default function App() {
-
-
-
   return (
     <NavigationContainer>
       <Tab.Navigator>
         <Tab.Screen
-          name="Home"
-          component={Home}
+          name="HomeStack"
+          component={HomeNavigator}
           options={{
             tabBarLabel: "Home",
             tabBarIcon: ({ color }) => (
