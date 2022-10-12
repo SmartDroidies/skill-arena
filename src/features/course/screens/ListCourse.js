@@ -5,16 +5,26 @@ import {
   ScrollView,
   StatusBar,
   Text,
+  View,
 } from "react-native";
 
-const ListCourse = ({ route }) => {
+
+
+const ListCourse = ({ route,  }) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
         style={styles.scrollView}
         showsVerticalScrollIndicator={false}
       >
-        <Text>This is {route.params.code}'s Category Name</Text>
+        <View>
+          <Text>This is {route.params.code}'s Category Name</Text>
+          <Stack.Screen
+            name="Course_name"
+            component={CourseScreen}
+            getId={({ params }) => params.desc} />
+        </View>
+
       </ScrollView>
     </SafeAreaView>
   );
