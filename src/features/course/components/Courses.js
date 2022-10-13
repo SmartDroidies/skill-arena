@@ -1,7 +1,8 @@
-import { StyleSheet, View } from "react-native";
-import { Card, Text, Button } from "@rneui/themed";
+import { StyleSheet } from "react-native";
+import { Text, Card, View } from "@rneui/themed";
 
-const Category = ({ content, navigation }) => (
+const Course = ({ content,navigation }) => (
+  
   <View style={styles.sample}>
     <Card>
       <Card.Title>
@@ -10,7 +11,7 @@ const Category = ({ content, navigation }) => (
           titleStyle={styles.link}
           title="Click"
           onPress={() =>
-            navigation.navigate("ListCourse", { code: content.code })
+            navigation.navigate("ListCourse", { code: content.code})
           }
           type="clear"
         />
@@ -19,6 +20,9 @@ const Category = ({ content, navigation }) => (
   </View>
 );
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  
 
-export default Category;
+});
+
+export default Course;
