@@ -1,5 +1,7 @@
 import { StyleSheet, View, TouchableOpacity } from "react-native";
 import { Text, Card, Image } from "@rneui/themed";
+import styled from 'styled-components/native';
+
 
 const Course = ({ course, navigation }) => (
   <View style={styles.course_align}>
@@ -13,6 +15,11 @@ const Course = ({ course, navigation }) => (
           }}
         />
         <View style={styles.course_text}>
+          const Text = styled.Text`
+          color: #000;
+          text-align: center;
+          font-size: 16px;
+          `;
           <Text>
             {course.course_name}
           </Text>
