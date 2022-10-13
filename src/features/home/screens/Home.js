@@ -4,7 +4,7 @@ import courseClient from "../../../api/courseClient";
 import { useEffect, useState } from "react";
 import CourseSection from "../components/CourseSection";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   const [course_section, setSection] = useState([]);
 
   useEffect(() => {
@@ -12,7 +12,7 @@ const Home = () => {
       .get("/home")
       .then((response) => {
         setSection(response.data);
-        console.log(response.data);
+        // console.log(response.data);`
       })
       .catch((error) => {
         console.log("Error :", error);
@@ -26,7 +26,11 @@ const Home = () => {
         showsVerticalScrollIndicator={false}
       >
         {course_section.map((courseSec) => (
-          <CourseSection content={courseSec}></CourseSection>
+          <CourseSection
+            content={courseSec}
+            key={courseSec.key}
+            navigation={navigation}
+          ></CourseSection>
         ))}
       </ScrollView>
     </SafeAreaView>
