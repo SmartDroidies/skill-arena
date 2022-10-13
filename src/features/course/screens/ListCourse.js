@@ -5,16 +5,22 @@ import {
   ScrollView,
   StatusBar,
   Text,
+  View,
 } from "react-native";
 
-const Course = () => {
+
+
+const ListCourse = ({ route,  }) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
         style={styles.scrollView}
         showsVerticalScrollIndicator={false}
       >
-        <Text>Some course here</Text>
+        <View>
+          <Text>This is {route.params.code}'s Category Name</Text>
+        </View>
+
       </ScrollView>
     </SafeAreaView>
   );
@@ -29,4 +35,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Course;
+export default ListCourse;
