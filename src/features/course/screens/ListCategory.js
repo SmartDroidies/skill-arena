@@ -16,7 +16,6 @@ const ListCategory = ({ navigation }) => {
       .get("/category")
       .then((response) => {
         setCategory(response.data);
-        setCourses(response.data.courses)
       })
       .catch((error) => {
         console.log("Error :", error);

@@ -1,5 +1,5 @@
-import { StyleSheet, View } from "react-native";
-import { Card, Text, Button } from "@rneui/themed";
+import { StyleSheet, View, TouchableOpacity } from "react-native";
+import { Card, Text, } from "@rneui/themed";
 
 
 const Category = ({ content, navigation }) => (
@@ -7,17 +7,12 @@ const Category = ({ content, navigation }) => (
     <Card>
       <Card.Title>
         <Text h4>{content.title}</Text>
-        <Button
-          titleStyle={styles.link}
-          title="Click"
-          onPress={() =>
-            navigation.navigate("ListCourse", { code: content.code })
-          }
-          type="clear"
-        />
+        <TouchableOpacity onPress={() => navigation.navigate("ListCourse", { code: content.code })}>
+        </TouchableOpacity>
       </Card.Title>
     </Card>
-  </View>
+  </View >
+
 );
 
 const styles = StyleSheet.create({});
