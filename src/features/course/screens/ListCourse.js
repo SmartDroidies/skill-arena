@@ -19,10 +19,6 @@ const ListCourse = ({ route,  }) => {
       >
         <View>
           <Text>This is {route.params.code}'s Category Name</Text>
-          <Stack.Screen
-            name="Course_name"
-            component={CourseScreen}
-            getId={({ params }) => params.desc} />
         </View>
 
       </ScrollView>
