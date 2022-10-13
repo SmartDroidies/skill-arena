@@ -5,7 +5,6 @@ import Schedule from "./src/features/schedule/screens/Schedule";
 import Profile from "./src/features/profile/screens/Profile";
 import ListCategory from "./src/features/course/screens/ListCategory";
 import { HomeNavigator } from "./src/features/home/components/HomeStack";
-import styled from 'styled-components/native';
 
 const Tab = createMaterialBottomTabNavigator();
 
