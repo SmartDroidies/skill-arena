@@ -27,10 +27,8 @@ const ListCategory = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <FlatList
         data={category}
-        renderItem={({ item }) => (
-          <Category content={item} navigation={navigation}></Category>
-        )}
-        keyExtractor={(item) => item.category_id}
+        renderItem={({ item }) => <Category content={item} navigation={navigation}></Category>}
+        keyExtractor={(item) => item.code}
         numColumns={numColumns}
       />
     </SafeAreaView>
