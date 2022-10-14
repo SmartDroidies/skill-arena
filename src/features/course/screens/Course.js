@@ -6,17 +6,21 @@ import {
   StatusBar,
   Text,
 } from "react-native";
+// import Container from "../screens/Home"
+
 
 const Course = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView
-        style={styles.scrollView}
-        showsVerticalScrollIndicator={false}
-      >
-        <Text>Some course here</Text>
-      </ScrollView>
-    </SafeAreaView>
+    // <Container>
+      <SafeAreaView style={styles.container}>
+        <ScrollView
+          style={styles.scrollView}
+          showsVerticalScrollIndicator={false}
+        >
+          <Text>Some course here</Text>
+        </ScrollView>
+      </SafeAreaView>
+    /* </Container> */
   );
 };
 const styles = StyleSheet.create({
