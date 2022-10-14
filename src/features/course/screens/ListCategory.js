@@ -3,10 +3,7 @@ import { useEffect, useState } from "react";
 import courseClient from "../../../api/courseClient";
 import Category from "../components/Category";
 
-
-
 const ListCategory = ({ navigation }) => {
-
   const [category, setCategory] = useState([]);
 
   const numColumns = 2;
@@ -26,7 +23,9 @@ const ListCategory = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <FlatList
         data={category}
-        renderItem={({ item }) => <Category content={item} navigation={navigation}></Category>}
+        renderItem={({ item }) => (
+          <Category content={item} navigation={navigation}></Category>
+        )}
         keyExtractor={(item) => item.code}
         numColumns={numColumns}
       />
