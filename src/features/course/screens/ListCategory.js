@@ -8,6 +8,7 @@ const ListCategory = ({ navigation }) => {
 
   const numColumns = 2;
 
+  //FIXME - Move the network call to a service
   useEffect(() => {
     courseClient
       .get("/category")

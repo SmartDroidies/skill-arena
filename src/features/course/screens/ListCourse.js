@@ -1,4 +1,4 @@
-import { React } from "react";
+import { React, useEffect, useState } from "react";
 import {
   StyleSheet,
   SafeAreaView,
@@ -7,10 +7,28 @@ import {
   Text,
   View,
 } from "react-native";
+import courseClient from "../../../api/courseClient";
 
+const ListCourse = ({ route }) => {
+  const [courses, setCourses] = useState([]);
 
+  const loadCourses = () => {
+    // FIXME - pass param to the network call.
+    courseClient
+      .get("/course")
+      .then((response) => {
+        console.log("Courses ", response.data);
+        setCourses(response.data);
+      })
+      .catch((error) => {
+        console.log("Error :", error);
+      });
+  };
 
-const ListCourse = ({ route,  }) => {
+  useEffect(() => {
+    loadCourses();
+  }, []);
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
@@ -20,7 +38,6 @@ const ListCourse = ({ route,  }) => {
         <View>
           <Text>This is {route.params.code}'s Category Name</Text>
         </View>
-
       </ScrollView>
     </SafeAreaView>
   );
