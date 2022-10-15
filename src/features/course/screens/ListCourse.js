@@ -1,32 +1,19 @@
 import { React, useEffect, useState } from "react";
-import {
-  StyleSheet,
-  StatusBar,
-  Text,
-  View,
-  FlatList,
-} from "react-native";
+import { StyleSheet, StatusBar, Text, View, FlatList } from "react-native";
 import courseClient from "../../../api/courseClient";
+import Course from "../../../components/Course";
 
-
-const ListCourse = ({ route, content }) => {
+const ListCourse = ({ route, navigation }) => {
   const [courses, setCourses] = useState([]);
 
-  const filterByCategory = async (data, category) => {
-    let filteredCourse = data.filter((course) => course.category === category);
-    return await filteredCourse;
-  };
-  console.log()
-  const CourseByCategory = async (category) => {
-    let CourseByCategory = await filterByCategory(course, category);
-    await setCourses(CourseByCategory);
-  }
-
+  const renderCourseCard = ({ item }) => (
+    <Course course={item} navigation={navigation} />
+  );
 
   const loadCourses = () => {
-    // FIXME - pass param to the network call.
+    console.log("Collecting courses for : ", route.params.code);
     courseClient
-      .get("/course")
+      .get("/course", { params: { ctgry: route.params.code } })
       .then((response) => {
         console.log("Courses ", response.data);
         setCourses(response.data);
@@ -36,9 +23,6 @@ const ListCourse = ({ route, content }) => {
       });
   };
 
-
-
-
   useEffect(() => {
     loadCourses();
   }, []);
@@ -46,24 +30,19 @@ const ListCourse = ({ route, content }) => {
   return (
     <View style={styles.container}>
       <Text>This is {route.params.code}'s Category Name</Text>
-      <Text>{content.courses}</Text>
       <FlatList
-        horizontal={true}
-        data={content.category}
-        renderItem={renderCategory}
-        keyExtractor={(item) => content.Course + "_" + item.category}
-        showsHorizontalScrollIndicator={false}
+        data={courses}
+        renderItem={renderCourseCard}
+        keyExtractor={(item) => item.course_id}
       />
     </View>
   );
 };
+
+//FIXME - Used styled components
 const styles = StyleSheet.create({
   container: {
     marginTop: StatusBar.currentHeight || 0,
-  },
-  scrollView: {
-    marginHorizontal: 20,
-    marginVertical: 20,
   },
 });
 
