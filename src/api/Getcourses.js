@@ -1,12 +1,18 @@
 import axios from "axios";
-
-
-const Getcourses = require('axios');
-
-
-// Equivalent to `axios.get('https://httpbin.org/get?answer=42')`
-const res = await axios.get('http://127.0.0.1:3000/course', { params: { desc: Content.desc } });
-
-res.data.args; // { answer: 42 }
+fetch('Web URL HERE', {
+    method: 'GET'
+    //Request Type 
+})
+    .then((response) => response.json())
+    //If response is in json then in success
+    .then((responseJson) => {
+        //Success 
+        console.log(responseJson);
+    })
+    //If response is not in json then in error
+    .catch((error) => {
+        //Error 
+        console.error(error);
+    });
 
 export default Getcourses;

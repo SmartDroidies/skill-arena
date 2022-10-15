@@ -4,7 +4,7 @@ import ListCourse from "../screens/ListCourse";
 
 export const CourseStack = createStackNavigator();
 
-export const CourseNavigator = ( Screen,Navigator) => {
+export const CourseNavigator = ( ) => {
   return (
     <CourseStack.Navigator screenOptions={{ headerShown: false }}>
       <CourseStack.Screen name="ListCategory" component={ListCategory} />
