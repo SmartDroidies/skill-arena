@@ -3,20 +3,17 @@ import { useEffect, useState } from "react";
 import courseClient from "../../../api/courseClient";
 import Category from "../components/Category";
 
-
-
 const ListCategory = ({ navigation }) => {
-
   const [category, setCategory] = useState([]);
 
   const numColumns = 2;
 
+  //FIXME - Move the network call to a service
   useEffect(() => {
     courseClient
       .get("/category")
       .then((response) => {
         setCategory(response.data);
-        setCourses(response.data.courses)
       })
       .catch((error) => {
         console.log("Error :", error);
@@ -27,7 +24,9 @@ const ListCategory = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <FlatList
         data={category}
-        renderItem={({ item }) => <Category content={item} navigation={navigation}></Category>}
+        renderItem={({ item }) => (
+          <Category content={item} navigation={navigation}></Category>
+        )}
         keyExtractor={(item) => item.code}
         numColumns={numColumns}
       />
