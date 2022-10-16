@@ -3,7 +3,7 @@ import { StyleSheet, ScrollView } from "react-native";
 import courseClient from "../../../api/courseClient";
 import { useEffect, useState } from "react";
 import CourseSection from "../components/CourseSection";
-import styled from "styled-components";
+import Container from "../style";
 
 const Home = ({ navigation }) => {
   const [course_section, setSection] = useState([]);
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
 export default Home;
 
 // FIXME - Move this ti generic place for reusing across screens
-const Container = styled.SafeAreaView`
-  margin-top: 10px;
-	flex: 1;
-`;
+// const Container = styled.SafeAreaView`
+//   margin-top: 10px;
+// 	flex: 1;
+// `;                                                               
