@@ -6,7 +6,7 @@ export const HomeStack = createStackNavigator();
 
 export const HomeNavigator = () => {
   return (
-    <HomeStack.Navigator screenOptions={{ headerShown: false }}>
+    <HomeStack.Navigator screenOption>
       <HomeStack.Screen name="Home" component={Home} />
       <HomeStack.Screen name="CourseDetail" component={CourseDetail} />
     </HomeStack.Navigator>
