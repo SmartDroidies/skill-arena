@@ -5,19 +5,20 @@ const Course = ({ course, navigation }) => (
   <View style={styles.course_align}>
     <TouchableOpacity onPress={() => navigation.navigate("CourseDetail")}>
       <Card containerStyle={styles.course_card}>
-        <Image
-          style={styles.course_image}
-          resizeMode="cover"
-          source={{
-            uri: course.image,
-          }}
-        />
-        <View style={styles.course_text}>
-          <Text>{course.course_name}</Text>
-          <Text>{course.author}</Text>
-          <Text>{course.price}</Text>
-        </View>
+          <Image
+            style={styles.course_image}
+            resizeMode="cover"
+            source={{
+              uri: course.image,
+            }}
+          />
+          <View style={styles.course_text}>
+            <Text>{course.course_name}</Text>
+            <Text>{course.author}</Text>
+            <Text>{course.price}</Text>
+          </View>
       </Card>
+
     </TouchableOpacity>
   </View>
 );
@@ -25,7 +26,7 @@ const Course = ({ course, navigation }) => (
 const styles = StyleSheet.create({
   // eslint-disable-next-line react-native/no-color-literals
   course_card: {
-    borderColor: "grey",
+    borderColor: "blue",
   },
   course_image: {
     width: 100,
