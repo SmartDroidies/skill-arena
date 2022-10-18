@@ -1,8 +1,9 @@
 import React from "react";
-import { StyleSheet, SafeAreaView, ScrollView, StatusBar } from "react-native";
+import { StyleSheet, ScrollView } from "react-native";
 import courseClient from "../../../api/courseClient";
 import { useEffect, useState } from "react";
 import CourseSection from "../components/CourseSection";
+import { Container } from "../../../../style";
 
 const Home = ({ navigation }) => {
   const [course_section, setSection] = useState([]);
@@ -20,7 +21,7 @@ const Home = ({ navigation }) => {
   });
 
   return (
-    <SafeAreaView style={styles.container}>
+    <Container>
       <ScrollView
         style={styles.scrollView}
         showsVerticalScrollIndicator={false}
@@ -33,14 +34,11 @@ const Home = ({ navigation }) => {
           ></CourseSection>
         ))}
       </ScrollView>
-    </SafeAreaView>
+    </Container>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    marginTop: StatusBar.currentHeight || 0,
-  },
   scrollView: {
     marginHorizontal: 20,
     marginVertical: 20,
