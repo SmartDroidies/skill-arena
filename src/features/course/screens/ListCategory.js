@@ -1,7 +1,8 @@
-import { StyleSheet, SafeAreaView, StatusBar, FlatList } from "react-native";
+import { FlatList } from "react-native";
 import { useEffect, useState } from "react";
 import courseClient from "../../../api/courseClient";
 import Category from "../components/Category";
+import { Container } from "../../../../style";
 
 const ListCategory = ({ navigation }) => {
   const [category, setCategory] = useState([]);
@@ -21,7 +22,7 @@ const ListCategory = ({ navigation }) => {
   }, []);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <Container>
       <FlatList
         data={category}
         renderItem={({ item }) => (
@@ -30,14 +31,8 @@ const ListCategory = ({ navigation }) => {
         keyExtractor={(item) => item.code}
         numColumns={numColumns}
       />
-    </SafeAreaView>
+    </Container>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: StatusBar.currentHeight || 0,
-  },
-});
 
 export default ListCategory;

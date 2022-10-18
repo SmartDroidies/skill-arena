@@ -40,8 +40,8 @@ export default function App() {
       if (response.status === 201) {
         alert(` You have created: ${JSON.stringify(response.data)}`);
         setIsLoading(false);
-        setFullName('');
-        setEmail('');
+        setFullName("");
+        setEmail("");
       } else {
         throw new Error("An error has occurred");
       }
@@ -52,7 +52,7 @@ export default function App() {
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <ScrollView>
       <View>
         <View style={styles.wrapper}>
           {isLoading ? (

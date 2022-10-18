@@ -8,6 +8,7 @@ const CourseSection = ({ content, navigation }) => {
     <Course course={item} navigation={navigation} />
   );
   return (
+    //  <Container>
     <View style={styles.container}>
       <Text h4>{content.desc}</Text>
       <FlatList
@@ -18,12 +19,13 @@ const CourseSection = ({ content, navigation }) => {
         showsHorizontalScrollIndicator={false}
       />
     </View>
+    // </Container> 
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 20,
+    marginTop: 100,
   },
 });
 

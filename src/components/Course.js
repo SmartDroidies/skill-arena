@@ -13,9 +13,7 @@ const Course = ({ course, navigation }) => (
           }}
         />
         <View style={styles.course_text}>
-          <Text>
-            {course.course_name}
-          </Text>
+          <Text>{course.course_name}</Text>
           <Text>{course.author}</Text>
           <Text>{course.price}</Text>
         </View>
