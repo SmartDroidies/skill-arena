@@ -39,9 +39,6 @@ const Home = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  // container: {
-  //   
-  // },
   scrollView: {
     marginHorizontal: 20,
     marginVertical: 20,
@@ -49,9 +46,3 @@ const styles = StyleSheet.create({
 });
 
 export default Home;
-
-// FIXME - Move this ti generic place for reusing across screens
-// const Container = styled.SafeAreaView`
-//   margin-top: 10px;
-// 	flex: 1;
-// `;                                                               

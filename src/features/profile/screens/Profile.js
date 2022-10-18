@@ -10,7 +10,6 @@ import {
   TextInput,
 } from "react-native";
 import Constants from "expo-constants";
-import { ProfileView } from "../../../../style";
 
 const baseUrl = "https://reqres.in";
 
@@ -41,8 +40,8 @@ export default function App() {
       if (response.status === 201) {
         alert(` You have created: ${JSON.stringify(response.data)}`);
         setIsLoading(false);
-        setFullName('');
-        setEmail('');
+        setFullName("");
+        setEmail("");
       } else {
         throw new Error("An error has occurred");
       }
@@ -53,7 +52,6 @@ export default function App() {
   };
 
   return (
-    <ProfileView>
     <ScrollView>
       <View>
         <View style={styles.wrapper}>
@@ -93,7 +91,6 @@ export default function App() {
         </View>
       </View>
     </ScrollView>
-    </ProfileView>
   );
 }
 

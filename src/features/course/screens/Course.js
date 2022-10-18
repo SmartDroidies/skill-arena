@@ -8,18 +8,17 @@ import {
 } from "react-native";
 // import Container from "../screens/Home"
 
-
 const Course = () => {
   return (
     // <Container>
-      <SafeAreaView style={styles.container}>
-        <ScrollView
-          style={styles.scrollView}
-          showsVerticalScrollIndicator={false}
-        >
-          <Text>Some course here</Text>
-        </ScrollView>
-      </SafeAreaView>
+    <SafeAreaView style={styles.container}>
+      <ScrollView
+        style={styles.scrollView}
+        showsVerticalScrollIndicator={false}
+      >
+        <Text>Some course here</Text>
+      </ScrollView>
+    </SafeAreaView>
     /* </Container> */
   );
 };

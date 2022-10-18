@@ -1,18 +1,10 @@
-import { StyleSheet, View, Text, StatusBar } from "react-native";
-import { CourseView } from "../../../../style";
+import { Text } from "react-native";
+import { Container } from "../../../../style";
 
 const CourseDetail = () => (
-  <CourseView>
-    <View style={styles.container}>
-      <Text>Lets display dummy data</Text>
-    </View>
-  </CourseView>
+  <Container>
+    <Text>Lets display dummy data</Text>
+  </Container>
 );
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: StatusBar.currentHeight || 0,
-  },
-});
 
 export default CourseDetail;
