@@ -29,7 +29,7 @@ const ListCourse = ({ route, navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text>This is {route.params.code}'s Category Name</Text>
+      <Text style={styles.heading}>{route.params.code}</Text>
       <FlatList
         data={courses}
         renderItem={renderCourseCard}
@@ -43,6 +43,11 @@ const ListCourse = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   container: {
     marginTop: StatusBar.currentHeight || 0,
+  },
+  heading:{
+    fontSize: 40,
+    fontWeight: "bold"
+
   },
 });
 

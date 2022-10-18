@@ -6,7 +6,7 @@ export const CourseStack = createStackNavigator();
 
 export const CourseNavigator = ( ) => {
   return (
-    <CourseStack.Navigator screenOptions={{ headerShown: false }}>
+    <CourseStack.Navigator >
       <CourseStack.Screen name="ListCategory" component={ListCategory} />
       <CourseStack.Screen name="ListCourse" component={ListCourse} />
     </CourseStack.Navigator>
