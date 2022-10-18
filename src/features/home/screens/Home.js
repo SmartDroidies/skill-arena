@@ -3,7 +3,7 @@ import { StyleSheet, ScrollView } from "react-native";
 import courseClient from "../../../api/courseClient";
 import { useEffect, useState } from "react";
 import CourseSection from "../components/CourseSection";
-import Container from "../style";
+import { Container } from "../../../../style";
 
 const Home = ({ navigation }) => {
   const [course_section, setSection] = useState([]);

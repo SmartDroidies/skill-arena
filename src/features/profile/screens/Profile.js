@@ -10,6 +10,7 @@ import {
   TextInput,
 } from "react-native";
 import Constants from "expo-constants";
+import { ProfileView } from "../../../../style";
 
 const baseUrl = "https://reqres.in";
 
@@ -52,7 +53,8 @@ export default function App() {
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <ProfileView>
+    <ScrollView>
       <View>
         <View style={styles.wrapper}>
           {isLoading ? (
@@ -91,6 +93,7 @@ export default function App() {
         </View>
       </View>
     </ScrollView>
+    </ProfileView>
   );
 }
 
