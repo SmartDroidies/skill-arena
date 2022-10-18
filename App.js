@@ -3,6 +3,7 @@ import { createMaterialBottomTabNavigator } from "@react-navigation/material-bot
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import Schedule from "./src/features/schedule/screens/Schedule";
 import Profile from "./src/features/profile/screens/Profile";
+import { CourseNavigator } from "./src/features/course/components/CourseStack";
 import ListCategory from "./src/features/course/screens/ListCategory";
 import { HomeNavigator } from "./src/features/home/components/HomeStack";
 
@@ -25,7 +26,7 @@ export default function App() {
         />
         <Tab.Screen
           name="Course"
-          component={ListCategory}
+          component={CourseNavigator}
           options={{
             tabBarLabel: "Courses",
             tabBarIcon: ({ color }) => (

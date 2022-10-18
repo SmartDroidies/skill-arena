@@ -4,16 +4,16 @@ import courseClient from "../../../api/courseClient";
 import Category from "../components/Category";
 import { Container } from "../../../../style";
 
-const ListCategory = () => {
+const ListCategory = ({ navigation }) => {
   const [category, setCategory] = useState([]);
 
   const numColumns = 2;
 
+  //FIXME - Move the network call to a service
   useEffect(() => {
     courseClient
       .get("/category")
       .then((response) => {
-        // console.log(response.data);
         setCategory(response.data);
       })
       .catch((error) => {
@@ -25,7 +25,9 @@ const ListCategory = () => {
     <Container>
       <FlatList
         data={category}
-        renderItem={({ item }) => <Category content={item}></Category>}
+        renderItem={({ item }) => (
+          <Category content={item} navigation={navigation}></Category>
+        )}
         keyExtractor={(item) => item.code}
         numColumns={numColumns}
       />
