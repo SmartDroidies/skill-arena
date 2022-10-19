@@ -1,8 +1,10 @@
 import { createStackNavigator } from "@react-navigation/stack";
-import { Button } from "@rneui/base";
+import { Icon } from "@rneui/base";
 import Global from "../../../utils/Global";
 import CourseDetail from "../screens/CourseDetail";
 import Home from "../screens/Home";
+import { StyleSheet } from "react-native";
+
 
 export const HomeStack = createStackNavigator();
 
@@ -14,7 +16,10 @@ export const HomeNavigator = () => {
         component={Home}
         options={{
           title: Global.Constant.appName,
-          headerRight: () => <Button title="Update count" />,
+          headerRight: () =>
+            <Icon
+              name="search"
+              style={styles.icon} />,
         }}
       />
       {/*  FIXME - Change the button to search icon */}
@@ -26,3 +31,9 @@ export const HomeNavigator = () => {
     </HomeStack.Navigator>
   );
 };
+
+const styles = StyleSheet.create({
+  icon: {
+    marginRight: 20,
+  },
+});
