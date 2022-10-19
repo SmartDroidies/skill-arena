@@ -4,7 +4,6 @@ import courseClient from "../../../api/courseClient";
 import { useEffect, useState } from "react";
 import CourseSection from "../components/CourseSection";
 import { Container } from "../../../../style";
-import { SearchBar } from "@rneui/themed";
 
 const Home = ({ navigation }) => {
   const [course_section, setSection] = useState([]);
@@ -23,7 +22,6 @@ const Home = ({ navigation }) => {
 
   return (
     <Container>
-      <SearchBar/>
       <ScrollView
         style={styles.scrollView}
         showsVerticalScrollIndicator={false}
