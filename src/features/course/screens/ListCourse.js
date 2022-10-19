@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     marginTop: StatusBar.currentHeight || 0,
   },
   heading:{
-    fontSize: 40,
+    fontSize: 30,
     fontWeight: "bold"
 
   },
