@@ -9,6 +9,20 @@ const ListCategory = ({ navigation }) => {
 
   const numColumns = 2;
 
+  const ListCategory = [
+    { order: 10, title: 'Academics' },
+    { order: 20, title: 'Aircraft' },
+    { order: 30, title: 'Fitness' },
+    { order: 40, title: 'Lifestyle' },
+    { order: 50, title: 'Music' },
+    { order: 60, title: 'Sports' },
+    { order: 70, title: 'Work' }
+  ]
+  
+  ListCategory.sort((a, b) => (a.order > b.order) ? 1 : -1)
+  
+  console.log(ListCategory)
+
   //FIXME - Move the network call to a service
   useEffect(() => {
     courseClient
