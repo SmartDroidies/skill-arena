@@ -9,11 +9,11 @@ const Course = ({ course, navigation }) => (
           style={styles.course_image}
           resizeMode="cover"
           source={{
-            uri: course.image,
+            uri: "https://reactnative.dev/img/tiny_logo.png",
           }}
         />
         <View style={styles.course_text}>
-          <Text>{course.course_name}</Text>
+          <Text>{course.title}</Text>
           <Text>{course.author}</Text>
           <Text>{course.price}</Text>
         </View>
@@ -22,14 +22,15 @@ const Course = ({ course, navigation }) => (
   </View>
 );
 
+// FIXME  Create a styled component
 const styles = StyleSheet.create({
   // eslint-disable-next-line react-native/no-color-literals
   course_card: {
-    borderColor: "grey",
+    borderColor: "blue",
   },
   course_image: {
     width: 100,
-    height: 50,
+    height: 100,
   },
   course_text: {
     fontSize: 100,
