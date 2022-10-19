@@ -29,6 +29,12 @@ Use 'npm start' to run the application
 
 - Try 'npm config set registry https://registry.npmjs.org/' when you have trouble in installing node packages
 
+## Build & Packaging
+
+### Apk for Local Testing
+
+Run ```eas build -p android --profile development``` to generate an android development build
+
 ## Coding practices
 
 ### Design practices
@@ -41,3 +47,5 @@ Use 'npm start' to run the application
 
 - Always use smaller case when creating folders
 - Always named the files in in pascal case
+
+
