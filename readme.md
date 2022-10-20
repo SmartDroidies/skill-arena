@@ -31,6 +31,10 @@ Use 'npm start' to run the application
 
 ## Build & Packaging
 
+### Development build 
+
+- Development build using 'npx expo start --dev-client'
+
 ### Apk for Local Testing
 
 Run ```eas build -p android --profile development``` to generate an android development build
