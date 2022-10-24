@@ -2,31 +2,19 @@ import { FlatList } from "react-native";
 import { useEffect, useState } from "react";
 import courseClient from "../../../api/courseClient";
 import Category from "../components/Category";
-import { Container } from "../../../../style";
+import { CategoryView } from "../../../../style";
 
 const ListCategory = ({ navigation }) => {
-  const [category, setCategory] = useState([]);
+  const [category, order, setCategory] = useState([  ]);
 
   const numColumns = 2;
 
-  const ListCategory = [
-    { order: 10, title: 'Academics' },
-    { order: 20, title: 'Aircraft' },
-    { order: 30, title: 'Fitness' },
-    { order: 40, title: 'Lifestyle' },
-    { order: 50, title: 'Music' },
-    { order: 60, title: 'Sports' },
-    { order: 70, title: 'Work' }
-  ]
-  
-  ListCategory.sort((a, b) => (a.order > b.order) ? 1 : -1)
-  
-  console.log(ListCategory)
 
   //FIXME - Move the network call to a service
   useEffect(() => {
     courseClient
       .get("/category")
+    categotyorder.sort((a, b) => (a.order > b.order) ? 1 : -1)
       .then((response) => {
         setCategory(response.data);
       })
@@ -36,7 +24,7 @@ const ListCategory = ({ navigation }) => {
   }, []);
 
   return (
-    <Container>
+    <CategoryView>
       <FlatList
         data={category}
         renderItem={({ item }) => (
@@ -45,7 +33,7 @@ const ListCategory = ({ navigation }) => {
         keyExtractor={(item) => item.code}
         numColumns={numColumns}
       />
-    </Container>
+    </CategoryView>
   );
 };
 
