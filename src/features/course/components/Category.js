@@ -4,7 +4,7 @@ import { Card, Text } from "@rneui/themed";
 const Category = ({ content, navigation }) => (
   <View>
     <TouchableOpacity
-      onPress={() => navigation.navigate("ListCourse", { code: content.code })}
+      onPress={() => navigation.navigate("ListCourse", { code: content.code,title: content.title })}
     >
       <Card>
         <Card.Title>

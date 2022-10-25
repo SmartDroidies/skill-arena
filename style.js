@@ -8,3 +8,11 @@ export const Container = styled.SafeAreaView`
 export const CourseSectionView = styled.View`
   margin-top: 20px;
 `;
+
+export const ListCourseView = styled.View`
+    marginTop: StatusBar.currentHeight || 0,
+  heading:{
+    fontSize: 30,
+    fontWeight: "bold"
+} 
+`;

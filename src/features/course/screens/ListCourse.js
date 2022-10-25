@@ -1,7 +1,10 @@
 import { React, useEffect, useState } from "react";
-import { StyleSheet, StatusBar, Text, View, FlatList } from "react-native";
+import { Text, View, FlatList } from "react-native";
 import courseClient from "../../../api/courseClient";
 import Course from "../../../components/Course";
+import { ListCourseView } from "../../../../style";
+import styled from "styled-components";
+
 
 const ListCourse = ({ route, navigation }) => {
   const [courses, setCourses] = useState([]);
@@ -11,7 +14,7 @@ const ListCourse = ({ route, navigation }) => {
   );
 
   const loadCourses = () => {
-    console.log("Collecting courses for : ", route.params.code);
+    console.log("Collecting courses for : ", route.params);
     courseClient
       .get("/course", { params: { ctgry: route.params.code } })
       .then((response) => {
@@ -28,27 +31,29 @@ const ListCourse = ({ route, navigation }) => {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.heading}>{route.params.code}</Text>
+    <ListCourseView>
+    <View style={styled.container}>
+      <Text style={styled.heading}>{route.params.title}</Text>
       <FlatList
         data={courses}
         renderItem={renderCourseCard}
         keyExtractor={(item) => item.course_id}
       />
     </View>
+    </ListCourseView>
   );
 };
 
 //FIXME - Used styled components
-const styles = StyleSheet.create({
-  container: {
-    marginTop: StatusBar.currentHeight || 0,
-  },
-  heading:{
-    fontSize: 30,
-    fontWeight: "bold"
+// const styles = StyleSheet.create({
+//   container: {
+//     marginTop: StatusBar.currentHeight || 0,
+//   },
+//   heading:{
+//     fontSize: 30,
+//     fontWeight: "bold"
 
-  },
-});
+//   },
+// });
 
 export default ListCourse;
