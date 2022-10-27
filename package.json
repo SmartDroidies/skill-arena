@@ -13,6 +13,9 @@
     "prepare": "husky install",
     "test": "jest"
   },
+  "jest": {
+    "preset": "react-native"
+  },  
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "@react-navigation/material-bottom-tabs": "^6.2.2",
