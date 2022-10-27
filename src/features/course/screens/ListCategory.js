@@ -5,7 +5,7 @@ import Category from "../components/Category";
 import { CategoryView } from "../../../../style";
 
 const ListCategory = ({ navigation }) => {
-  const [category, order, setCategory] = useState([  ]);
+  const [category,  setCategory] = useState(['order']);
 
   const numColumns = 2;
 
@@ -14,7 +14,7 @@ const ListCategory = ({ navigation }) => {
   useEffect(() => {
     courseClient
       .get("/category")
-    categotyorder.sort((a, b) => (a.order > b.order) ? 1 : -1)
+    category.sort((a, b) => (a.order > b.order) ? 1 : -1)
       .then((response) => {
         setCategory(response.data);
       })
