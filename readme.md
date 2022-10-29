@@ -29,6 +29,16 @@ Use 'npm start' to run the application
 
 - Try 'npm config set registry https://registry.npmjs.org/' when you have trouble in installing node packages
 
+## Build & Packaging
+
+### Development build 
+
+- Development build using 'npx expo start --dev-client'
+
+### Apk for Local Testing
+
+Run ```eas build -p android --profile development``` to generate an android development build
+
 ## Coding practices
 
 ### Design practices
