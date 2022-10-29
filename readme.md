@@ -51,5 +51,3 @@ Run ```eas build -p android --profile development``` to generate an android deve
 
 - Always use smaller case when creating folders
 - Always named the files in in pascal case
-
-
