@@ -1,4 +1,6 @@
 import renderer from "react-test-renderer";
-describe("<Course/>", () => {
-  it("has 1 child", () => {});
+import Course from "../../components/Course";
+describe("Course component is rendered correctly", () => {
+  const tree = renderer.create(<Course />).toJSON();
+  expect(tree).toMatchSnapshot();
 });

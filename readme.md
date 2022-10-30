@@ -26,6 +26,8 @@ Run 'npm test' to run the unit test cases
 
 Run 'npm test -- --coverage' to run the unit test cases with coverage  
 
+Run 'npm test -- --coverage --collectCoverageFrom="./src/**"' to run the unit test cases with coverage  
+
 ### Verify the application
 
 - Install Expo Go(https://play.google.com/store/apps/details?id=host.exp.exponent) from google play store
