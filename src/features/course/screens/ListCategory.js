@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import courseClient from "../../../api/courseClient";
 import Category from "../components/Category";
 import { CategoryView } from "../../../../style";
-
 const ListCategory = ({ navigation }) => {
   const [category, setCategory] = useState([]);
 
