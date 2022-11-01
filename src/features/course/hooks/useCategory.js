@@ -8,7 +8,6 @@ const useCategory = () => {
     courseClient
       .get("/category")
       .then((response) => {
-        setLoading(false);
         setCategory(response.data);
       })
       .catch((error) => {
