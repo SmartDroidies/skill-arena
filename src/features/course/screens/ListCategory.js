@@ -5,9 +5,14 @@ import Category from "../components/Category";
 import { CategoryView } from "../../../../style";
 
 const ListCategory = ({ navigation }) => {
-  const [category,  setCategory] = useState(['order']);
+  const [category, setCategory] = useState([]);
 
   const numColumns = 2;
+
+  // const order = (a, b) => {
+  // return (a.order - b.order)
+  // }
+  //console.log(order.sort(order))
 
 
   //FIXME - Move the network call to a service
