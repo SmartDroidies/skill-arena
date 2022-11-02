@@ -20,6 +20,14 @@ Run 'npm install' within the project folder to install node packages
 
 Use 'npm start' to run the application
 
+### Running Unit Testing
+
+Run 'npm test' to run the unit test cases
+
+Run 'npm test -- --coverage' to run the unit test cases with coverage  
+
+Run 'npm test -- --coverage --collectCoverageFrom="./src/**"' to run the unit test cases with coverage  
+
 ### Verify the application
 
 - Install Expo Go(https://play.google.com/store/apps/details?id=host.exp.exponent) from google play store
@@ -28,6 +36,16 @@ Use 'npm start' to run the application
 ## Troubleshooting
 
 - Try 'npm config set registry https://registry.npmjs.org/' when you have trouble in installing node packages
+
+## Build & Packaging
+
+### Development build 
+
+- Development build using 'npx expo start --dev-client'
+
+### Apk for Local Testing
+
+Run ```eas build -p android --profile development``` to generate an android development build
 
 ## Coding practices
 
