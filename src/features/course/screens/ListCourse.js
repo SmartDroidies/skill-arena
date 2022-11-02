@@ -1,7 +1,8 @@
 import { React, useEffect, useState } from "react";
-import { StyleSheet, StatusBar, Text, View, FlatList } from "react-native";
+import { Text, FlatList } from "react-native";
 import courseClient from "../../../api/courseClient";
 import Course from "../../../components/Course";
+import { Container } from "../../../../style";
 
 const ListCourse = ({ route, navigation }) => {
   const [courses, setCourses] = useState([]);
@@ -11,11 +12,9 @@ const ListCourse = ({ route, navigation }) => {
   );
 
   const loadCourses = () => {
-    console.log("Collecting courses for : ", route.params.code);
     courseClient
       .get("/course", { params: { ctgry: route.params.code } })
       .then((response) => {
-        console.log("Courses ", response.data);
         setCourses(response.data);
       })
       .catch((error) => {
@@ -28,22 +27,15 @@ const ListCourse = ({ route, navigation }) => {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <Text>This is {route.params.code}'s Category Name</Text>
+    <Container>
+      <Text >{route.params.title}</Text>
       <FlatList
         data={courses}
         renderItem={renderCourseCard}
         keyExtractor={(item) => item.course_id}
       />
-    </View>
+    </Container>
   );
 };
-
-//FIXME - Used styled components
-const styles = StyleSheet.create({
-  container: {
-    marginTop: StatusBar.currentHeight || 0,
-  },
-});
 
 export default ListCourse;
