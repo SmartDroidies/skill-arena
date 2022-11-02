@@ -8,11 +8,16 @@ import { Container } from "../../../../style";
 const Home = ({ navigation }) => {
   const [course_section, setSection] = useState([]);
 
+  const sortSection = (sections) => {
+    return sections.sort((a, b) => {
+      return a.order < b.order;
+    });
+  };
   useEffect(() => {
     courseClient
       .get("/home")
       .then((response) => {
-        setSection(response.data);
+        setSection(sortSection(response.data));
         // console.log(response.data);`
       })
       .catch((error) => {
