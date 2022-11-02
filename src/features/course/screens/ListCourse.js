@@ -12,11 +12,9 @@ const ListCourse = ({ route, navigation }) => {
   );
 
   const loadCourses = () => {
-    console.log("Collecting courses for : ", route.params);
     courseClient
       .get("/course", { params: { ctgry: route.params.code } })
       .then((response) => {
-        console.log("Courses ", response.data);
         setCourses(response.data);
       })
       .catch((error) => {
