@@ -5,7 +5,6 @@ import CourseDetail from "../screens/CourseDetail";
 import Home from "../screens/Home";
 import { StyleSheet } from "react-native";
 
-
 export const HomeStack = createStackNavigator();
 
 export const HomeNavigator = () => {
@@ -16,13 +15,9 @@ export const HomeNavigator = () => {
         component={Home}
         options={{
           title: Global.Constant.appName,
-          headerRight: () =>
-            <Icon
-              name="search"
-              style={styles.icon} />,
+          headerRight: () => <Icon name="search" style={styles.icon} />,
         }}
       />
-      {/*  FIXME - Change the button to search icon */}
       <HomeStack.Screen
         name="CourseDetail"
         component={CourseDetail}
