@@ -1,6 +1,6 @@
 import { FlatList } from "react-native";
-import Category from "../components/Category";
 import { Container } from "../../../../style";
+import Category from "../components/Category";
 import useCategory from "../hooks/useCategory";
 
 const ListCategory = ({ navigation }) => {

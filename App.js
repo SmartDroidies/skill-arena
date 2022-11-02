@@ -5,6 +5,8 @@ import Schedule from "./src/features/schedule/screens/Schedule";
 import Profile from "./src/features/profile/screens/Profile";
 import { CourseNavigator } from "./src/features/course/components/CourseStack";
 import { HomeNavigator } from "./src/features/home/components/HomeStack";
+import Header from "./src/features/course/components/Header";
+import React from "react";
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -26,7 +28,9 @@ export default function App() {
         <Tab.Screen
           name="Course"
           component={CourseNavigator}
+         
           options={{
+            headerTitle: () => <Header/>,
             tabBarLabel: "Courses",
             tabBarIcon: ({ color }) => (
               <MaterialCommunityIcons
