@@ -4,11 +4,15 @@ import courseClient from "../../../api/courseClient";
 const useCategory = () => {
   const [category, setCategory] = useState([]);
 
+  const sortCategory = ( categories ) => {
+    return categories;
+  };
+
   const fetchApi = () => {
     courseClient
       .get("/category")
       .then((response) => {
-        setCategory(response.data);
+        setCategory(sortCategory(response.data));
       })
       .catch((error) => {
         console.log("Error :", error);

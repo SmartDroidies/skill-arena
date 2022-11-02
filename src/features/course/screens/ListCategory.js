@@ -1,4 +1,5 @@
 import { FlatList } from "react-native";
+import { Container } from "../../../../style";
 import Category from "../components/Category";
 import useCategory from "../hooks/useCategory";
 
@@ -8,7 +9,7 @@ const ListCategory = ({ navigation }) => {
   const numColumns = 2;
 
   return (
-    <CategoryView>
+    <Container>
       <FlatList
         data={category}
         renderItem={({ item }) => (
@@ -17,7 +18,7 @@ const ListCategory = ({ navigation }) => {
         keyExtractor={(item) => item.code}
         numColumns={numColumns}
       />
-    </CategoryView>
+    </Container>
   );
 };
 
