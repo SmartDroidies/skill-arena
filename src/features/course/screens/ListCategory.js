@@ -1,25 +1,13 @@
 import { FlatList } from "react-native";
 import Category from "../components/Category";
 import { Container } from "../../../../style";
-import useCategory from "../hooks/useCategory"
+import useCategory from "../hooks/useCategory";
 
 const ListCategory = ({ navigation }) => {
   const [category] = useCategory([]);
 
   const numColumns = 2;
 
-  //FIXME - Move the network call to a service
-  // useEffect(() => {
-  //   courseClient
-  //     .get("/category")
-  //     .then((response) => {
-  //       setCategory(response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log("Error :", error);
-  //     });
-  // }, []);
-  // if (loading) return <h1>Loading</h1>;
   return (
     <Container>
       <FlatList

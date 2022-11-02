@@ -9,9 +9,7 @@ export const CourseSectionView = styled.View`
   margin-top: 20px;
 `;
 
-export const CourseText = styled.View`
-  fontSize: 100;
-  marginTop: 20;
-  marginRight: 10;
-  `;
-
+export const CourseImage = styled.Image`
+  width: 100px;
+  height: 100px;
+`;
