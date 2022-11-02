@@ -45,15 +45,15 @@ const ListCourse = ({ route, navigation }) => {
 };
 
 //FIXME - Used styled components
-// const styles = StyleSheet.create({
-//   container: {
-//     marginTop: StatusBar.currentHeight || 0,
-//   },
-//   heading:{
-//     fontSize: 30,
-//     fontWeight: "bold"
+ const ListCourseView = styled.view({
+   container: {
+     marginTop: StatusBar.currentHeight || 0,
+   },
+   heading:{
+    fontSize: 30,
+     fontWeight: "bold"
 
-//   },
-// });
+   },
+ });
 
 export default ListCourse;
