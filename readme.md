@@ -43,6 +43,10 @@ Run 'npm test -- --coverage --collectCoverageFrom="./src/**"' to run the unit te
 
 - Development build using 'npx expo start --dev-client'
 
+### Android build locally
+
+npx expo run:android
+
 ### Apk for Local Testing
 
 Run ```eas build -p android --profile development``` to generate an android development build
