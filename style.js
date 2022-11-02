@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/native";
 
 export const Container = styled.SafeAreaView`
   margin-top: 20px;
@@ -10,11 +10,11 @@ flex: 1;
 `;
 
 
+export const CourseSectionView = styled.View`
+  margin-top: 20px;
+`;
 
-//export const ProfileView = styled.View`
-    // flex: 1
-   // backgroundColor: "#252526",
-    // alignItems: "center",
-    // justifyContent: "center",
-    // marginTop: Platform.OS === "ios" ? 0 : Constants.statusBarHeight,
-    // `;
+export const CourseImage = styled.Image`
+  width: 100px;
+  height: 100px;
+`;
