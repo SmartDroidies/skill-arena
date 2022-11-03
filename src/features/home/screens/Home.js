@@ -3,7 +3,8 @@ import { StyleSheet, ScrollView } from "react-native";
 import courseClient from "../../../api/courseClient";
 import { useEffect, useState } from "react";
 import CourseSection from "../components/CourseSection";
-import { Container } from "../../../../style";
+import { Container, HomeView } from "../../../../style";
+import styled from "styled-components";
 
 const Home = ({ navigation }) => {
   const [course_section, setSection] = useState([]);
@@ -27,27 +28,29 @@ const Home = ({ navigation }) => {
 
   return (
     <Container>
-      <ScrollView
-        style={styles.scrollView}
-        showsVerticalScrollIndicator={false}
-      >
-        {course_section.map((courseSec) => (
-          <CourseSection
-            content={courseSec}
-            key={courseSec.key}
-            navigation={navigation}
-          ></CourseSection>
-        ))}
-      </ScrollView>
+      <HomeView>
+        <ScrollView
+          style={styled.scrollView}
+          showsVerticalScrollIndicator={false}
+        >
+          {course_section.map((courseSec) => (
+            <CourseSection
+              content={courseSec}
+              key={courseSec.key}
+              navigation={navigation}
+            ></CourseSection>
+          ))}
+        </ScrollView>
+      </HomeView>
     </Container>
   );
 };
 
-const styles = StyleSheet.create({
-  scrollView: {
-    marginHorizontal: 20,
-    marginVertical: 20,
-  },
-});
+// const styles = StyleSheet.create({
+//   scrollView: {
+//     marginHorizontal: 20,
+//     marginVertical: 20,
+//   },
+// });
 
 export default Home;

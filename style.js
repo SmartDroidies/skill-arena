@@ -13,3 +13,10 @@ export const CourseImage = styled.Image`
   width: 100px;
   height: 100px;
 `;
+
+export const HomeView = styled.View`
+    margin-top: 10px;
+    margin-Horizontal: 1;
+    margin-Vertical: 10;
+    padding: 5px;
+`;
