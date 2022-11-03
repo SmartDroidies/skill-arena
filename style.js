@@ -20,3 +20,8 @@ export const HomeView = styled.View`
     margin-Vertical: 10;
     padding: 5px;
 `;
+
+
+export const StyledText = styled.Text`
+  font-size: 20px;
+`;
