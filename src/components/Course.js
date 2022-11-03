@@ -1,6 +1,6 @@
 import { View, TouchableOpacity } from "react-native";
 import { Text, Card } from "@rneui/themed";
-import { CourseImage, StyledText } from "../../style";
+import { AuthorText, CourseImage, StyledText } from "../../style";
 
 const Course = ({ course, navigation }) => (
   <View>
@@ -17,7 +17,9 @@ const Course = ({ course, navigation }) => (
           <StyledText>
             <Text>{course.title}</Text>
           </StyledText>
-          <Text>{course.author}</Text>
+          <AuthorText>
+            <Text>{course.author}</Text>
+          </AuthorText>
           <Text>{course.price}</Text>
         </View>
       </Card>

@@ -23,5 +23,9 @@ export const HomeView = styled.View`
 
 
 export const StyledText = styled.Text`
-  font-size: 20px;
+  font-size: 20px
+`;
+
+export const AuthorText = styled.Text`
+  font-size: 16px;
 `;
