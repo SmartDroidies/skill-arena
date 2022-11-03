@@ -13,6 +13,7 @@ const Course = ({ course, navigation }) => (
           }}
         />
         <View>
+          <Text>{course.header}</Text>
           <Text>{course.title}</Text>
           <Text>{course.author}</Text>
           <Text>{course.price}</Text>
