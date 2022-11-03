@@ -14,12 +14,12 @@ export const CourseImage = styled.Image`
   height: 100px;
 `;
 
-export const HomeView = styled.View`
-    margin-top: 10px;
-    margin-Horizontal: 1;
-    margin-Vertical: 10;
-    padding: 5px;
-`;
+// export const HomeView = styled.View`
+//     margin-top: 10px;
+//     margin-Horizontal: 1;
+//     margin-Vertical: 10;
+//     padding: 5px;
+// `;
 
 
 export const StyledText = styled.Text`
@@ -28,4 +28,16 @@ export const StyledText = styled.Text`
 
 export const AuthorText = styled.Text`
   font-size: 16px;
+`;
+
+export const PageView = styled.ScrollView`
+// transform: scale(0.6);
+   width: 100%;
+   height: 100%;
+   margin-top: 5px;
+   margin-Horizontal: 10px;
+   margin-Vertical: 10px;
+   padding: 5px;
+   style={styled.scrollView}
+        showsVerticalScrollIndicator={false}
 `;

@@ -3,7 +3,7 @@ import { StyleSheet, ScrollView } from "react-native";
 import courseClient from "../../../api/courseClient";
 import { useEffect, useState } from "react";
 import CourseSection from "../components/CourseSection";
-import { Container, HomeView } from "../../../../style";
+import { Container, HomeView, PageView } from "../../../../style";
 import styled from "styled-components";
 
 const Home = ({ navigation }) => {
@@ -28,20 +28,18 @@ const Home = ({ navigation }) => {
 
   return (
     <Container>
-      <HomeView>
-        <ScrollView
-          style={styled.scrollView}
-          showsVerticalScrollIndicator={false}
-        >
-          {course_section.map((courseSec) => (
-            <CourseSection
-              content={courseSec}
-              key={courseSec.key}
-              navigation={navigation}
-            ></CourseSection>
-          ))}
-        </ScrollView>
-      </HomeView>
+      <PageView
+        // style={styled.scrollView}
+        // showsVerticalScrollIndicator={false}
+      >
+        {course_section.map((courseSec) => (
+          <CourseSection
+            content={courseSec}
+            key={courseSec.key}
+            navigation={navigation}
+          ></CourseSection>
+        ))}
+      </PageView>
     </Container>
   );
 };
