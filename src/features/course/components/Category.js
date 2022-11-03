@@ -1,7 +1,6 @@
 import { TouchableOpacity, View } from "react-native";
-import { Text } from "@rneui/themed";
+import { Text, Avatar } from "@rneui/themed";
 import { Container } from "../../../../style";
-import { CourseImage } from "../../../../style";
 
 const Category = ({ content, navigation }) => (
   <Container>
@@ -13,12 +12,12 @@ const Category = ({ content, navigation }) => (
         })
       }
     >
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <CourseImage
-          resizeMode="stretch"
-          source={{
-            uri: "https://reactnative.dev/img/tiny_logo.png",
-          }}
+      <View >
+        <Avatar
+          size={84}
+          rounded
+          icon={{ name: 'heartbeat', type: 'font-awesome' }}
+          containerStyle={{ backgroundColor: '#eb1561' }}
         />
         <Text h4>{content.title}</Text>
       </View>
