@@ -1,5 +1,5 @@
 import { TouchableOpacity, View } from "react-native";
-import { Card, Text } from "@rneui/themed";
+import { Text } from "@rneui/themed";
 import { Container } from "../../../../style";
 import { CourseImage } from "../../../../style";
 
@@ -13,15 +13,13 @@ const Category = ({ content, navigation }) => (
         })
       }
     >
-      <Card>
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         <CourseImage
           resizeMode="stretch"
           source={{
             uri: "https://reactnative.dev/img/tiny_logo.png",
           }}
         />
-      </Card>
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', }}>
         <Text h4>{content.title}</Text>
       </View>
     </TouchableOpacity>
