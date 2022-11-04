@@ -1,8 +1,6 @@
 import { StyleSheet, View } from "react-native";
 
-const Skeleton = () => <View style={styles.sample}>
-    
-</View>;
+const Skeleton = () => <View style={styles.sample}></View>;
 
 const styles = StyleSheet.create({});
 
