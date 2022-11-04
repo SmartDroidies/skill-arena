@@ -21,12 +21,11 @@ export const CourseImage = styled.Image`
 //     padding: 5px;
 // `;
 
-
-export const StyledText = styled.Text`
-  font-size: 20px
+export const CourseTitle = styled.Text`
+  font-size: 20px;
 `;
 
-export const AuthorText = styled.Text`
+export const CourseAuthor = styled.Text`
   font-size: 16px;
 `;
 
