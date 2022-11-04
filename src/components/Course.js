@@ -3,7 +3,9 @@ import { Text, Card } from "@rneui/themed";
 import { CourseAuthor, CourseImage, CourseTitle } from "../../style";
 
 const Course = ({ course, navigation }) => (
-  <View>
+  <View style={{
+    width: 250
+  }}>
     <TouchableOpacity onPress={() => navigation.navigate("CourseDetail")}>
       <Card>
         <CourseImage
@@ -15,7 +17,7 @@ const Course = ({ course, navigation }) => (
         <View>
           <Text>{course.header}</Text>
           <CourseTitle>
-            <Text>{course.title}</Text>
+            <Text style={{ numberOfLines: 2, ellipsizeMode: 'tail' }}>{course.title}</Text>
           </CourseTitle>
           <CourseAuthor>
             <Text>{course.author}</Text>
