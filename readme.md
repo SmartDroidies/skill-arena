@@ -14,6 +14,10 @@
 
 ## Local development
 
+### Lint Checking
+
+- Run 'npm run lint:fix' to check and fix lint errors
+
 ### Run the project
 
 Run 'npm install' within the project folder to install node packages

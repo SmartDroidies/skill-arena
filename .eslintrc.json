@@ -5,7 +5,14 @@
     "react-native/react-native": true
   },
   "extends": "eslint:recommended",
-  "overrides": [],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "rules": {
+        "no-undef": "off"
+      }
+    }
+  ],
   "plugins": ["react", "react-native"],
   "parserOptions": {
     "ecmaVersion": "latest",
