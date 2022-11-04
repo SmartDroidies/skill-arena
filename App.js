@@ -11,7 +11,6 @@ import React from "react";
 const Tab = createMaterialBottomTabNavigator();
 
 export default function App() {
-  
   return (
     <NavigationContainer>
       <Tab.Navigator>
@@ -28,9 +27,8 @@ export default function App() {
         <Tab.Screen
           name="Course"
           component={CourseNavigator}
-         
           options={{
-            headerTitle: () => <Header/>,
+            headerTitle: () => <Header />,
             tabBarLabel: "Courses",
             tabBarIcon: ({ color }) => (
               <MaterialCommunityIcons
@@ -41,7 +39,7 @@ export default function App() {
             ),
           }}
         />
-        <Tab.Screen 
+        <Tab.Screen
           name="Schedule"
           component={Schedule}
           options={{
