@@ -11,6 +11,7 @@ const ListCourse = ({ route, navigation }) => {
     <Course course={item} navigation={navigation} />
   );
 
+  // FIXME - Move this to hook
   const loadCourses = () => {
     courseClient
       .get("/course", { params: { ctgry: route.params.code } })
