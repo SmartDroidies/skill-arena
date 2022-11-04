@@ -1,9 +1,8 @@
 import styled from "styled-components/native";
 
 export const Container = styled.SafeAreaView`
-  margin-top: 8px;
+  margin: 8px;
   flex: 1;
-  padding: 20px;
   text-align: center;
 `;
 
