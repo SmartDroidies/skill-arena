@@ -93,8 +93,7 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  formHeading: {
-  },
+  formHeading: {},
   wrapper: {
     marginBottom: 10,
   },

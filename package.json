@@ -9,7 +9,7 @@
     "eject": "expo eject",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "prettier": "prettier 'src/**/*.js'",
+    "prettier": "prettier --write '**/*.{ts,js,css,html}'",
     "prepare": "husky install",
     "test": "jest",
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check"
@@ -67,10 +67,5 @@
       "npx eslint --fix"
     ]
   },
-  "private": true,
-  "prettier": {
-    "jsxBracketSameLine": true,
-    "semi": false,
-    "singleQuote": true
-  }
+  "private": true
 }

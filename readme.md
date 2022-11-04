@@ -18,6 +18,10 @@
 
 - Run 'npm run lint:fix' to check and fix lint errors
 
+### Prettier across entire project
+
+- Run 'npm run prettier' to run prettier across whole project
+
 ### Run the project
 
 Run 'npm install' within the project folder to install node packages
