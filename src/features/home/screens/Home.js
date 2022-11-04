@@ -7,24 +7,24 @@ import { Container, HomeView, PageView } from "../../../../style";
 import styled from "styled-components";
 
 const Home = ({ navigation }) => {
-  const [course_section, setSection] = useState([]);
+  // const [course_section, setSection] = useState([]);
 
-  const sortSection = (sections) => {
-    return sections.sort((a, b) => {
-      return a.order < b.order;
-    });
-  };
-  useEffect(() => {
-    courseClient
-      .get("/home")
-      .then((response) => {
-        setSection(sortSection(response.data));
-        // console.log(response.data);`
-      })
-      .catch((error) => {
-        console.log("Error :", error);
-      });
-  });
+  // const sortSection = (sections) => {
+  //   return sections.sort((a, b) => {
+  //     return a.order < b.order;
+  //   });
+  // };
+  // useEffect(() => {
+  //   courseClient
+  //     .get("/home")
+  //     .then((response) => {
+  //       setSection(sortSection(response.data));
+  //       // console.log(response.data);`
+  //     })
+  //     .catch((error) => {
+  //       console.log("Error :", error);
+  //     });
+  // });
 
   return (
     <Container>
@@ -32,7 +32,7 @@ const Home = ({ navigation }) => {
         // style={styled.scrollView}
         // showsVerticalScrollIndicator={false}
       >
-        {course_section.map((courseSec) => (
+        {CourseSection.map((courseSec) => (
           <CourseSection
             content={courseSec}
             key={courseSec.key}
