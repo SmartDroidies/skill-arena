@@ -62,7 +62,10 @@
     "prettier": "^2.7.1"
   },
   "lint-staged": {
-    "*.js": "eslint --fix"
+    "*.js": [
+      "npx prettier --write",
+      "npx eslint --fix"
+    ]
   },
   "private": true,
   "prettier": {
