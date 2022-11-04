@@ -28,7 +28,7 @@ const ListCourse = ({ route, navigation }) => {
 
   return (
     <Container>
-      <Text >{route.params.title}</Text>
+      <Text>{route.params.title}</Text>
       <FlatList
         data={courses}
         renderItem={renderCourseCard}

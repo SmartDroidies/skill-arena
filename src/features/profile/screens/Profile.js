@@ -6,10 +6,8 @@ import {
   ScrollView,
   View,
   Button,
-  Platform,
   TextInput,
 } from "react-native";
-import Constants from "expo-constants";
 
 const baseUrl = "https://reqres.in";
 
@@ -26,7 +24,7 @@ export default function App() {
     setEmail(email);
   };
 
-  const onSubmitFormHandler = async (event) => {
+  const onSubmitFormHandler = async () => {
     if (!fullName.trim() || !email.trim()) {
       alert("Name or Email is invalid");
       return;
@@ -95,30 +93,18 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#252526",
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: Platform.OS === "ios" ? 0 : Constants.statusBarHeight,
-  },
-  formHeading: {
-    color: "#ffffff",
-  },
+  formHeading: {},
   wrapper: {
     marginBottom: 10,
   },
   input: {
     borderWidth: 2,
-    borderColor: "grey",
     minWidth: 200,
     textAlignVertical: "center",
     paddingLeft: 10,
     borderRadius: 20,
-    color: "#ffffff",
   },
   submitButton: {
-    backgroundColor: "gray",
     padding: 100,
   },
 });
