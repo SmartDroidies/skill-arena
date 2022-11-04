@@ -6,6 +6,12 @@ export const Container = styled.SafeAreaView`
   text-align: center;
 `;
 
+export const CourseContainer = styled.View`
+  background-color: blue;
+  flex: 1;
+  margin-bottom: 16px;
+`;
+
 export const CourseSectionView = styled.View`
   margin-top: 20px;
 `;
