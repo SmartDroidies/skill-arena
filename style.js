@@ -21,3 +21,8 @@ export const CourseTitle = styled.Text`
 export const CourseAuthor = styled.Text`
   font-size: 16px;
 `;
+
+export const FlexWrap = styled.View`
+  width: 300;
+  height: 300;
+`;
