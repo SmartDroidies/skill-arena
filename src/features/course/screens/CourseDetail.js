@@ -1,19 +1,15 @@
 import { React, useEffect, useState } from "react";
-import { Text, Card, View, Share } from "react-native";
-import Course from "../../../components/Course";
 import courseClient from "../../../api/courseClient";
-import { CourseImage, Container } from "../../../../style";
+import ListCourseDetail from "../components/ListCourseDetail";
+import { FlatList } from "react-native";
+import { Container } from "../../../../style";
 
-const CourseDetail = ({ route, navigation }) => {
+const CourseDetail = ({ navigation }) => {
   const [course, setcourses] = useState([]);
 
-  const renderCourseCard = ({ item }) => (
-    <Course course={item} navigation={navigation} />
-  );
-
-  const CourseDetail = () => {
+  const Coursedetail = () => {
     courseClient
-      .get("/course", { params: { ctgry: route.params.code } })
+      .get("/course")
       .then((response) => {
         setcourses(response.data);
       })
@@ -21,9 +17,8 @@ const CourseDetail = ({ route, navigation }) => {
         console.log("Error :", error);
       });
   };
-
   useEffect(() => {
-    CourseDetail();
+    Coursedetail();
   }, []);
 
   return (
@@ -31,26 +26,15 @@ const CourseDetail = ({ route, navigation }) => {
       <Container>
         <FlatList
           data={course}
-          renderItem={renderCourseCard}
-          keyExtractor={(item) => item.course_id}
+          renderItem={({ item }) => (
+            <ListCourseDetail
+              course={item}
+              navigation={navigation}
+            ></ListCourseDetail>
+          )}
+          keyExtractor={(item) => item.title}
         />
       </Container>
-      <Card>
-        <CourseImage
-          resizeMode="stretch"
-          source={{
-            uri: "https://reactnative.dev/img/tiny_logo.png",
-          }}
-        />
-        {
-          <View>
-            <View>{<Button onPress={Share} />}</View>
-            <Text>{course.title}</Text>
-            <Text>{course.author}</Text>
-            <Text>{course.price}</Text>
-          </View>
-        }
-      </Card>
     </>
   );
 };
