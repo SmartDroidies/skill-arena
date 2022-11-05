@@ -13,3 +13,16 @@ export const CourseImage = styled.Image`
   width: 100px;
   height: 100px;
 `;
+
+export const CourseTitle = styled.Text`
+  font-size: 20px;
+`;
+
+export const CourseAuthor = styled.Text`
+  font-size: 16px;
+`;
+
+export const FlexWrap = styled.View`
+  width: 300;
+  height: 300;
+`;
