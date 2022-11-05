@@ -3,21 +3,14 @@ import { Text, Card } from "@rneui/themed";
 import { CourseAuthor, CourseImage, CourseTitle } from "../../style";
 
 const Course = ({ course, navigation }) => (
-  <View style={{
-    width: 250
-  }}>
+  <View>
     <TouchableOpacity onPress={() => navigation.navigate("CourseDetail")}>
       <Card>
-        <CourseImage
-          resizeMode="stretch"
-          source={{
-            uri: "https://reactnative.dev/img/tiny_logo.png",
-          }}
-        />
+        <CourseImage source={require("../../assets/education.jpg")} />
         <View>
           <Text>{course.header}</Text>
           <CourseTitle>
-            <Text style={{ numberOfLines: 2, ellipsizeMode: 'tail' }}>{course.title}</Text>
+            <Text>{course.title}</Text>
           </CourseTitle>
           <CourseAuthor>
             <Text>{course.author}</Text>
