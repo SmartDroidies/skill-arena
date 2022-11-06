@@ -1,7 +1,6 @@
 import { TouchableOpacity, View } from "react-native";
-import { Text, Avatar } from "@rneui/themed";
-import { CourseContainer } from "../../../../style";
-
+import { Avatar } from "@rneui/themed";
+import { Title, CourseContainer } from "../../../../style";
 const Category = ({ content, navigation }) => {
   const iconName = "heartbeat";
   const iconFamily = "font-awesome";
@@ -22,7 +21,7 @@ const Category = ({ content, navigation }) => {
             rounded
             icon={{ name: iconName, type: iconFamily }}
           />
-          <Text h4>{content.title}</Text>
+          <Title h4>{content.title}</Title>
         </View>
       </TouchableOpacity>
     </CourseContainer>
