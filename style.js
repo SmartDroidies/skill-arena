@@ -7,9 +7,12 @@ export const Container = styled.SafeAreaView`
 `;
 
 export const CourseContainer = styled.View`
-  background-color: blue;
+  background-color: pink;
   flex: 1;
-  margin-bottom: 16px;
+  margin-top: 8px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 8px;
 `;
 
 export const CourseSectionView = styled.View`
