@@ -10,6 +10,19 @@ export const CourseSectionView = styled.View`
 `;
 
 export const CourseImage = styled.Image`
-  width: 100px;
+  width: 240px;
   height: 100px;
+`;
+
+export const CourseTitle = styled.Text`
+  font-size: 20px;
+`;
+
+export const CourseAuthor = styled.Text`
+  font-size: 16px;
+`;
+
+export const FlexWrap = styled.View`
+  width: 300px;
+  height: 300px;
 `;

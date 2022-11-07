@@ -1,29 +1,11 @@
 import React from "react";
 import { StyleSheet, ScrollView } from "react-native";
-import courseClient from "../../../api/courseClient";
-import { useEffect, useState } from "react";
-import CourseSection from "../components/CourseSection";
 import { Container } from "../../../../style";
+import CourseSection from "../components/CourseSection";
+import useHome from "../hooks/useHome";
 
 const Home = ({ navigation }) => {
-  const [course_section, setSection] = useState([]);
-
-  const sortSection = (sections) => {
-    return sections.sort((a, b) => {
-      return a.order < b.order;
-    });
-  };
-  useEffect(() => {
-    courseClient
-      .get("/home")
-      .then((response) => {
-        setSection(sortSection(response.data));
-        // console.log(response.data);`
-      })
-      .catch((error) => {
-        console.log("Error :", error);
-      });
-  });
+  const [homeContent] = useHome([]);
 
   return (
     <Container>
@@ -31,7 +13,7 @@ const Home = ({ navigation }) => {
         style={styles.scrollView}
         showsVerticalScrollIndicator={false}
       >
-        {course_section.map((courseSec) => (
+        {homeContent.map((courseSec) => (
           <CourseSection
             content={courseSec}
             key={courseSec.key}
