@@ -10,8 +10,6 @@ export const CategoryContainer = styled.View`
   align-items: center;
   justify-content: center;
   margin-bottom: 24px;
-  backgroundColor: yellow;
-  border: 2px solid red
 `;
 
 export const CategoryTitle = styled.Text`
