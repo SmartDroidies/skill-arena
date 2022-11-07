@@ -5,24 +5,20 @@ export const Container = styled.SafeAreaView`
   flex: 1;
 `;
 
-export const CourseContainer = styled.View`
-  background-color: pink;
+export const CategoryContainer = styled.View`
   flex: 1;
-  margin-top: 10px;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-bottom: 8px;
   align-items: center;
   justify-content: center;
+  margin-bottom: 24px;
+  backgroundColor: yellow;
+  border: 2px solid red
 `;
 
-export const Title = styled.Text`
+export const CategoryTitle = styled.Text`
   text-align: center;
-  font-size: 25px;
+  font-size: 20px;
   letter-spacing: 0;
   font-weight: 500;
-  color: brown;
-  lineheight: 25;
 `;
 
 export const CourseSectionView = styled.View`

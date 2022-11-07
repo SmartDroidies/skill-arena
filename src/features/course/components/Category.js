@@ -1,12 +1,12 @@
 import { TouchableOpacity, View } from "react-native";
 import { Avatar } from "@rneui/themed";
-import { Title, CourseContainer } from "../../../../style";
+import { CategoryTitle, CategoryContainer } from "../../../../style";
 const Category = ({ content, navigation }) => {
   const iconName = "heartbeat";
   const iconFamily = "font-awesome";
 
   return (
-    <CourseContainer>
+    <CategoryContainer>
       <TouchableOpacity
         onPress={() =>
           navigation.navigate("ListCourse", {
@@ -17,14 +17,15 @@ const Category = ({ content, navigation }) => {
       >
         <View>
           <Avatar
-            size={84}
+            size= "large"
             rounded
-            icon={{ name: iconName, type: iconFamily }}
+            icon={{ name: iconName, type: iconFamily}}
+            containerStyle={{ backgroundColor: '#6733b9',alignSelf: "center"}}
           />
-          <Title h4>{content.title}</Title>
+          <CategoryTitle h1>{content.title}</CategoryTitle>
         </View>
       </TouchableOpacity>
-    </CourseContainer>
+    </CategoryContainer>
   );
 };
 
