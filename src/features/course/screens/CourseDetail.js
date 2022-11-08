@@ -1,25 +1,11 @@
-import { React, useEffect, useState } from "react";
-import courseClient from "../../../api/courseClient";
+import { React } from "react";
 import ListCourseDetail from "../components/ListCourseDetail";
 import { FlatList } from "react-native";
 import { Container } from "../../../../style";
+import useCourse from "../hooks/useCourse";
 
 const CourseDetail = ({ navigation }) => {
-  const [course, setcourses] = useState([]);
-
-  const Coursedetail = () => {
-    courseClient
-      .get("/course")
-      .then((response) => {
-        setcourses(response.data);
-      })
-      .catch((error) => {
-        console.log("Error :", error);
-      });
-  };
-  useEffect(() => {
-    Coursedetail();
-  }, []);
+  const [course] = useCourse([]);
 
   return (
     <>
@@ -32,7 +18,7 @@ const CourseDetail = ({ navigation }) => {
               navigation={navigation}
             ></ListCourseDetail>
           )}
-          keyExtractor={(item) => item.title}
+          keyExtractor={(item) => item.course_id}
         />
       </Container>
     </>
