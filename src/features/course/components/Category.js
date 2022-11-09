@@ -1,10 +1,7 @@
-import { TouchableOpacity, View } from "react-native";
+import { TouchableOpacity, View, StyleSheet } from "react-native";
 import { Avatar } from "@rneui/themed";
 import { CategoryTitle, CategoryContainer } from "../../../../style";
 const Category = ({ content, navigation }) => {
-  const iconName = "heartbeat";
-  const iconFamily = "font-awesome";
-
   return (
     <CategoryContainer>
       <TouchableOpacity
@@ -17,10 +14,10 @@ const Category = ({ content, navigation }) => {
       >
         <View>
           <Avatar
-            size= "large"
+            size="large"
             rounded
-            icon={{ name: iconName, type: iconFamily}}
-            containerStyle={{ backgroundColor: '#6733b9',alignSelf: "center"}}
+            icon={{ name: content.icon_name, type: content.icon_family }}
+            containerStyle={styles.avatarContainer}
           />
           <CategoryTitle h1>{content.title}</CategoryTitle>
         </View>
@@ -28,5 +25,14 @@ const Category = ({ content, navigation }) => {
     </CategoryContainer>
   );
 };
+
+const styles = StyleSheet.create({
+  // FIXME - Have to get rid of this
+  // eslint-disable-next-line react-native/no-color-literals
+  avatarContainer: {
+    alignSelf: "center",
+    backgroundColor: "#6733b9",
+  },
+});
 
 export default Category;
