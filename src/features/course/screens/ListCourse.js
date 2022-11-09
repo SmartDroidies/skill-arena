@@ -1,31 +1,15 @@
-import { React, useEffect, useState } from "react";
+import { React } from "react";
 import { Text, FlatList } from "react-native";
-import courseClient from "../../../api/courseClient";
 import Course from "../../../components/Course";
 import { Container } from "../../../../style";
+import useCourse from "../hooks/useCourse";
 
 const ListCourse = ({ route, navigation }) => {
-  const [courses, setCourses] = useState([]);
+  const [courses] = useCourse(route.params.code);
 
   const renderCourseCard = ({ item }) => (
     <Course course={item} navigation={navigation} />
   );
-
-  // FIXME - Move this to hook
-  const loadCourses = () => {
-    courseClient
-      .get("/course", { params: { ctgry: route.params.code } })
-      .then((response) => {
-        setCourses(response.data);
-      })
-      .catch((error) => {
-        console.log("Error :", error);
-      });
-  };
-
-  useEffect(() => {
-    loadCourses();
-  }, []);
 
   return (
     <Container>
