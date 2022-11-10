@@ -1,24 +1,26 @@
 import { View, TouchableOpacity } from "react-native";
 import { Text, Card } from "@rneui/themed";
-import { CourseImage } from "../../style";
+import { CourseAuthor, CourseImage, CourseTitle, FlexWrap } from "../../style";
 
 const Course = ({ course, navigation }) => (
   <View>
-    <TouchableOpacity onPress={() => navigation.navigate("CourseDetail")}>
-      <Card>
-        <CourseImage
-          resizeMode="stretch"
-          source={{
-            uri: "https://reactnative.dev/img/tiny_logo.png",
-          }}
-        />
-        <View>
-          <Text>{course.title}</Text>
-          <Text>{course.author}</Text>
-          <Text>{course.price}</Text>
-        </View>
-      </Card>
-    </TouchableOpacity>
+    <FlexWrap>
+      <TouchableOpacity onPress={() => navigation.navigate("CourseDetail")}>
+        <Card>
+          <CourseImage source={require("../../assets/education.jpg")} />
+          <View>
+            <Text>{course.header}</Text>
+            <CourseTitle>
+              <Text>{course.title}</Text>
+            </CourseTitle>
+            <CourseAuthor>
+              <Text>{course.author}</Text>
+            </CourseAuthor>
+            <Text>{course.price}</Text>
+          </View>
+        </Card>
+      </TouchableOpacity>
+    </FlexWrap>
   </View>
 );
 
