@@ -4,7 +4,13 @@ import { CourseAuthor, CourseImage, CourseTitle, FlexWrap } from "../../style";
 
 const Course = ({ course, navigation }) => (
   <FlexWrap>
-    <TouchableOpacity onPress={() => navigation.navigate("CourseDetail")}>
+    <TouchableOpacity
+      onPress={() =>
+        navigation.navigate("CourseDetail", {
+          id: course.course_id,
+        })
+      }
+    >
       <Card>
         <CourseImage source={require("../../assets/education.jpg")} />
         <View>

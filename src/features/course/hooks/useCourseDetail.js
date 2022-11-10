@@ -1,26 +1,14 @@
 import { useEffect, useState } from "react";
 import courseClient from "../../../api/courseClient";
 
-const useCourseDetail = ( courseId) => {
-  const [coursedetail, setCourses] = useState([]);
+const useCourseDetail = (courseId) => {
+  const [courseDetail, setCourseDetail] = useState([]);
 
-  const sortCourses = (coursedetail) => {
-    return coursedetail.sort((a, b) => {
-      return a.order > b.order;
-    });
-  };
-
-  const filterCourseDetail = ( courseId) => {
-    let filterData = coursedetail.filter((Item) => Item.CourseId ===  courseId);
-    setCourses(filterData);
-    console.log (filterData)
-  }
-
-  const loadCourses = () => {
+  const loadCourse = () => {
     courseClient
-      .get("/course", { params: { course:  courseId } })
+      .get("/course", { params: { course_id: courseId } })
       .then((response) => {
-        setCourses(sortCourses(response.data));
+        setCourseDetail(response.data);
       })
       .catch((error) => {
         console.log("Error :", error);
@@ -28,10 +16,10 @@ const useCourseDetail = ( courseId) => {
   };
 
   useEffect(() => {
-    loadCourses();
+    loadCourse();
   }, []);
 
-  return [coursedetail, filterCourseDetail];
+  return [courseDetail];
 };
 
 export default useCourseDetail;

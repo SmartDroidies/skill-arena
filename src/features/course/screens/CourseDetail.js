@@ -1,26 +1,15 @@
 import { React } from "react";
-import ListCourseDetail from "../components/ListCourseDetail";
-import { FlatList } from "react-native";
 import { Container } from "../../../../style";
+import { Text } from "@rneui/base";
 import useCourseDetail from "../hooks/useCourseDetail";
 
-const CourseDetail = ({ navigation, route }) => {
-  const [coursedetail, filterCourseDetail] = useCourseDetail([]);
-
+const CourseDetail = ({ route }) => {
+  const [courseDetail] = useCourseDetail(route.params.id);
   return (
-    <>
-      <Container>
-        <FlatList
-          data={filterCourseDetail}
-          renderItem={({ item }) => (
-            <ListCourseDetail
-              course={item}
-              navigation={navigation}
-            ></ListCourseDetail>
-          )}
-        />
-      </Container>
-    </>
+    <Container>
+      <Text>Display course details for {route.params.id} </Text>
+      <Text>{courseDetail.title} </Text>
+    </Container>
   );
 };
 
