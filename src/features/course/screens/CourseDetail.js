@@ -2,23 +2,22 @@ import { React } from "react";
 import ListCourseDetail from "../components/ListCourseDetail";
 import { FlatList } from "react-native";
 import { Container } from "../../../../style";
-import useCourse from "../hooks/useCourse";
+import useCourseDetail from "../hooks/useCourseDetail";
 
-const CourseDetail = ({ navigation }) => {
-  const [course] = useCourse([]);
+const CourseDetail = ({ navigation, route }) => {
+  const [coursedetail, filterCourseDetail] = useCourseDetail([]);
 
   return (
     <>
       <Container>
         <FlatList
-          data={course}
+          data={filterCourseDetail}
           renderItem={({ item }) => (
             <ListCourseDetail
               course={item}
               navigation={navigation}
             ></ListCourseDetail>
           )}
-          keyExtractor={(item) => item.course_id}
         />
       </Container>
     </>
