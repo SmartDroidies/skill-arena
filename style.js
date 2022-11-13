@@ -1,4 +1,3 @@
-/* eslint-disable dot-notation */
 import styled from "styled-components/native";
 import Constants from "expo-constants";
 
@@ -20,8 +19,9 @@ export const CourseImage = styled.Image`
 `;
 
 export const CourseTitle = styled.Text`
-  font-size: 20px;
-  color: ${(props) => props.theme["TITLE_COLOR"]};
+  color: ${(props) => props.theme.TITLE_COLOR};
+  font-family: ${(props) => props.theme.FONT_FAMILY};
+  font-size : 18px;
 `;
 
 export const CourseAuthor = styled.Text`

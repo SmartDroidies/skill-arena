@@ -4,6 +4,7 @@ const darkTheme = {
   TITLE_COLOR: "#fff",
   BACKGROUND_COLOR: "#111216",
   BUTTON_COLOR: "#fff",
+  FONT_FAMILY: "Roboto-Regular",
 };
 
 const lightTheme = {
@@ -12,6 +13,11 @@ const lightTheme = {
   TITLE_COLOR: "#000",
   BACKGROUND_COLOR: "#fff",
   BUTTON_COLOR: "#000",
+  FONT_FAMILY: "Roboto-Regular",
 };
+
+// const themeRNE = createTheme({
+
+// });
 
 export { lightTheme, darkTheme };
