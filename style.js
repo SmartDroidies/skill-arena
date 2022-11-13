@@ -1,7 +1,12 @@
+/* eslint-disable dot-notation */
 import styled from "styled-components/native";
+import Constants from "expo-constants";
 
 export const Container = styled.SafeAreaView`
-  margin-top: 8px;
+  background-color: ${(props) => props.theme.PRIMARY_COLOR};
+  margin-top: ${Constants.statusBarHeight + "px"};
+  align-items: center;
+  justify-content: center;
   flex: 1;
 `;
 
@@ -16,6 +21,7 @@ export const CourseImage = styled.Image`
 
 export const CourseTitle = styled.Text`
   font-size: 20px;
+  color: ${(props) => props.theme["TITLE_COLOR"]};
 `;
 
 export const CourseAuthor = styled.Text`

@@ -10,9 +10,7 @@ const Course = ({ course, navigation }) => (
           <CourseImage source={require("../../assets/education.jpg")} />
           <View>
             <Text>{course.header}</Text>
-            <CourseTitle>
-              <Text>{course.title}</Text>
-            </CourseTitle>
+            <CourseTitle>{course.title}</CourseTitle>
             <CourseAuthor>
               <Text>{course.author}</Text>
             </CourseAuthor>

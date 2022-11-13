@@ -7,24 +7,14 @@ import { CourseNavigator } from "./src/features/course/components/CourseStack";
 import { HomeNavigator } from "./src/features/home/components/HomeStack";
 import Header from "./src/features/course/components/Header";
 import React from "react";
-import { ThemeProvider } from "@rneui/themed";
+import { lightTheme } from "./src/theme";
+import { ThemeProvider } from "styled-components";
 
 const Tab = createMaterialBottomTabNavigator();
 
-const theme = {
-  dark: {
-    primary: "#000",
-    text: "#fff",
-  },
-  light: {
-    primary: "#fff",
-    text: "#000",
-  },
-};
-
 export default function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={lightTheme}>
       <NavigationContainer>
         <Tab.Navigator>
           <Tab.Screen
