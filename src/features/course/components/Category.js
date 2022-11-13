@@ -1,8 +1,7 @@
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 import { Card, Text } from "@rneui/themed";
-import { Container } from "../../../../style";
 const Category = ({ content, navigation }) => (
-  <Container>
+  <View>
     <TouchableOpacity
       onPress={() =>
         navigation.navigate("ListCourse", {
@@ -17,7 +16,7 @@ const Category = ({ content, navigation }) => (
         </Card.Title>
       </Card>
     </TouchableOpacity>
-  </Container>
+  </View>
 );
 
 export default Category;

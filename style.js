@@ -3,7 +3,7 @@ import Constants from "expo-constants";
 
 export const Container = styled.SafeAreaView`
   background-color: ${(props) => props.theme.PRIMARY_COLOR};
-  margin-top: ${Constants.statusBarHeight + "px"};
+  padding-top: ${Constants.statusBarHeight + "px"};
   align-items: center;
   justify-content: center;
   flex: 1;
@@ -21,7 +21,7 @@ export const CourseImage = styled.Image`
 export const CourseTitle = styled.Text`
   color: ${(props) => props.theme.TITLE_COLOR};
   font-family: ${(props) => props.theme.FONT_FAMILY};
-  font-size : 18px;
+  font-size: 18px;
 `;
 
 export const CourseAuthor = styled.Text`
