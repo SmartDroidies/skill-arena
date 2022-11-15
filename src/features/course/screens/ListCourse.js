@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from "react";
-import { Text, FlatList } from "react-native";
+import { FlatList } from "react-native";
 import courseClient from "../../../api/courseClient";
 import { Container } from "../../../../style";
 import Course from "../components/Course";
@@ -12,6 +12,10 @@ const ListCourse = ({ route, navigation }) => {
   );
 
   const loadCourses = () => {
+    navigation.setOptions({
+      title: route.params.title,
+    });
+
     courseClient
       .get("/course", { params: { ctgry: route.params.code } })
       .then((response) => {
@@ -28,7 +32,6 @@ const ListCourse = ({ route, navigation }) => {
 
   return (
     <Container>
-      <Text>{route.params.title}</Text>
       <FlatList
         data={courses}
         renderItem={renderCourseCard}
