@@ -40,3 +40,8 @@ export const FlexWrap = styled.View`
   width: 300px;
   height: 300px;
 `;
+
+export const FlexView = styled.View`
+  display: flex;
+  flex-direction: ${(props) => props.direction || "row"};
+`;
