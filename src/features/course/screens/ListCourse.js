@@ -1,8 +1,8 @@
 import { React, useEffect, useState } from "react";
 import { Text, FlatList } from "react-native";
 import courseClient from "../../../api/courseClient";
-import Course from "../../../components/Course";
 import { Container } from "../../../../style";
+import Course from "../components/Course";
 
 const ListCourse = ({ route, navigation }) => {
   const [courses, setCourses] = useState([]);
