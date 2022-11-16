@@ -6,8 +6,9 @@ import Home from "../screens/Home";
 import { StyleSheet } from "react-native";
 
 export const HomeStack = createStackNavigator();
+export const SearchStack = createStackNavigator();
 
-export const HomeNavigator = () => {
+export const HomeNavigator = ({ navigation }) => {
   return (
     <HomeStack.Navigator screenOptions={{ headerShown: true }}>
       <HomeStack.Screen
@@ -15,7 +16,13 @@ export const HomeNavigator = () => {
         component={Home}
         options={{
           title: Global.Constant.appName,
-          headerRight: () => <Icon name="search" style={styles.icon} />,
+          headerRight: () => (
+            <Icon
+              name="search"
+              style={styles.icon}
+              onPress={() => navigation.navigate("Course")}
+            />
+          ),
         }}
       />
       <HomeStack.Screen
