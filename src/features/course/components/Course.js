@@ -8,25 +8,27 @@ import {
 } from "../../../../style";
 
 const Course = ({ course, navigation }) => (
-  <View>
-    <FlexWrap>
-      <TouchableOpacity onPress={() => navigation.navigate("CourseDetail")}>
-        <Card>
-          <CourseImage source={require("../../../../assets/education.jpg")} />
-          <View>
-            <Text>{course.header}</Text>
-            <CourseTitle>
-              <Text>{course.title}</Text>
-            </CourseTitle>
-            <CourseAuthor>
-              <Text>{course.author}</Text>
-            </CourseAuthor>
-            <Text>{course.price}</Text>
-          </View>
-        </Card>
-      </TouchableOpacity>
-    </FlexWrap>
-  </View>
+  <FlexWrap>
+    <TouchableOpacity
+      onPress={() =>
+        navigation.navigate("CourseDetail", { id: course.course_id })
+      }
+    >
+      <Card>
+        <CourseImage source={require("../../../../assets/education.jpg")} />
+        <View>
+          <Text>{course.header}</Text>
+          <CourseTitle>
+            <Text>{course.title}</Text>
+          </CourseTitle>
+          <CourseAuthor>
+            <Text>{course.author}</Text>
+          </CourseAuthor>
+          <Text>{course.price}</Text>
+        </View>
+      </Card>
+    </TouchableOpacity>
+  </FlexWrap>
 );
 
 export default Course;
