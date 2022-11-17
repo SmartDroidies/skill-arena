@@ -4,6 +4,7 @@ import Global from "../../../utils/Global";
 import CourseDetail from "../screens/CourseDetail";
 import Home from "../screens/Home";
 import { StyleSheet } from "react-native";
+import SearchBar from "../../searchbar/SearchBar";
 
 export const HomeStack = createStackNavigator();
 export const SearchStack = createStackNavigator();
@@ -20,7 +21,7 @@ export const HomeNavigator = ({ navigation }) => {
             <Icon
               name="search"
               style={styles.icon}
-              onPress={() => navigation.navigate("Course")}
+              onPress={() => navigation.navigate("Home")}
             />
           ),
         }}
@@ -29,6 +30,13 @@ export const HomeNavigator = ({ navigation }) => {
         name="CourseDetail"
         component={CourseDetail}
         options={{ title: Global.Constant.appName }}
+      />
+      <HomeStack.Screen
+        name="SearchBar"
+        component={SearchBar}
+        options={{
+          title: "SearchBar",
+        }}
       />
     </HomeStack.Navigator>
   );

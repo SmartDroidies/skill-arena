@@ -1,3 +1,4 @@
+import { SearchBar } from "@rneui/base";
 import React from "react";
 import { StyleSheet, ScrollView } from "react-native";
 import { Container } from "../../../../style";
@@ -9,6 +10,7 @@ const Home = ({ navigation }) => {
 
   return (
     <Container>
+      <SearchBar></SearchBar>
       <ScrollView
         style={styles.scrollView}
         showsVerticalScrollIndicator={false}
