@@ -5,7 +5,6 @@ import { Icon } from "@rneui/base";
 const CourseMode = ({ course }) => {
   // FIXME - Determine the iconName & Family based on course mode using switch case
   const iconName = "headphones";
-  const iconFamily = "font-awesome-5";
   switch (course.mode) {
   case "recorded":
     console.log("headphones");
@@ -16,21 +15,18 @@ const CourseMode = ({ course }) => {
   case "inperson":
     console.log("inperson");
     break;
-    //   case "recorded":
-    //     console.log("font-awesome-5");
-    //     break;
-    //   case "online":
-    //     console.log(" google-classroom material-community");
-    //     break;
-    //   case "inperson":
-    //     console.log("people material");
-    //     break;
+  }
+  const iconFamily = "font-awesome-5";
+  switch (course.mode) {
+  case "recorded":
+    console.log("font-awesome-5");
+    break;
   }
 
   // headphones font-awesome-5 (recorded)
   // google-classroom material-community (online)
   // people material (inperson)
-  //  console.log(" Course : ", course.mode);
+  console.log(" Course : ", course.mode);
   return <Icon name={iconName} type={iconFamily} />;
 };
 
