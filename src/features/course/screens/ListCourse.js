@@ -1,7 +1,7 @@
 import { React } from "react";
 import { Text, FlatList } from "react-native";
-import Course from "../../../components/Course";
 import { Container } from "../../../../style";
+import Course from "../components/Course";
 import useCourse from "../hooks/useCourse";
 
 const ListCourse = ({ route, navigation }) => {
