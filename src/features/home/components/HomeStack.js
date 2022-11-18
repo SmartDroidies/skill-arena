@@ -21,7 +21,7 @@ export const HomeNavigator = ({ navigation }) => {
             <Icon
               name="search"
               style={styles.icon}
-              onPress={() => navigation.navigate("Home")}
+              onPress={() => navigation.navigate("SearchBar")}
             />
           ),
         }}
