@@ -3,10 +3,6 @@ import { Icon } from "@rneui/base";
 // style={{ margin: 8 }}   //FIXME - Get this from styled component
 
 const CourseMode = ({ course }) => {
-  // headphones font-awesome-5 (recorded)
-  // google-classroom material-community (online)
-  // people material (inperson)
-
   let iconName = null;
   let iconFamily = null;
 
