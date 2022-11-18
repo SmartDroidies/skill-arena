@@ -4,6 +4,7 @@ import {
   CourseAuthor,
   CourseImage,
   CourseTitle,
+  CourseView,
   FlexView,
   FlexWrap,
 } from "../../../../style";

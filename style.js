@@ -48,5 +48,5 @@ export const FlexView = styled.View`
 
 export const CourseView = styled.View`
   margin-top: 20px;
-  margin-left: 25px;
+  margin-left: 100px;
 `;
