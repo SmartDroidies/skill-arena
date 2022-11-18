@@ -26,7 +26,9 @@ const Course = ({ course, navigation }) => (
                 </CourseAuthor>
                 <Text>{course.price}</Text>
               </FlexView>
-              <CourseMode course={course} />
+              <CourseView>
+                <CourseMode course={course} />
+              </CourseView>
             </FlexView>
           </View>
         </Card>

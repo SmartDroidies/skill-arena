@@ -45,3 +45,8 @@ export const FlexView = styled.View`
   display: flex;
   flex-direction: ${(props) => props.direction || "row"};
 `;
+
+export const CourseView = styled.View`
+  margin-top: 20px;
+  margin-left: 25px;
+`;
