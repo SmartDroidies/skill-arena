@@ -32,6 +32,7 @@ export const HomeNavigator = ({ navigation }) => {
         options={{ title: Global.Constant.appName }}
       />
       <HomeStack.Screen
+        screenOptions={{ headerShown: true }}
         name="SearchBar"
         component={SearchBar}
         options={{

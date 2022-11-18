@@ -6,11 +6,7 @@ const SearchBar = ({ searchTerm }) => {
   return (
     <View style={styles.searchBar}>
       <FontAwesome5 name="search" color="black" style={styles.iconSearch} />
-      <TextInput
-        placeholder="Search"
-        style={styles.inputSearch}
-        value={searchTerm}
-      />
+      <TextInput placeholder="Search" />
     </View>
   );
 };
@@ -18,6 +14,7 @@ const SearchBar = ({ searchTerm }) => {
 const styles = StyleSheet.create({
   searchBar: {
     flexDirection: "row",
+    marginTop: 15,
   },
 });
 
