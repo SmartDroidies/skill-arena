@@ -20,7 +20,6 @@ const CourseMode = ({ course }) => {
     iconFamily = "material-community";
     break;
   }
-  console.log(" Course : ", course.mode);
   return <Icon name={iconName} type={iconFamily} />;
 };
 

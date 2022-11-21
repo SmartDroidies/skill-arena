@@ -47,6 +47,9 @@ export const FlexView = styled.View`
 `;
 
 export const CourseView = styled.View`
-  margin-top: 20px;
-  margin-left: 100px;
+  width: 60px;
+  position: absolute;
+  top: 10px;
+  left: 200px;
+  margin: auto;
 `;
