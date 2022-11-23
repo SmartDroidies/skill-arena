@@ -29,7 +29,7 @@ export const CourseImage = styled.Image`
 `;
 
 export const CourseTitle = styled.Text`
-  font-size: 20px;
+  font-size: 21px;
 `;
 
 export const CourseAuthor = styled.Text`

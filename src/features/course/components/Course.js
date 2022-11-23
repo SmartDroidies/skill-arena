@@ -17,9 +17,7 @@ const Course = ({ course, navigation }) => (
         <Card>
           <CourseImage source={require("../../../../assets/education.jpg")} />
           <View>
-            <CourseTitle>
-              <Text>{course.title}</Text>
-            </CourseTitle>
+            <CourseTitle>{course.title}</CourseTitle>
             <FlexView direction="row">
               <FlexView direction="column">
                 <CourseAuthor>
