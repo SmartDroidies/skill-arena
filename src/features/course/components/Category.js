@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   // eslint-disable-next-line react-native/no-color-literals
   avatarContainer: {
     alignSelf: "center",
-    backgroundColor: "#6733b9",
+    backgroundColor: "#0000ff",
   },
 });
 
