@@ -2,11 +2,10 @@ import React from "react";
 import { StyleSheet, ScrollView } from "react-native";
 import { Container } from "../../../../style";
 import CourseSection from "../components/CourseSection";
-import { API_URL } from "@env";
 import useHome from "../hooks/useHome";
 
 const Home = ({ navigation }) => {
-  const [homeContent] = useHome(API_URL);
+  const [homeContent] = useHome();
 
   return (
     <Container>

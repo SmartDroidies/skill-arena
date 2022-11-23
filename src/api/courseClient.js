@@ -1,7 +1,8 @@
 import axios from "axios";
+import { API_URL } from "@env";
 
 const courseClient = axios.create({
-  baseURL: "https://roj18241cb.execute-api.ap-south-1.amazonaws.com/Prod",
+  baseURL: API_URL,
 });
 
 export default courseClient;
