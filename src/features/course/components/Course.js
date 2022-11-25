@@ -4,8 +4,11 @@ import {
   CourseAuthor,
   CourseImage,
   CourseTitle,
+  CourseView,
+  FlexView,
   FlexWrap,
 } from "../../../../style";
+import CourseMode from "../../../components/CourseMode";
 
 const Course = ({ course, navigation }) => (
   <FlexWrap>
@@ -17,14 +20,16 @@ const Course = ({ course, navigation }) => (
       <Card>
         <CourseImage source={require("../../../../assets/education.jpg")} />
         <View>
-          <Text>{course.header}</Text>
-          <CourseTitle>
-            <Text>{course.title}</Text>
-          </CourseTitle>
-          <CourseAuthor>
-            <Text>{course.author}</Text>
-          </CourseAuthor>
-          <Text>{course.price}</Text>
+          <CourseTitle>{course.title}</CourseTitle>
+          <FlexView direction="row">
+            <FlexView direction="column">
+              <CourseAuthor>{course.author}</CourseAuthor>
+              <Text>{course.price}</Text>
+            </FlexView>
+            <CourseView>
+              <CourseMode course={course} />
+            </CourseView>
+          </FlexView>
         </View>
       </Card>
     </TouchableOpacity>
