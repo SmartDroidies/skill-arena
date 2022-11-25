@@ -11,29 +11,29 @@ import {
 import CourseMode from "../../../components/CourseMode";
 
 const Course = ({ course, navigation }) => (
-  <View>
-    <FlexWrap>
-      <TouchableOpacity onPress={() => navigation.navigate("CourseDetail")}>
-        <Card>
-          <CourseImage source={require("../../../../assets/education.jpg")} />
-          <View>
-            <CourseTitle>{course.title}</CourseTitle>
-            <FlexView direction="row">
-              <FlexView direction="column">
-                <CourseAuthor>
-                  <Text>{course.author}</Text>
-                </CourseAuthor>
-                <Text>{course.price}</Text>
-              </FlexView>
-              <CourseView>
-                <CourseMode course={course} />
-              </CourseView>
+  <FlexWrap>
+    <TouchableOpacity
+      onPress={() =>
+        navigation.navigate("CourseDetail", { id: course.course_id })
+      }
+    >
+      <Card>
+        <CourseImage source={require("../../../../assets/education.jpg")} />
+        <View>
+          <CourseTitle>{course.title}</CourseTitle>
+          <FlexView direction="row">
+            <FlexView direction="column">
+              <CourseAuthor>{course.author}</CourseAuthor>
+              <Text>{course.price}</Text>
             </FlexView>
-          </View>
-        </Card>
-      </TouchableOpacity>
-    </FlexWrap>
-  </View>
+            <CourseView>
+              <CourseMode course={course} />
+            </CourseView>
+          </FlexView>
+        </View>
+      </Card>
+    </TouchableOpacity>
+  </FlexWrap>
 );
 
 export default Course;
