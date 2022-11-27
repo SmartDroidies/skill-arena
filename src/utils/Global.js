@@ -1,5 +1,5 @@
 export default {
   Constant: {
-    appName: "Skill Playground",
+    appName: "Skill Hunt",
   },
 };
