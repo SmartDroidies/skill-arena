@@ -1,9 +1,8 @@
 import { React } from "react";
-import { Text, Card } from "@rneui/base";
+import { Text, Card, Icon } from "@rneui/themed";
 import useCourseDetail from "../hooks/useCourseDetail";
 import { View } from "react-native";
 import { CourseAuthor, CourseImage, CourseTitle } from "../../../../style";
-import { Icon } from "@rneui/themed";
 
 const CourseDetail = ({ route }) => {
   const [courseDetail] = useCourseDetail(route.params.id);
