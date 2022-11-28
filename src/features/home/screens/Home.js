@@ -5,7 +5,7 @@ import CourseSection from "../components/CourseSection";
 import useHome from "../hooks/useHome";
 
 const Home = ({ navigation }) => {
-  const [homeContent] = useHome([]);
+  const [homeContent] = useHome();
 
   return (
     <Container>

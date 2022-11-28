@@ -29,7 +29,7 @@ export const CourseImage = styled.Image`
 `;
 
 export const CourseTitle = styled.Text`
-  font-size: 20px;
+  font-size: 21px;
 `;
 
 export const CourseAuthor = styled.Text`
@@ -39,4 +39,17 @@ export const CourseAuthor = styled.Text`
 export const FlexWrap = styled.View`
   width: 300px;
   height: 300px;
+`;
+
+export const FlexView = styled.View`
+  display: flex;
+  flex-direction: ${(props) => props.direction || "row"};
+`;
+
+export const CourseView = styled.View`
+  width: 60px;
+  position: absolute;
+  top: 10px;
+  left: 200px;
+  margin: auto;
 `;
