@@ -11,6 +11,7 @@ const ListCategory = ({ navigation }) => {
   return (
     <Container>
       <FlatList
+        showsVerticalScrollIndicator={false}
         data={category}
         renderItem={({ item }) => (
           <Category content={item} navigation={navigation}></Category>
