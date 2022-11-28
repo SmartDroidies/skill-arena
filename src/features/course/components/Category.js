@@ -1,4 +1,4 @@
-import { TouchableOpacity, View, StyleSheet } from "react-native";
+import { TouchableOpacity, View, StyleSheet, Text } from "react-native";
 import { Avatar } from "@rneui/themed";
 import { CategoryTitle, CategoryContainer } from "../../../../style";
 const Category = ({ content, navigation }) => {
@@ -9,6 +9,7 @@ const Category = ({ content, navigation }) => {
           navigation.navigate("ListCourse", {
             code: content.code,
             title: content.title,
+            mode: content.mode,
           })
         }
       >
@@ -20,6 +21,7 @@ const Category = ({ content, navigation }) => {
             containerStyle={styles.avatarContainer}
           />
           <CategoryTitle h1>{content.title}</CategoryTitle>
+          <Text>{content.mode}</Text>
         </View>
       </TouchableOpacity>
     </CategoryContainer>
@@ -31,7 +33,7 @@ const styles = StyleSheet.create({
   // eslint-disable-next-line react-native/no-color-literals
   avatarContainer: {
     alignSelf: "center",
-    backgroundColor: "#6733b9",
+    backgroundColor: "#4169E1",
   },
 });
 
