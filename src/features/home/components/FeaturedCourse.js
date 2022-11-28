@@ -5,6 +5,7 @@ import {
   CourseImage,
   CourseTitle,
   CourseView,
+  FlexView,
   FlexWrap,
 } from "../../../../style";
 import CourseMode from "../../../components/CourseMode";
@@ -12,18 +13,24 @@ import CourseMode from "../../../components/CourseMode";
 const FeaturedCourse = ({ course, navigation }) => (
   <View>
     <FlexWrap>
-      <TouchableOpacity onPress={() => navigation.navigate("CourseDetail")}>
+      <TouchableOpacity
+        onPress={() =>
+          navigation.navigate("CourseDetail", { id: course.course_id })
+        }
+      >
         <Card>
           <CourseImage source={require("../../../../assets/education.jpg")} />
           <View>
-            <CourseTitle>
-              <Text>Home screen : {course.title}</Text>
-            </CourseTitle>
-            <CourseAuthor>{course.author}</CourseAuthor>
-            <Text>{course.price}</Text>
-            <CourseView>
-              <CourseMode course={course} />
-            </CourseView>
+            <CourseTitle>{course.title}</CourseTitle>
+            <FlexView direction="row">
+              <FlexView direction="column">
+                <CourseAuthor>{course.author}</CourseAuthor>
+                <Text>{course.price}</Text>
+              </FlexView>
+              <CourseView>
+                <CourseMode course={course} />
+              </CourseView>
+            </FlexView>
           </View>
         </Card>
       </TouchableOpacity>
