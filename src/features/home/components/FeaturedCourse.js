@@ -10,7 +10,11 @@ import {
 const FeaturedCourse = ({ course, navigation }) => (
   <View>
     <FlexWrap>
-      <TouchableOpacity onPress={() => navigation.navigate("CourseDetail")}>
+      <TouchableOpacity
+        onPress={() =>
+          navigation.navigate("CourseDetail", { id: course.course_id })
+        }
+      >
         <Card>
           <CourseImage source={require("../../../../assets/education.jpg")} />
           <View>
