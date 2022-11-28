@@ -1,4 +1,4 @@
-import { Icon } from "@rneui/base";
+import { Icon } from "@rneui/themed";
 
 // style={{ margin: 8 }}   //FIXME - Get this from styled component
 
