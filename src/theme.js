@@ -8,16 +8,12 @@ const darkTheme = {
 };
 
 const lightTheme = {
-  PRIMARY_COLOR: "#fff",
+  PRIMARY_COLOR: "#4169E1",
   SECONDARY_COLOR: "#73737d",
   TITLE_COLOR: "#000",
   BACKGROUND_COLOR: "#fff",
   BUTTON_COLOR: "#000",
   FONT_FAMILY: "Roboto-Regular",
 };
-
-// const themeRNE = createTheme({
-
-// });
 
 export { lightTheme, darkTheme };
