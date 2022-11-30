@@ -15,11 +15,7 @@ export const CourseNavigator = () => {
           title: Global.Constant.appName,
         }}
       />
-      <CourseStack.Screen
-        name="ListCourse"
-        component={ListCourse}
-        options={{ title: Global.Constant.appName }}
-      />
+      <CourseStack.Screen name="ListCourse" component={ListCourse} />
     </CourseStack.Navigator>
   );
 };

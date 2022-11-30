@@ -46,3 +46,16 @@ export const FlexWrap = styled.View`
   width: 300px;
   height: 300px;
 `;
+
+export const FlexView = styled.View`
+  display: flex;
+  flex-direction: ${(props) => props.direction || "row"};
+`;
+
+export const CourseView = styled.View`
+  width: 60px;
+  position: absolute;
+  top: 10px;
+  left: 200px;
+  margin: auto;
+`;

@@ -1,9 +1,9 @@
 import { createStackNavigator } from "@react-navigation/stack";
-import { Icon } from "@rneui/base";
+import { Icon } from "@rneui/themed";
 import Global from "../../../utils/Global";
-import CourseDetail from "../screens/CourseDetail";
 import Home from "../screens/Home";
 import { StyleSheet } from "react-native";
+import CourseDetail from "../../course/screens/CourseDetail";
 
 export const HomeStack = createStackNavigator();
 

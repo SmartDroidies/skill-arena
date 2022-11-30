@@ -1,6 +1,5 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import Schedule from "./src/features/schedule/screens/Schedule";
 import Profile from "./src/features/profile/screens/Profile";
 import { CourseNavigator } from "./src/features/course/components/CourseStack";
@@ -9,6 +8,7 @@ import Header from "./src/features/course/components/Header";
 import React from "react";
 import { lightTheme } from "./src/theme";
 import { ThemeProvider } from "styled-components";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 const Tab = createMaterialBottomTabNavigator();
 
