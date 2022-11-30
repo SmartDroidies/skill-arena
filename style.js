@@ -4,7 +4,6 @@ import Constants from "expo-constants";
 export const Container = styled.SafeAreaView`
   background-color: ${(props) => props.theme.BACKGROUND_COLOR};
   padding-top: ${Constants.statusBarHeight + "px"};
-  align-items: center;
   justify-content: center;
   flex: 1;
 `;
