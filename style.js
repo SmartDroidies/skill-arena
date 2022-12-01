@@ -15,6 +15,11 @@ export const CategoryContainer = styled.View`
   margin-bottom: 24px;
 `;
 
+export const AvatarContainer = styled.View`
+  align-self: center;
+  background-color: blue;
+`;
+
 export const CategoryTitle = styled.Text`
   text-align: center;
   font-size: 20px;
