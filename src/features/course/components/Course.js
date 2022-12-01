@@ -9,6 +9,7 @@ import {
   FlexWrap,
 } from "../../../../style";
 import CourseMode from "../../../components/CourseMode";
+import CourseFrequency from "../../../components/Coursefrequency";
 
 const Course = ({ course, navigation }) => (
   <FlexWrap>
@@ -29,6 +30,7 @@ const Course = ({ course, navigation }) => (
             <CourseView>
               <CourseMode course={course} />
             </CourseView>
+            <CourseFrequency>{course.frequency}</CourseFrequency>
           </FlexView>
         </View>
       </Card>
