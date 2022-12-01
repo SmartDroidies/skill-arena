@@ -4,7 +4,7 @@ import courseClient from "../api/courseClient";
 const CourseFrequency = () => {
   const [frequency, setfrequency] = useState([]);
 
-  const coursefrequency = () => {
+  const Frequency = () => {
     courseClient
       .get("/course", { params: { frequency } })
       .then((response) => {
@@ -16,9 +16,9 @@ const CourseFrequency = () => {
   };
 
   useEffect(() => {
-    coursefrequency();
+    Frequency();
   }, []);
 
-  return [coursefrequency];
+  return [Frequency];
 };
 export default CourseFrequency;
