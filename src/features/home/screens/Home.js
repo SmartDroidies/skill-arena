@@ -30,7 +30,6 @@ const Home = ({ navigation }) => {
 const styles = StyleSheet.create({
   scrollView: {
     marginHorizontal: 20,
-    marginVertical: 20,
   },
 });
 

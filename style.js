@@ -1,7 +1,10 @@
 import styled from "styled-components/native";
+import Constants from "expo-constants";
 
 export const Container = styled.SafeAreaView`
-  margin: 8px;
+  background-color: ${(props) => props.theme.BACKGROUND_COLOR};
+  padding-top: ${Constants.statusBarHeight + "px"};
+  justify-content: center;
   flex: 1;
 `;
 
@@ -29,7 +32,9 @@ export const CourseImage = styled.Image`
 `;
 
 export const CourseTitle = styled.Text`
-  font-size: 21px;
+  color: ${(props) => props.theme.TITLE_COLOR};
+  font-family: ${(props) => props.theme.FONT_FAMILY};
+  font-size: 18px;
 `;
 
 export const CourseAuthor = styled.Text`
