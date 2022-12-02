@@ -32,18 +32,24 @@ export const CourseSectionView = styled.View`
 `;
 
 export const CourseImage = styled.Image`
+  align-items: center;
   width: 240px;
-  height: 100px;
+  height: 150px;
 `;
 
 export const CourseTitle = styled.Text`
   color: ${(props) => props.theme.TITLE_COLOR};
-  font-family: ${(props) => props.theme.FONT_FAMILY};
-  font-size: 18px;
+  // font-family: ${(props) => props.theme.FONT_FAMILY};
+  // font-size: 18px;
 `;
 
 export const CourseAuthor = styled.Text`
   font-size: 16px;
+`;
+
+export const CourseDesc = styled.Text`
+  font-size: 14px;
+  left: 30px;
 `;
 
 export const FlexWrap = styled.View`
@@ -58,8 +64,8 @@ export const FlexView = styled.View`
 
 export const CourseView = styled.View`
   width: 60px;
-  position: absolute;
+  // position: absolute;
   top: 10px;
-  left: 200px;
+  left: 60px;
   margin: auto;
 `;

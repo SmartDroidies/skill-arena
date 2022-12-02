@@ -19,7 +19,11 @@ const FeaturedCourse = ({ course, navigation }) => (
         }
       >
         <Card>
-          <CourseImage source={require("../../../../assets/education.jpg")} />
+          <CourseImage
+            source={{
+              uri: "https://skill-hunt.s3.ap-south-1.amazonaws.com/github.png",
+            }}
+          />
           <View>
             <CourseTitle>{course.title}</CourseTitle>
             <FlexView direction="row">
