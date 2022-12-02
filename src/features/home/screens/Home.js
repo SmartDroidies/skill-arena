@@ -1,7 +1,15 @@
 import { Icon } from "@rneui/base";
 import { SearchBar } from "@rneui/themed";
 import React, { useState } from "react";
-import { StyleSheet, ScrollView } from "react-native";
+import {
+  View,
+  StyleSheet,
+  ScrollView,
+  Modal,
+  SafeAreaView,
+  Button,
+  Text,
+} from "react-native";
 import { Container } from "../../../../style";
 import courseClient from "../../../api/courseClient";
 import CourseSection from "../components/CourseSection";
@@ -10,6 +18,7 @@ import useHome from "../hooks/useHome";
 const Home = ({ navigation }) => {
   const [homeContent] = useHome();
   const [search, setSearch] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
   const searchCourses = (text) => {
     // Check if searched text is not blank
@@ -70,6 +79,7 @@ const Home = ({ navigation }) => {
         onChangeText={(text) => searchCourses(text)}
         onClear={(text) => searchCourses("")}
       ></SearchBar>
+
       <ScrollView
         style={styles.scrollView}
         showsVerticalScrollIndicator={false}
@@ -79,8 +89,37 @@ const Home = ({ navigation }) => {
             content={courseSec}
             key={courseSec.key}
             navigation={navigation}
-          ></CourseSection>
+          />
         ))}
+        <SafeAreaView>
+          <View style={styles.container}>
+            <Modal
+              animationType={"slide"}
+              transparent={false}
+              visible={showModal}
+              onRequestClose={() => {
+                console.log("Modal has been closed.");
+              }}
+            >
+              <View style={styles.modal}>
+                <Text style={styles.text}>Modal is open!</Text>
+                <Button
+                  title="Click To Close Modal"
+                  onPress={() => {
+                    setShowModal(!showModal);
+                  }}
+                />
+              </View>
+            </Modal>
+
+            <Button
+              title="Click To Open Modal"
+              onPress={() => {
+                setShowModal(!showModal);
+              }}
+            />
+          </View>
+        </SafeAreaView>
       </ScrollView>
     </Container>
   );
@@ -93,6 +132,20 @@ const styles = StyleSheet.create({
   // FIXME -  Move this to styled components
   icon: {
     marginRight: 20,
+  },
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    // marginTop: 30,
+  },
+  modal: {
+    flex: 1,
+    alignItems: "center",
+    padding: 20,
+  },
+  text: {
+    marginTop: 10,
   },
 });
 
