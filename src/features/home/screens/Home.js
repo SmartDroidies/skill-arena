@@ -1,15 +1,7 @@
 import { Icon } from "@rneui/base";
-import { SearchBar } from "@rneui/themed";
+import { ListItem, SearchBar } from "@rneui/themed";
 import React, { useState } from "react";
-import {
-  View,
-  StyleSheet,
-  ScrollView,
-  Modal,
-  SafeAreaView,
-  Button,
-  Text,
-} from "react-native";
+import { StyleSheet, ScrollView } from "react-native";
 import { Container } from "../../../../style";
 import courseClient from "../../../api/courseClient";
 import CourseSection from "../components/CourseSection";
@@ -18,7 +10,8 @@ import useHome from "../hooks/useHome";
 const Home = ({ navigation }) => {
   const [homeContent] = useHome();
   const [search, setSearch] = useState("");
-  const [showModal, setShowModal] = useState(false);
+  const [searchResults, setSearchResults] = useState("");
+  const [showResults, setShowResults] = useState(false);
 
   const searchCourses = (text) => {
     // Check if searched text is not blank
@@ -42,6 +35,7 @@ const Home = ({ navigation }) => {
       // Inserted text is blank
       // Update FilteredDataSource with masterDataSource
       // setFilteredDataSource(masterDataSource);
+      setShowResults(false);
       setSearch(text);
     }
   };
@@ -51,6 +45,8 @@ const Home = ({ navigation }) => {
       .post("/search", { term: searchTerm })
       .then((response) => {
         console.log(response.data);
+        setSearchResults(response.data);
+        setShowResults(true);
       })
       .catch((error) => {
         console.log("Error :", error);
@@ -71,15 +67,26 @@ const Home = ({ navigation }) => {
     });
   }, [navigation]);
 
-  return (
-    <Container>
-      <SearchBar
-        placeholder="Type Here..."
-        value={search}
-        onChangeText={(text) => searchCourses(text)}
-        onClear={(text) => searchCourses("")}
-      ></SearchBar>
+  const displaySearchResults = () => {
+    return (
+      <ScrollView
+        style={styles.scrollView}
+        showsVerticalScrollIndicator={false}
+      >
+        {searchResults.map((l, i) => (
+          <ListItem
+            key={i}
+            title={l.title}
+            subtitle={l.subtitle}
+            bottomDivider
+          />
+        ))}
+      </ScrollView>
+    );
+  };
 
+  const displayHomeContent = () => {
+    return (
       <ScrollView
         style={styles.scrollView}
         showsVerticalScrollIndicator={false}
@@ -91,36 +98,19 @@ const Home = ({ navigation }) => {
             navigation={navigation}
           />
         ))}
-        <SafeAreaView>
-          <View style={styles.container}>
-            <Modal
-              animationType={"slide"}
-              transparent={false}
-              visible={showModal}
-              onRequestClose={() => {
-                console.log("Modal has been closed.");
-              }}
-            >
-              <View style={styles.modal}>
-                <Text style={styles.text}>Modal is open!</Text>
-                <Button
-                  title="Click To Close Modal"
-                  onPress={() => {
-                    setShowModal(!showModal);
-                  }}
-                />
-              </View>
-            </Modal>
-
-            <Button
-              title="Click To Open Modal"
-              onPress={() => {
-                setShowModal(!showModal);
-              }}
-            />
-          </View>
-        </SafeAreaView>
       </ScrollView>
+    );
+  };
+
+  return (
+    <Container>
+      <SearchBar
+        placeholder="Type Here..."
+        value={search}
+        onChangeText={(text) => searchCourses(text)}
+        onClear={(text) => searchCourses("")}
+      ></SearchBar>
+      {showResults ? displaySearchResults() : displayHomeContent()}
     </Container>
   );
 };
@@ -132,20 +122,6 @@ const styles = StyleSheet.create({
   // FIXME -  Move this to styled components
   icon: {
     marginRight: 20,
-  },
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    // marginTop: 30,
-  },
-  modal: {
-    flex: 1,
-    alignItems: "center",
-    padding: 20,
-  },
-  text: {
-    marginTop: 10,
   },
 });
 
