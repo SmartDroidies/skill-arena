@@ -1,24 +1,8 @@
-import { useState, useEffect } from "react";
-import courseClient from "../api/courseClient";
+import { Text } from "@rneui/themed";
 
-const CourseFrequency = () => {
-  const [frequency, setfrequency] = useState([]);
-
-  const Frequency = () => {
-    courseClient
-      .get("/course", { params: { frequency } })
-      .then((response) => {
-        setfrequency(response.data);
-      })
-      .catch((error) => {
-        console.log("Error :", error);
-      });
-  };
-
-  useEffect(() => {
-    Frequency();
-  }, []);
-
-  return [Frequency];
+const CourseFrequency = ({ course }) => {
+  console.log(course);
+  return <Text>Course Frequency</Text>;
 };
+
 export default CourseFrequency;

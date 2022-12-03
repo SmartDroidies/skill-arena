@@ -1,7 +1,5 @@
 import { Icon } from "@rneui/themed";
 
-// style={{ margin: 8 }}   //FIXME - Get this from styled component
-
 const CourseMode = ({ course }) => {
   let iconName = null;
   let iconFamily = null;
