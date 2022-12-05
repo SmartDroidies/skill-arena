@@ -35,7 +35,7 @@ export const CourseTitle = styled.Text`
 export const CourseAuthor = styled.Text`
   font-size: 16px;
 `;
-export const CourseFrequency = styled.Text`
+export const FrequencyView = styled.View`
   font-size: 16px;
 `;
 

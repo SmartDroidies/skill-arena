@@ -7,9 +7,10 @@ import {
   CourseView,
   FlexView,
   FlexWrap,
+  FrequencyView,
 } from "../../../../style";
 import CourseMode from "../../../components/CourseMode";
-import CourseFrequency from "../../../components/CourseFrequency";
+import CourseFrequency from "../../../components/Coursefrequency";
 
 const Course = ({ course, navigation }) => (
   <FlexWrap>
@@ -25,7 +26,9 @@ const Course = ({ course, navigation }) => (
           <FlexView direction="row">
             <FlexView direction="column">
               <CourseAuthor>{course.author}</CourseAuthor>
-              <CourseFrequency course={course} />
+              <FrequencyView>
+                <CourseFrequency course={course} />
+              </FrequencyView>
               {/* <Text>{course.price}</Text> */}
             </FlexView>
             <CourseView>
