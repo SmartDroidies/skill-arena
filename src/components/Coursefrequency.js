@@ -14,7 +14,14 @@ const CourseFrequency = ({ course }) => {
     frequencyName = "recurring";
     break;
   }
-  return <Text>{frequencyName}</Text>;
+  switch (course.price) {
+  case "Free":
+  }
+  return (
+    <Text>
+      {frequencyName} {course.price}
+    </Text>
+  );
 };
 
 export default CourseFrequency;
