@@ -10,7 +10,7 @@ import {
   FrequencyView,
 } from "../../../../style";
 import CourseMode from "../../../components/CourseMode";
-import CourseFrequency from "../../../components/Coursefrequency";
+import CourseFrequency from "../../../components/CourseFrequency";
 
 const Course = ({ course, navigation }) => (
   <FlexWrap>
