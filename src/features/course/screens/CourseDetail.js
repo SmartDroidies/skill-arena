@@ -1,5 +1,5 @@
 import { React } from "react";
-import { Text, Card, Icon } from "@rneui/themed";
+import { Text, Card } from "@rneui/themed";
 import useCourseDetail from "../hooks/useCourseDetail";
 import { View } from "react-native";
 import {
@@ -23,23 +23,12 @@ const CourseDetail = ({ route }) => {
         <Text>
           {courseDetail.header} {courseDetail.Category}
         </Text>
-        <Text>{route.params.id} </Text>
-        <Text>
-          <CourseTitle>{courseDetail.title}</CourseTitle>
-        </Text>
-        <Text>
-          <CourseDesc>{courseDetail.desc}</CourseDesc>
-        </Text>
-        <Text>
-          <CourseAuthor>{courseDetail.author}</CourseAuthor>
-        </Text>
-        <Text>
-          <CourseView>
-            <CourseMode course={courseDetail} />
-          </CourseView>
-        </Text>
-        <Text>{courseDetail.dec} </Text>
-        <Icon name="share" size={30} />
+        <CourseTitle>{courseDetail.title}</CourseTitle>
+        <CourseDesc>{courseDetail.desc}</CourseDesc>
+        <CourseAuthor>{courseDetail.author}</CourseAuthor>
+        <CourseView>
+          <CourseMode course={courseDetail} />
+        </CourseView>
       </View>
     </Card>
   );

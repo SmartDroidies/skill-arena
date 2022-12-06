@@ -48,7 +48,6 @@ export const CourseAuthor = styled.Text`
 
 export const CourseDesc = styled.Text`
   font-size: 14px;
-  left: 30px;
 `;
 
 export const FlexWrap = styled.View`
