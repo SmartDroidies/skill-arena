@@ -39,8 +39,10 @@ export const CourseImage = styled.Image`
 
 export const CourseTitle = styled.Text`
   color: ${(props) => props.theme.TITLE_COLOR};
-  // font-family: ${(props) => props.theme.FONT_FAMILY};
-  // font-size: 18px;
+  ${
+  "" /* // font-family: ${(props) => props.theme.FONT_FAMILY};
+  // font-size: 18px; */
+}
 `;
 
 export const CourseAuthor = styled.Text`

@@ -9,6 +9,7 @@ import {
   FlexWrap,
 } from "../../../../style";
 import CourseMode from "../../../components/CourseMode";
+import { courseImage } from "../../../utils/ImageUtil";
 
 const FeaturedCourse = ({ course, navigation }) => (
   <View>
@@ -21,7 +22,7 @@ const FeaturedCourse = ({ course, navigation }) => (
         <Card>
           <CourseImage
             source={{
-              uri: "https://skill-hunt.s3.ap-south-1.amazonaws.com/github.png",
+              uri: courseImage(course.image),
             }}
           />
           <View>
