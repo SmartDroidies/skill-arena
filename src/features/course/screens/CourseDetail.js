@@ -10,6 +10,7 @@ import {
   CourseView,
 } from "../../../../style";
 import CourseMode from "../../../components/CourseMode";
+import { courseImage } from "../../../utils/ImageUtil";
 
 const CourseDetail = ({ route }) => {
   const [courseDetail] = useCourseDetail(route.params.id);
@@ -18,7 +19,11 @@ const CourseDetail = ({ route }) => {
 
   return (
     <Card>
-      <CourseImage source={require("../../../../assets/education.jpg")} />
+      <CourseImage
+        source={{
+          uri: courseImage(courseDetail.image),
+        }}
+      />
       <View>
         <Text>
           {courseDetail.header} {courseDetail.Category}

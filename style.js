@@ -39,7 +39,7 @@ export const CourseImage = styled.Image`
 
 export const CourseTitle = styled.Text`
   color: ${(props) => props.theme.TITLE_COLOR};
-  font-size: 18px;
+  font-size: 14px;
 `;
 
 export const CourseAuthor = styled.Text`
@@ -61,9 +61,9 @@ export const FlexView = styled.View`
 `;
 
 export const CourseView = styled.View`
-  width: 60px;
-  // position: absolute;
+  width: 70px;
   top: 10px;
+  display: flex;
   left: 60px;
-  margin: auto;
+  // margin: auto;
 `;
