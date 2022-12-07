@@ -15,26 +15,11 @@ const Home = ({ navigation }) => {
 
   const searchCourses = (text) => {
     // Check if searched text is not blank
-    if (text) {
-      // // Inserted text is not blank
-      // // Filter the masterDataSource
-      // // Update FilteredDataSource
-      // const newData = masterDataSource.filter(function (item) {
-      //   const itemData = item.title
-      //     ? item.title.toUpperCase()
-      //     : ''.toUpperCase();
-      //   const textData = text.toUpperCase();
-      //   return itemData.indexOf(textData) > -1;
-      // });
-      // setFilteredDataSource(newData);
+    if (text && text.length > 3) {
       // FIXME - Move this to its own hook or utility method
-      // FIXME - Don't search until the size is 3 characters long
       collectCoursesBySearchTerm(text);
       setSearch(text);
     } else {
-      // Inserted text is blank
-      // Update FilteredDataSource with masterDataSource
-      // setFilteredDataSource(masterDataSource);
       setShowResults(false);
       setSearch(text);
     }
@@ -73,13 +58,13 @@ const Home = ({ navigation }) => {
         style={styles.scrollView}
         showsVerticalScrollIndicator={false}
       >
-        {searchResults.map((l, i) => (
-          <ListItem
-            key={i}
-            title={l.title}
-            subtitle={l.subtitle}
-            bottomDivider
-          />
+        {searchResults.map((item, i) => (
+          <ListItem key={i} bottomDivider>
+            <ListItem.Content>
+              <ListItem.Title>{item.title}</ListItem.Title>
+              <ListItem.Subtitle>{item.author}</ListItem.Subtitle>
+            </ListItem.Content>
+          </ListItem>
         ))}
       </ScrollView>
     );
