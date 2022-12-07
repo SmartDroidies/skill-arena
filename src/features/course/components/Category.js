@@ -33,13 +33,4 @@ const Category = ({ content, navigation }) => {
   );
 };
 
-// const styles = StyleSheet.create({
-//   // FIXME - Have to get rid of this
-//   // eslint-disable-next-line react-native/no-color-literals
-//   avatarContainer: {
-//     alignSelf: "center",
-//     backgroundColor: "#4169E1",
-//   },
-// });
-
 export default Category;
