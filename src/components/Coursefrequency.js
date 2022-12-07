@@ -1,3 +1,4 @@
+import { Badge } from "@rneui/themed";
 import { Text } from "react-native";
 
 const CourseFrequency = ({ course }) => {
@@ -14,13 +15,14 @@ const CourseFrequency = ({ course }) => {
     frequencyName = "recurring";
     break;
   }
-  switch (course.price) {
-  case "Free":
-  }
+
+  const displayPrice = ({ course }) => <Badge value={course.price}></Badge>;
+
   return (
-    <Text>
-      {frequencyName} {course.price}
-    </Text>
+    <View>
+      <Text> {frequencyName} </Text>
+      {displayPrice(course)}
+    </View>
   );
 };
 
