@@ -1,5 +1,5 @@
 import { Badge } from "@rneui/themed";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
 
 const CourseFrequency = ({ course }) => {
   console.log(course);
@@ -16,12 +16,17 @@ const CourseFrequency = ({ course }) => {
     break;
   }
 
-  const displayPrice = ({ course }) => <Badge value={course.price}></Badge>;
-
+  const displayPrice = ({ course }) => (
+    <Badge value course={course.price}></Badge>
+  );
   return (
     <View>
+      {/* <PricingCard
+        title = { course.price}
+      /> */}
+
       <Text> {frequencyName} </Text>
-      {displayPrice(course)}
+      {displayPrice(course.price)}
     </View>
   );
 };
