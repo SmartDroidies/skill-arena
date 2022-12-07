@@ -9,6 +9,7 @@ import {
   FlexWrap,
 } from "../../../../style";
 import CourseMode from "../../../components/CourseMode";
+import { courseImage } from "../../../utils/ImageUtil";
 
 const FeaturedCourse = ({ course, navigation }) => (
   <View>
@@ -19,7 +20,11 @@ const FeaturedCourse = ({ course, navigation }) => (
         }
       >
         <Card>
-          <CourseImage source={require("../../../../assets/education.jpg")} />
+          <CourseImage
+            source={{
+              uri: courseImage(course.image),
+            }}
+          />
           <View>
             <CourseTitle>{course.title}</CourseTitle>
             <FlexView direction="row">
