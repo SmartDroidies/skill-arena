@@ -4,11 +4,8 @@ import {
   CourseAuthor,
   CourseImage,
   CourseTitle,
-  CourseView,
-  FlexView,
   FlexWrap,
 } from "../../../../style";
-import CourseMode from "../../../components/CourseMode";
 import { courseImage } from "../../../utils/ImageUtil";
 
 const FeaturedCourse = ({ course, navigation }) => (
@@ -26,16 +23,13 @@ const FeaturedCourse = ({ course, navigation }) => (
             }}
           />
           <View>
-            <CourseTitle>{course.title}</CourseTitle>
-            <FlexView direction="row">
-              <FlexView direction="column">
-                <CourseAuthor>{course.author}</CourseAuthor>
-                <Text>{course.price}</Text>
-              </FlexView>
-              <CourseView>
-                <CourseMode course={course} />
-              </CourseView>
-            </FlexView>
+            <CourseTitle>
+              <Text>Home screen : {course.title}</Text>
+            </CourseTitle>
+            <CourseAuthor>
+              <Text>{course.author}</Text>
+            </CourseAuthor>
+            <Text>{course.price}</Text>
           </View>
         </Card>
       </TouchableOpacity>

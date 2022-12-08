@@ -8,7 +8,7 @@ import Header from "./src/features/course/components/Header";
 import React from "react";
 import { lightTheme } from "./src/theme";
 import { ThemeProvider } from "styled-components";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import { Icon } from "@rneui/themed";
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -23,7 +23,7 @@ export default function App() {
             options={{
               tabBarLabel: "Home",
               tabBarIcon: ({ color }) => (
-                <MaterialCommunityIcons name="home" color={color} size={26} />
+                <Icon name="home" color={color} size={26} />
               ),
             }}
           />
@@ -34,11 +34,7 @@ export default function App() {
               headerTitle: () => <Header />,
               tabBarLabel: "Courses",
               tabBarIcon: ({ color }) => (
-                <MaterialCommunityIcons
-                  name="google-classroom"
-                  color={color}
-                  size={26}
-                />
+                <Icon name="book-open" color={color} type="feather" size={26} />
               ),
             }}
           />
@@ -48,8 +44,9 @@ export default function App() {
             options={{
               tabBarLabel: "Schedule",
               tabBarIcon: ({ color }) => (
-                <MaterialCommunityIcons
-                  name="calendar"
+                <Icon
+                  name="calendar-month-outline"
+                  type="material-community"
                   color={color}
                   size={26}
                 />
@@ -62,8 +59,9 @@ export default function App() {
             options={{
               tabBarLabel: "Account",
               tabBarIcon: ({ color }) => (
-                <MaterialCommunityIcons
+                <Icon
                   name="account"
+                  type="material-community"
                   color={color}
                   size={26}
                 />
