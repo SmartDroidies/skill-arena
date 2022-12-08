@@ -4,8 +4,11 @@ import {
   CourseAuthor,
   CourseImage,
   CourseTitle,
+  CourseView,
+  FlexView,
   FlexWrap,
 } from "../../../../style";
+import CourseMode from "../../../components/CourseMode";
 import { courseImage } from "../../../utils/ImageUtil";
 
 const Course = ({ course, navigation }) => (
