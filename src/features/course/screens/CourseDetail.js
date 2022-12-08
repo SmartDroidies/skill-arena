@@ -1,8 +1,16 @@
 import { React } from "react";
-import { Text, Card, Icon } from "@rneui/themed";
+import { Text, Card } from "@rneui/themed";
 import useCourseDetail from "../hooks/useCourseDetail";
 import { View } from "react-native";
-import { CourseAuthor, CourseImage, CourseTitle } from "../../../../style";
+import {
+  CourseAuthor,
+  CourseDesc,
+  CourseImage,
+  CourseTitle,
+  CourseView,
+} from "../../../../style";
+import CourseMode from "../../../components/CourseMode";
+import { courseImage } from "../../../utils/ImageUtil";
 
 const CourseDetail = ({ route }) => {
   const [courseDetail] = useCourseDetail(route.params.id);
@@ -11,20 +19,21 @@ const CourseDetail = ({ route }) => {
 
   return (
     <Card>
-      <CourseImage source={require("../../../../assets/education.jpg")} />
+      <CourseImage
+        source={{
+          uri: courseImage(courseDetail.image),
+        }}
+      />
       <View>
         <Text>
           {courseDetail.header} {courseDetail.Category}
         </Text>
-        <Text>{route.params.id} </Text>
-        <Text>
-          <CourseTitle>{courseDetail.title}</CourseTitle>
-        </Text>
-        <Text>
-          <CourseAuthor>{courseDetail.author}</CourseAuthor>
-        </Text>
-        <Text>{courseDetail.dec} </Text>
-        <Icon name="share" size={30} />
+        <CourseTitle>{courseDetail.title}</CourseTitle>
+        <CourseDesc>{courseDetail.desc}</CourseDesc>
+        <CourseAuthor>{courseDetail.author}</CourseAuthor>
+        <CourseView>
+          <CourseMode course={courseDetail} />
+        </CourseView>
       </View>
     </Card>
   );

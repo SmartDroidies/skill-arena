@@ -6,6 +6,7 @@ import {
   CourseTitle,
   FlexWrap,
 } from "../../../../style";
+import { courseImage } from "../../../utils/ImageUtil";
 
 const FeaturedCourse = ({ course, navigation }) => (
   <View>
@@ -16,7 +17,11 @@ const FeaturedCourse = ({ course, navigation }) => (
         }
       >
         <Card>
-          <CourseImage source={require("../../../../assets/education.jpg")} />
+          <CourseImage
+            source={{
+              uri: courseImage(course.image),
+            }}
+          />
           <View>
             <CourseTitle>
               <Text>Home screen : {course.title}</Text>

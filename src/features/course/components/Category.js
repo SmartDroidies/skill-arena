@@ -1,6 +1,10 @@
-import { TouchableOpacity, View, StyleSheet, Text } from "react-native";
+import { TouchableOpacity, View, Text } from "react-native";
 import { Avatar } from "@rneui/themed";
-import { CategoryTitle, CategoryContainer } from "../../../../style";
+import {
+  CategoryTitle,
+  CategoryContainer,
+  AvatarContainer,
+} from "../../../../style";
 const Category = ({ content, navigation }) => {
   return (
     <CategoryContainer>
@@ -14,12 +18,13 @@ const Category = ({ content, navigation }) => {
         }
       >
         <View>
-          <Avatar
-            size="large"
-            rounded
-            icon={{ name: content.icon_name, type: content.icon_family }}
-            containerStyle={styles.avatarContainer}
-          />
+          <AvatarContainer>
+            <Avatar
+              size="large"
+              rounded
+              icon={{ name: content.icon_name, type: content.icon_family }}
+            />
+          </AvatarContainer>
           <CategoryTitle h1>{content.title}</CategoryTitle>
           <Text>{content.mode}</Text>
         </View>
@@ -27,14 +32,5 @@ const Category = ({ content, navigation }) => {
     </CategoryContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  // FIXME - Have to get rid of this
-  // eslint-disable-next-line react-native/no-color-literals
-  avatarContainer: {
-    alignSelf: "center",
-    backgroundColor: "#4169E1",
-  },
-});
 
 export default Category;
