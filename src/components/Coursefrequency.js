@@ -16,17 +16,14 @@ const CourseFrequency = ({ course }) => {
     break;
   }
 
-  const displayPrice = ({ course }) => (
-    <Badge value course={course.price}></Badge>
-  );
+  const getPrice = ({ course }) => {
+    return "20 Rs";
+  };
+
   return (
     <View>
-      {/* <PricingCard
-        title = { course.price}
-      /> */}
-
       <Text> {frequencyName} </Text>
-      {displayPrice(course.price)}
+      <Badge value={getPrice(course)} />
     </View>
   );
 };
