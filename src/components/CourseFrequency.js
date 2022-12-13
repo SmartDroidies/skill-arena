@@ -25,6 +25,13 @@ const CourseFrequency = ({ course }) => {
         price = course.price;
       }
     }
+    if (course.price) {
+      if (course.price === "200") {
+        price = "Rs 200";
+      } else {
+        price = course.price;
+      }
+    }
     return price;
   };
 
