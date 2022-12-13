@@ -1,11 +1,13 @@
 import { Icon } from "@rneui/base";
-import { ListItem, SearchBar } from "@rneui/themed";
+import { ListItem } from "@rneui/themed";
 import React, { useState } from "react";
-import { StyleSheet, ScrollView } from "react-native";
+import { StyleSheet, ScrollView, TouchableOpacity } from "react-native";
 import { Container } from "../../../../style";
 import courseClient from "../../../api/courseClient";
 import CourseSection from "../components/CourseSection";
 import useHome from "../hooks/useHome";
+import SearchBar from "../../searchbar/SearchBar";
+
 
 const Home = ({ navigation }) => {
   const [homeContent] = useHome();
@@ -43,11 +45,13 @@ const Home = ({ navigation }) => {
     // Now the button includes an `onPress` handler to update the count
     navigation.setOptions({
       headerRight: () => (
-        <Icon
-          name="search"
-          style={styles.icon}
-          onPress={() => navigation.navigate("SearchBar")}
-        />
+        <TouchableOpacity>
+          <Icon
+            name="search"
+            style={styles.icon}
+            onPress={() => navigation.navigate("SearchBar")}
+          />
+        </TouchableOpacity>
       ),
     });
   }, [navigation]);
@@ -89,12 +93,7 @@ const Home = ({ navigation }) => {
 
   return (
     <Container>
-      <SearchBar
-        placeholder="Type Here..."
-        value={search}
-        onChangeText={(text) => searchCourses(text)}
-        onClear={(text) => searchCourses("")}
-      ></SearchBar>
+
       {showResults ? displaySearchResults() : displayHomeContent()}
     </Container>
   );

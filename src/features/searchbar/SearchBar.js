@@ -22,10 +22,11 @@ const SearchBar = () => {
   }, []);
 
   return (
-    <View style={styles.searchBar}>
-      <FontAwesome5 name="search" color="black" style={styles.iconSearch} />
-      <TextInput placeholder="Search" value={searchTerm} />
-    </View>
+    <SearchBar
+      placeholder="Type Here..."
+      onChangeText={(text) => searchCourses(text)}
+      onClear={(text) => searchCourses("")}
+    ></SearchBar>
   );
 };
 
