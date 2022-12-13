@@ -2,7 +2,7 @@ import { Badge } from "@rneui/themed";
 import { Text, View } from "react-native";
 
 const CourseFrequency = ({ course }) => {
-  console.log(course);
+  // console.log(course);
   let frequencyName = null;
   switch (course.frequency) {
   case "single":
@@ -16,19 +16,16 @@ const CourseFrequency = ({ course }) => {
     break;
   }
 
-  const getPrice = ({ course }) => {
-    return (
-      <View>
-        <Text>{course.price}</Text>
-        {/* <FlatList
-          data={course}
-          renderItem={({ item }) => (
-            <Text>{item.price}</Text>
-          )}
-          keyExtractor={(item) => item.price}SS
-        /> */}
-      </View>
-    );
+  const getPrice = (course) => {
+    let price = "";
+    if (course.price) {
+      if (course.price === "Free") {
+        price = "Free";
+      } else {
+        price = course.price;
+      }
+    }
+    return price;
   };
 
   return (
