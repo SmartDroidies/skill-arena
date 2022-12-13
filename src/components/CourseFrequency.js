@@ -17,7 +17,18 @@ const CourseFrequency = ({ course }) => {
   }
 
   const getPrice = ({ course }) => {
-    return "20 Rs";
+    return (
+      <View>
+        <Text>{course.price}</Text>
+        {/* <FlatList
+          data={course}
+          renderItem={({ item }) => (
+            <Text>{item.price}</Text>
+          )}
+          keyExtractor={(item) => item.price}SS
+        /> */}
+      </View>
+    );
   };
 
   return (
