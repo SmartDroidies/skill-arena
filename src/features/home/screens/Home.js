@@ -1,15 +1,24 @@
 import { Icon } from "@rneui/base";
-import { ListItem, SearchBar } from "@rneui/themed";
+import { ListItem, SearchBar, Card, Text } from "@rneui/themed";
 import React, { useState } from "react";
-import { StyleSheet, ScrollView, TouchableOpacity } from "react-native";
-import { Container } from "../../../../style";
+import { StyleSheet, ScrollView, View, TouchableOpacity } from "react-native";
+import {
+  Container,
+  CourseAuthor,
+  CourseImage,
+  CourseTitle,
+  CourseView,
+  FlexView,
+  FlexWrap,
+} from "../../../../style";
 import courseClient from "../../../api/courseClient";
+import CourseMode from "../../../components/CourseMode";
 import CourseSection from "../components/CourseSection";
 import useHome from "../hooks/useHome";
+import { courseImage } from "../../../utils/ImageUtil";
 
 const Home = ({ navigation }) => {
   const [homeContent] = useHome();
-  const [showSearchBar, setShowSearchBar] = useState(false);
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState("");
   const [showResults, setShowResults] = useState(false);
@@ -39,45 +48,19 @@ const Home = ({ navigation }) => {
       });
   };
 
-  const swapSearchBarDisplay = () => {
-    console.log("SearchBar flag before swap {}", showSearchBar);
-    if (showSearchBar) {
-      setShowSearchBar(false);
-    } else {
-      setShowSearchBar(true);
-    }
-  };
-
   React.useEffect(() => {
     // Use `setOptions` to update the button that we previously specified
     // Now the button includes an `onPress` handler to update the count
     navigation.setOptions({
       headerRight: () => (
-        <TouchableOpacity>
-          <Icon
-            name="search"
-            style={styles.icon}
-            onPress={() => swapSearchBarDisplay()}
-          />
-        </TouchableOpacity>
+        <Icon
+          name="search"
+          style={styles.icon}
+          onPress={() => navigation.navigate("SearchBar")}
+        />
       ),
     });
   }, [navigation]);
-
-  const renderSearchBar = (showSearchBarFlag) => {
-    if (showSearchBarFlag) {
-      return (
-        <SearchBar
-          placeholder="Type Here..."
-          onChangeText={(text) => searchCourses(text)}
-          onClear={(text) => searchCourses("")}
-          value={search}
-        ></SearchBar>
-      );
-    } else {
-      return <></>;
-    }
-  };
 
   const displaySearchResults = () => {
     return (
@@ -85,12 +68,39 @@ const Home = ({ navigation }) => {
         style={styles.scrollView}
         showsVerticalScrollIndicator={false}
       >
-        {searchResults.map((item, i) => (
+        {searchResults.map((course, i) => (
           <ListItem key={i} bottomDivider>
-            <ListItem.Content>
+            <FlexWrap>
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate("CourseDetail", { id: course.course_id })
+                }
+              >
+                <Card>
+                  <CourseImage
+                    source={{
+                      uri: courseImage(course.image),
+                    }}
+                  />
+                  <View>
+                    <CourseTitle>{course.title}</CourseTitle>
+                    <FlexView direction="row">
+                      <FlexView direction="column">
+                        <CourseAuthor>{course.author}</CourseAuthor>
+                        <Text>{course.price}</Text>
+                      </FlexView>
+                      <CourseView>
+                        <CourseMode course={course} />
+                      </CourseView>
+                    </FlexView>
+                  </View>
+                </Card>
+                {/* <ListItem.Content>
               <ListItem.Title>{item.title}</ListItem.Title>
               <ListItem.Subtitle>{item.author}</ListItem.Subtitle>
-            </ListItem.Content>
+            </ListItem.Content> */}
+              </TouchableOpacity>
+            </FlexWrap>
           </ListItem>
         ))}
       </ScrollView>
@@ -116,7 +126,12 @@ const Home = ({ navigation }) => {
 
   return (
     <Container>
-      {renderSearchBar(showSearchBar)}
+      <SearchBar
+        placeholder="Type Here..."
+        value={search}
+        onChangeText={(text) => searchCourses(text)}
+        onClear={(text) => searchCourses("")}
+      ></SearchBar>
       {showResults ? displaySearchResults() : displayHomeContent()}
     </Container>
   );
