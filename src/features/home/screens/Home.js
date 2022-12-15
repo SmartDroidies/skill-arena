@@ -1,11 +1,21 @@
 import { Icon } from "@rneui/base";
-import { ListItem, SearchBar } from "@rneui/themed";
+import { Card, ListItem, SearchBar } from "@rneui/themed";
 import React, { useState } from "react";
-import { StyleSheet, ScrollView, TouchableOpacity } from "react-native";
-import { Container } from "../../../../style";
+import { StyleSheet, ScrollView, TouchableOpacity, View , Text } from "react-native";
+import {
+  Container,
+  CourseAuthor,
+  CourseImage,
+  CourseTitle,
+  CourseView,
+  FlexView,
+  FlexWrap,
+} from "../../../../style";
 import courseClient from "../../../api/courseClient";
+import { courseImage } from "../../../utils/ImageUtil";
 import CourseSection from "../components/CourseSection";
 import useHome from "../hooks/useHome";
+import CourseMode from "../../../components/CourseMode";
 
 const Home = ({ navigation }) => {
   const [homeContent] = useHome();
@@ -85,12 +95,39 @@ const Home = ({ navigation }) => {
         style={styles.scrollView}
         showsVerticalScrollIndicator={false}
       >
-        {searchResults.map((item, i) => (
+        {searchResults.map((course, i) => (
           <ListItem key={i} bottomDivider>
-            <ListItem.Content>
+            <FlexWrap>
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate("CourseDetail", { id: course.course_id })
+                }
+              >
+                <Card>
+                  <CourseImage
+                    source={{
+                      uri: courseImage(course.image),
+                    }}
+                  />
+                  <View>
+                    <CourseTitle>{course.title}</CourseTitle>
+                    <FlexView direction="row">
+                      <FlexView direction="column">
+                        <CourseAuthor>{course.author}</CourseAuthor>
+                        <Text>{course.price}</Text>
+                      </FlexView>
+                      <CourseView>
+                        <CourseMode course={course} />
+                      </CourseView>
+                    </FlexView>
+                  </View>
+                </Card>
+                {/* <ListItem.Content>
               <ListItem.Title>{item.title}</ListItem.Title>
               <ListItem.Subtitle>{item.author}</ListItem.Subtitle>
-            </ListItem.Content>
+            </ListItem.Content> */}
+              </TouchableOpacity>
+            </FlexWrap>
           </ListItem>
         ))}
       </ScrollView>
