@@ -2,7 +2,6 @@ import { Badge } from "@rneui/themed";
 import { Text, View } from "react-native";
 
 const CourseFrequency = ({ course }) => {
-  // console.log(course);
   let frequencyName = null;
   switch (course.frequency) {
   case "single":
@@ -37,8 +36,10 @@ const CourseFrequency = ({ course }) => {
 
   return (
     <View>
-      <Text> {frequencyName} </Text>
-      <Badge value={getPrice(course)} />
+      <Text>
+        {frequencyName}
+        <Badge value={getPrice(course)} />
+      </Text>
     </View>
   );
 };
