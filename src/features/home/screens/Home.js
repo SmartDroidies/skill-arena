@@ -25,6 +25,7 @@ import CourseMode from "../../../components/CourseMode";
 
 const Home = ({ navigation }) => {
   const [homeContent] = useHome();
+  const [showSearchBar, setShowSearchBar] = useState(false);
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState("");
   const [showResults, setShowResults] = useState(false);
@@ -54,19 +55,45 @@ const Home = ({ navigation }) => {
       });
   };
 
+  const swapSearchBarDisplay = () => {
+    console.log("SearchBar flag before swap {}", showSearchBar);
+    if (showSearchBar) {
+      setShowSearchBar(false);
+    } else {
+      setShowSearchBar(true);
+    }
+  };
+
   React.useEffect(() => {
     // Use `setOptions` to update the button that we previously specified
     // Now the button includes an `onPress` handler to update the count
     navigation.setOptions({
       headerRight: () => (
-        <Icon
-          name="search"
-          style={styles.icon}
-          onPress={() => navigation.navigate("SearchBar")}
-        />
+        <TouchableOpacity>
+          <Icon
+            name="search"
+            style={styles.icon}
+            onPress={() => swapSearchBarDisplay()}
+          />
+        </TouchableOpacity>
       ),
     });
   }, [navigation]);
+
+  const renderSearchBar = (showSearchBarFlag) => {
+    if (showSearchBarFlag) {
+      return (
+        <SearchBar
+          placeholder="Type Here..."
+          onChangeText={(text) => searchCourses(text)}
+          onClear={(text) => searchCourses("")}
+          value={search}
+        ></SearchBar>
+      );
+    } else {
+      return <></>;
+    }
+  };
 
   const displaySearchResults = () => {
     return (
@@ -128,12 +155,7 @@ const Home = ({ navigation }) => {
 
   return (
     <Container>
-      <SearchBar
-        placeholder="Type Here..."
-        value={search}
-        onChangeText={(text) => searchCourses(text)}
-        onClear={(text) => searchCourses("")}
-      ></SearchBar>
+      {renderSearchBar(showSearchBar)}
       {showResults ? displaySearchResults() : displayHomeContent()}
     </Container>
   );
