@@ -1,7 +1,13 @@
 import { Icon } from "@rneui/base";
 import { Card, ListItem, SearchBar } from "@rneui/themed";
 import React, { useState } from "react";
-import { StyleSheet, ScrollView, TouchableOpacity, View , Text } from "react-native";
+import {
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+  View,
+  Text,
+} from "react-native";
 import {
   Container,
   CourseAuthor,
@@ -122,10 +128,6 @@ const Home = ({ navigation }) => {
                     </FlexView>
                   </View>
                 </Card>
-                {/* <ListItem.Content>
-              <ListItem.Title>{item.title}</ListItem.Title>
-              <ListItem.Subtitle>{item.author}</ListItem.Subtitle>
-            </ListItem.Content> */}
               </TouchableOpacity>
             </FlexWrap>
           </ListItem>
