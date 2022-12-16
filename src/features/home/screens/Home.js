@@ -56,7 +56,6 @@ const Home = ({ navigation }) => {
   };
 
   const swapSearchBarDisplay = () => {
-    console.log("SearchBar flag before swap {}", showSearchBar);
     if (showSearchBar) {
       setShowSearchBar(false);
     } else {
