@@ -47,7 +47,7 @@ export const CourseAuthor = styled.Text`
 `;
 
 export const CourseDesc = styled.Text`
-  font-size: 14px;
+  font-size: 18px;
 `;
 
 export const FlexWrap = styled.View`

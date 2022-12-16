@@ -5,8 +5,10 @@ import {
   CourseImage,
   CourseTitle,
   FlexWrap,
+  FlexView,
 } from "../../../../style";
 import { courseImage } from "../../../utils/ImageUtil";
+import CourseMode from "../../../components/CourseMode";
 
 const FeaturedCourse = ({ course, navigation }) => (
   <View>
@@ -23,13 +25,16 @@ const FeaturedCourse = ({ course, navigation }) => (
             }}
           />
           <View>
-            <CourseTitle>
-              <Text>Home screen : {course.title}</Text>
-            </CourseTitle>
-            <CourseAuthor>
-              <Text>{course.author}</Text>
-            </CourseAuthor>
-            <Text>{course.price}</Text>
+            <CourseTitle>{course.title}</CourseTitle>
+            <FlexView direction="row">
+              <FlexView direction="column">
+                <CourseAuthor>{course.author}</CourseAuthor>
+                <Text>{course.price}</Text>
+              </FlexView>
+              <FlexView>
+                <CourseMode course={course} />
+              </FlexView>
+            </FlexView>
           </View>
         </Card>
       </TouchableOpacity>

@@ -18,10 +18,10 @@ import {
   FlexWrap,
 } from "../../../../style";
 import courseClient from "../../../api/courseClient";
+import CourseMode from "../../../components/CourseMode";
 import { courseImage } from "../../../utils/ImageUtil";
 import CourseSection from "../components/CourseSection";
 import useHome from "../hooks/useHome";
-import CourseMode from "../../../components/CourseMode";
 
 const Home = ({ navigation }) => {
   const [homeContent] = useHome();
