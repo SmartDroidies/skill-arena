@@ -9,7 +9,6 @@ import {
   Text,
 } from "react-native";
 import {
-  Container,
   CourseAuthor,
   CourseImage,
   CourseTitle,
@@ -153,10 +152,10 @@ const Home = ({ navigation }) => {
   };
 
   return (
-    <Container>
+    <View>
       {renderSearchBar(showSearchBar)}
       {showResults ? displaySearchResults() : displayHomeContent()}
-    </Container>
+    </View>
   );
 };
 
