@@ -11,7 +11,7 @@ import {
 
 const baseUrl = "https://reqres.in";
 
-export default function App() {
+export default function Profile() {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);

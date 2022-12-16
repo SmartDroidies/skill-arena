@@ -1,7 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import Schedule from "./src/features/schedule/screens/Schedule";
-import Profile from "./src/features/profile/screens/Profile";
 import { CourseNavigator } from "./src/features/course/components/CourseStack";
 import { HomeNavigator } from "./src/features/home/components/HomeStack";
 import Header from "./src/features/course/components/Header";
@@ -9,6 +8,7 @@ import React from "react";
 import { lightTheme } from "./src/theme";
 import { ThemeProvider } from "styled-components";
 import { Icon } from "@rneui/themed";
+import SignIn from "./src/features/security/screens/SignIn";
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -55,7 +55,7 @@ export default function App() {
           />
           <Tab.Screen
             name="Profile"
-            component={Profile}
+            component={SignIn}
             options={{
               tabBarLabel: "Account",
               tabBarIcon: ({ color }) => (
