@@ -14,6 +14,13 @@ export const HomeNavigator = ({ navigation }) => {
         component={Home}
         options={{
           title: Global.Constant.appName,
+          headerStyle: {
+            backgroundColor: "#1e90ff",
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
           // headerRight: () => (
           //   <Icon
           //     name="search"
