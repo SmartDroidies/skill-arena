@@ -86,7 +86,9 @@ const Home = ({ navigation }) => {
           onChangeText={(text) => searchCourses(text)}
           onClear={(text) => searchCourses("")}
           value={search}
-        ></SearchBar>
+          inputContainerStyle={styles.SearchBarView}
+        >
+        </SearchBar>
       );
     } else {
       return <></>;
@@ -166,6 +168,9 @@ const styles = StyleSheet.create({
   // FIXME -  Move this to styled components
   icon: {
     marginRight: 20,
+  },
+  SearchBarView: {
+    backgroundColor: "#fffaf0",
   },
 });
 
