@@ -34,11 +34,24 @@ const CourseFrequency = ({ course }) => {
     return price;
   };
 
+  // const Badgevalue = (course) => {
+  //   let price = "";
+  //   if (course.price) {
+  //     if (course.price === "Free") {
+  //       price = Badgevalue;
+  //     } else {
+  //       price = null;
+  //     }
+  //   }
+  //   return price;
+  // }
+
   return (
     <View>
       <Text>
         {frequencyName}
         <Badge value={getPrice(course)} />
+        <Badgevalue />
       </Text>
     </View>
   );
