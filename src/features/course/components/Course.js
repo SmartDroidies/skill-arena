@@ -1,5 +1,5 @@
 import { View, TouchableOpacity } from "react-native";
-import { Text, Card } from "@rneui/themed";
+import { Card } from "@rneui/themed";
 import {
   CourseAuthor,
   CourseImage,
@@ -7,8 +7,10 @@ import {
   CourseView,
   FlexView,
   FlexWrap,
+  FrequencyView,
 } from "../../../../style";
 import CourseMode from "../../../components/CourseMode";
+import CourseFrequency from "../../../components/CourseFrequency";
 import { courseImage } from "../../../utils/ImageUtil";
 
 const Course = ({ course, navigation }) => (
@@ -29,7 +31,10 @@ const Course = ({ course, navigation }) => (
           <FlexView direction="row">
             <FlexView direction="column">
               <CourseAuthor>{course.author}</CourseAuthor>
-              <Text>{course.price}</Text>
+              <FrequencyView>
+                <CourseFrequency course={course} />
+              </FrequencyView>
+              {/* <Text>{course.price}</Text> */}
             </FlexView>
             <CourseView>
               <CourseMode course={course} />
