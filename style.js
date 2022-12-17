@@ -15,6 +15,11 @@ export const CategoryContainer = styled.View`
   margin-bottom: 24px;
 `;
 
+export const AvatarContainer = styled.View`
+  align-self: center;
+  background-color: blue;
+`;
+
 export const CategoryTitle = styled.Text`
   text-align: center;
   font-size: 20px;
@@ -27,14 +32,14 @@ export const CourseSectionView = styled.View`
 `;
 
 export const CourseImage = styled.Image`
+  align-items: center;
   width: 240px;
-  height: 100px;
+  height: 150px;
 `;
 
 export const CourseTitle = styled.Text`
   color: ${(props) => props.theme.TITLE_COLOR};
-  font-family: ${(props) => props.theme.FONT_FAMILY};
-  font-size: 18px;
+  font-size: 14px;
 `;
 
 export const CourseAuthor = styled.Text`
@@ -42,6 +47,10 @@ export const CourseAuthor = styled.Text`
 `;
 export const FrequencyView = styled.View`
   font-size: 16px;
+`;
+
+export const CourseDesc = styled.Text`
+  font-size: 14px;
 `;
 
 export const FlexWrap = styled.View`
@@ -55,11 +64,11 @@ export const FlexView = styled.View`
 `;
 
 export const CourseView = styled.View`
-  width: 60px;
-  position: absolute;
+  width: 70px;
   top: 10px;
-  left: 200px;
-  margin: auto;
+  display: flex;
+  left: 60px;
+  // margin: auto;
 `;
 
 export const PriceView = styled.View`
