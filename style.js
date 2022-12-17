@@ -61,3 +61,12 @@ export const CourseView = styled.View`
   left: 200px;
   margin: auto;
 `;
+
+export const PriceView = styled.View`
+  margin-left: 8px;
+  margin-top: 4px;
+`;
+
+// export const PriceBadge = styled.Badge`
+//   padding: 8px;
+// `;

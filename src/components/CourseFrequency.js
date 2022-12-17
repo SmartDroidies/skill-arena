@@ -1,5 +1,6 @@
 import { Badge } from "@rneui/themed";
-import { Text, View } from "react-native";
+import { Text } from "react-native";
+import { FlexView, PriceView } from "../../style";
 
 const CourseFrequency = ({ course }) => {
   let frequencyName = null;
@@ -34,26 +35,15 @@ const CourseFrequency = ({ course }) => {
     return price;
   };
 
-  // const Badgevalue = (course) => {
-  //   let price = "";
-  //   if (course.price) {
-  //     if (course.price === "Free") {
-  //       price = Badgevalue;
-  //     } else {
-  //       price = null;
-  //     }
-  //   }
-  //   return price;
-  // }
+  const displayPriceBadge = (course) => {
+    return course.price ? <Badge value={getPrice(course)} /> : <></>;
+  };
 
   return (
-    <View>
-      <Text>
-        {frequencyName}
-        <Badge value={getPrice(course)} />
-        <Badgevalue />
-      </Text>
-    </View>
+    <FlexView>
+      <Text>{frequencyName}</Text>
+      <PriceView>{displayPriceBadge(course)}</PriceView>
+    </FlexView>
   );
 };
 
