@@ -5,8 +5,10 @@ import {
   CourseImage,
   CourseTitle,
   FlexWrap,
+  FrequencyView,
 } from "../../../../style";
 import { courseImage } from "../../../utils/ImageUtil";
+import CourseFrequency from "../../../components/CourseFrequency";
 
 const FeaturedCourse = ({ course, navigation }) => (
   <View>
@@ -30,6 +32,9 @@ const FeaturedCourse = ({ course, navigation }) => (
               <Text>{course.author}</Text>
             </CourseAuthor>
             <Text>{course.price}</Text>
+            <FrequencyView>
+              <CourseFrequency course={course} />
+            </FrequencyView>
           </View>
         </Card>
       </TouchableOpacity>
