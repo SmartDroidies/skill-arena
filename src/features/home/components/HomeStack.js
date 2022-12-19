@@ -2,11 +2,13 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Global from "../../../utils/Global";
 import Home from "../screens/Home";
 import CourseDetail from "../../course/screens/CourseDetail";
+import { useTheme } from "styled-components";
 
 export const HomeStack = createStackNavigator();
 export const SearchStack = createStackNavigator();
 
 export const HomeNavigator = ({ navigation }) => {
+  const theme = useTheme();
   return (
     <HomeStack.Navigator screenOptions={{ headerShown: true }}>
       <HomeStack.Screen
@@ -15,19 +17,12 @@ export const HomeNavigator = ({ navigation }) => {
         options={{
           title: Global.Constant.appName,
           headerStyle: {
-            backgroundColor: "#1e90ff",
+            backgroundColor: theme.PRIMARY_COLOR,
           },
-          headerTintColor: "#fff",
+          headerTintColor: theme.BACKGROUND_COLOR,
           headerTitleStyle: {
             fontWeight: "bold",
           },
-          // headerRight: () => (
-          //   <Icon
-          //     name="search"
-          //     style={styles.icon}
-          //     onPress={() => navigation.navigate("SearchBar")}
-          //   />
-          // ),
         }}
       />
       <HomeStack.Screen

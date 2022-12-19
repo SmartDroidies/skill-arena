@@ -84,11 +84,10 @@ const Home = ({ navigation }) => {
         <SearchBar
           placeholder="Type Here..."
           onChangeText={(text) => searchCourses(text)}
-          onClear={(text) => searchCourses("")}
+          onClear={() => searchCourses("")}
           value={search}
           inputContainerStyle={styles.SearchBarView}
-        >
-        </SearchBar>
+        />
       );
     } else {
       return <></>;

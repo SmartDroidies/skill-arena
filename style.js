@@ -17,7 +17,7 @@ export const CategoryContainer = styled.View`
 
 export const AvatarContainer = styled.View`
   align-self: center;
-  background-color: blue;
+  background-color: ${(props) => props.theme.PRIMARY_COLOR};
 `;
 
 export const CategoryTitle = styled.Text`
@@ -65,5 +65,4 @@ export const CourseView = styled.View`
   top: 10px;
   display: flex;
   left: 60px;
-  // margin: auto;
 `;
