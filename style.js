@@ -15,6 +15,12 @@ export const CategoryContainer = styled.View`
   margin-bottom: 24px;
 `;
 
+export const ModeView = styled.View`
+  background-color: ${(props) => props.theme.PRIMARY_COLOR};
+  align-self: center;
+  margin-left: 70px;
+`;
+
 export const AvatarContainer = styled.View`
   align-self: center;
   background-color: ${(props) => props.theme.PRIMARY_COLOR};
