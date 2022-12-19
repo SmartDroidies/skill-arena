@@ -15,10 +15,13 @@ export const CategoryContainer = styled.View`
   margin-bottom: 24px;
 `;
 
-export const ModeView = styled.View`
+export const ModeView = styled.SafeAreaView`
+  position: absolute;
   background-color: ${(props) => props.theme.PRIMARY_COLOR};
   align-self: center;
   margin-left: 70px;
+  top: 0;
+  right: 0;
 `;
 
 export const AvatarContainer = styled.View`
