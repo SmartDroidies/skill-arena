@@ -2,11 +2,11 @@ import { View, TouchableOpacity } from "react-native";
 import { Card } from "@rneui/themed";
 import {
   CourseAuthor,
+  CourseFlex,
   CourseImage,
   CourseTitle,
   CourseView,
   FlexView,
-  FlexWrap,
   FrequencyView,
 } from "../../../../style";
 import CourseMode from "../../../components/CourseMode";
@@ -14,7 +14,7 @@ import CourseFrequency from "../../../components/CourseFrequency";
 import { courseImage } from "../../../utils/ImageUtil";
 
 const Course = ({ course, navigation }) => (
-  <FlexWrap>
+  <CourseFlex>
     <TouchableOpacity
       onPress={() =>
         navigation.navigate("CourseDetail", { id: course.course_id })
@@ -43,7 +43,7 @@ const Course = ({ course, navigation }) => (
         </View>
       </Card>
     </TouchableOpacity>
-  </FlexWrap>
+  </CourseFlex>
 );
 
 export default Course;
