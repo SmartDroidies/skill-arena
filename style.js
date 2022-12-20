@@ -45,6 +45,9 @@ export const CourseTitle = styled.Text`
 export const CourseAuthor = styled.Text`
   font-size: 16px;
 `;
+export const FrequencyView = styled.View`
+  font-size: 16px;
+`;
 
 export const CourseDesc = styled.Text`
   font-size: 18px;
@@ -64,3 +67,12 @@ export const FlexView = styled.View`
 export const CourseView = styled.View`
   display: flex;
 `;
+
+export const PriceView = styled.View`
+  margin-left: 8px;
+  margin-top: 4px;
+`;
+
+// export const PriceBadge = styled.Badge`
+//   padding: 8px;
+// `;
