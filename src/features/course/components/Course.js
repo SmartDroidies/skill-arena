@@ -3,11 +3,11 @@ import { Card } from "@rneui/themed";
 import {
   CourseAuthor,
   CourseFlex,
-  CourseImage,
   CourseTitle,
   CourseView,
   FlexView,
   FrequencyView,
+  ListCourseImage,
 } from "../../../../style";
 import CourseMode from "../../../components/CourseMode";
 import CourseFrequency from "../../../components/CourseFrequency";
@@ -21,7 +21,7 @@ const Course = ({ course, navigation }) => (
       }
     >
       <Card>
-        <CourseImage
+        <ListCourseImage
           source={{
             uri: courseImage(course.image),
           }}

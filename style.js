@@ -9,6 +9,8 @@ export const CourseContainer = styled.SafeAreaView`
   flex: 1;
   align-items: center;
   background-color: ${(props) => props.theme.BACKGROUND_COLOR};
+  // borderRadius: 75px;
+  // border-color: ${(props) => props.theme.BORDER_COLOR};
 `;
 
 export const CategoryContainer = styled.View`
@@ -37,6 +39,11 @@ export const CourseSectionView = styled.View`
 export const CourseImage = styled.Image`
   align-items: center;
   width: 240px;
+  height: 150px;
+`;
+export const ListCourseImage = styled.Image`
+  align-items: center;
+  width: 280px;
   height: 150px;
 `;
 
