@@ -39,14 +39,14 @@ export const CourseImage = styled.Image`
 
 export const CourseTitle = styled.Text`
   color: ${(props) => props.theme.TITLE_COLOR};
-  font-size: 14px;
+  font-size: 16px;
 `;
 
 export const CourseAuthor = styled.Text`
-  font-size: 16px;
+  font-size: 14px;
 `;
 export const FrequencyView = styled.View`
-  font-size: 16px;
+  font-size: 12px;
 `;
 
 export const CourseDesc = styled.Text`
