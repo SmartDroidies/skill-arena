@@ -168,6 +168,8 @@ const styles = StyleSheet.create({
   icon: {
     marginRight: 20,
   },
+  // FIXME - Pull the color from theme
+  // eslint-disable-next-line react-native/no-color-literals
   SearchBarView: {
     backgroundColor: "#fffaf0",
   },
