@@ -1,13 +1,7 @@
 import { Icon } from "@rneui/base";
 import { Card, ListItem, SearchBar } from "@rneui/themed";
 import React, { useState } from "react";
-import {
-  StyleSheet,
-  ScrollView,
-  TouchableOpacity,
-  View,
-  Text,
-} from "react-native";
+import { StyleSheet, TouchableOpacity, View, Text } from "react-native";
 import {
   CourseAuthor,
   CourseImage,
@@ -15,6 +9,8 @@ import {
   CourseView,
   FlexView,
   FlexWrap,
+  HomeView,
+  IconView,
 } from "../../../../style";
 import courseClient from "../../../api/courseClient";
 import CourseMode from "../../../components/CourseMode";
@@ -68,11 +64,9 @@ const Home = ({ navigation }) => {
     navigation.setOptions({
       headerRight: () => (
         <TouchableOpacity>
-          <Icon
-            name="search"
-            style={styles.icon}
-            onPress={() => swapSearchBarDisplay()}
-          />
+          <IconView>
+            <Icon name="search" onPress={() => swapSearchBarDisplay()} />
+          </IconView>
         </TouchableOpacity>
       ),
     });
@@ -96,10 +90,7 @@ const Home = ({ navigation }) => {
 
   const displaySearchResults = () => {
     return (
-      <ScrollView
-        style={styles.scrollView}
-        showsVerticalScrollIndicator={false}
-      >
+      <HomeView style={styles.scrollView} showsVerticalScrollIndicator={false}>
         {searchResults.map((course, i) => (
           <ListItem key={i} bottomDivider>
             <FlexWrap>
@@ -131,16 +122,13 @@ const Home = ({ navigation }) => {
             </FlexWrap>
           </ListItem>
         ))}
-      </ScrollView>
+      </HomeView>
     );
   };
 
   const displayHomeContent = () => {
     return (
-      <ScrollView
-        style={styles.scrollView}
-        showsVerticalScrollIndicator={false}
-      >
+      <HomeView showsVerticalScrollIndicator={false}>
         {homeContent.map((courseSec) => (
           <CourseSection
             content={courseSec}
@@ -148,7 +136,7 @@ const Home = ({ navigation }) => {
             navigation={navigation}
           />
         ))}
-      </ScrollView>
+      </HomeView>
     );
   };
 
@@ -161,13 +149,8 @@ const Home = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  scrollView: {
-    marginHorizontal: 20,
-  },
   // FIXME -  Move this to styled components
-  icon: {
-    marginRight: 20,
-  },
+
   // FIXME - Pull the color from theme
   // eslint-disable-next-line react-native/no-color-literals
   SearchBarView: {

@@ -73,6 +73,14 @@ export const PriceView = styled.View`
   margin-top: 4px;
 `;
 
+export const IconView = styled.View`
+  margin-right: 20px;
+`;
+
+export const HomeView = styled.View`
+  margin-horizontal: 20px;
+`;
+
 // export const PriceBadge = styled.Badge`
 //   padding: 8px;
 // `;
