@@ -31,6 +31,22 @@ export const CourseSectionView = styled.View`
   margin-top: 20px;
 `;
 
+export const ProfileContainer = styled.View`
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ProfileTitle = styled.View`
+  width: 400px;
+  height: 65px;
+  background-color: ${(props) => props.theme.BACKGROUND_COLOR};
+  margin: 20px;
+  color: ${(props) => props.theme.TITLE_COLOR};
+  padding: 20px;
+  font-size: 10px;
+  font-weight: 400px;
+`;
+
 export const CourseImage = styled.Image`
   align-items: center;
   width: 240px;
