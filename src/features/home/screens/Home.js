@@ -65,7 +65,11 @@ const Home = ({ navigation }) => {
       headerRight: () => (
         <TouchableOpacity>
           <IconView>
-            <Icon name="search" onPress={() => swapSearchBarDisplay()} />
+            <Icon
+              name="search"
+              color="#ffffff"
+              onPress={() => swapSearchBarDisplay()}
+            />
           </IconView>
         </TouchableOpacity>
       ),

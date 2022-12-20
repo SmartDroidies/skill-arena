@@ -75,6 +75,7 @@ export const PriceView = styled.View`
 
 export const IconView = styled.View`
   margin-right: 20px;
+  // color: ${(props) => props.theme.PRIMARY_COLOR};
 `;
 
 export const HomeView = styled.View`
