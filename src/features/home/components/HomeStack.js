@@ -10,20 +10,19 @@ export const SearchStack = createStackNavigator();
 export const HomeNavigator = ({ navigation }) => {
   const theme = useTheme();
   return (
-    <HomeStack.Navigator screenOptions={{ headerShown: true }}>
+    <HomeStack.Navigator
+      screenOptions={{
+        headerShown: true,
+        headerStyle: {
+          backgroundColor: theme.PRIMARY_COLOR,
+        },
+        headerTintColor: theme.BACKGROUND_COLOR,
+      }}
+    >
       <HomeStack.Screen
         name="Home"
         component={Home}
-        options={{
-          title: Global.Constant.appName,
-          headerStyle: {
-            backgroundColor: theme.PRIMARY_COLOR,
-          },
-          headerTintColor: theme.BACKGROUND_COLOR,
-          headerTitleStyle: {
-            fontWeight: "bold",
-          },
-        }}
+        options={{ title: Global.Constant.appName }}
       />
       <HomeStack.Screen
         name="CourseDetail"

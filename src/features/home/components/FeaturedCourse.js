@@ -6,7 +6,7 @@ import {
   CourseTitle,
   FlexWrap,
   FlexView,
-  ModeView,
+  CourseView,
 } from "../../../../style";
 import { courseImage } from "../../../utils/ImageUtil";
 import CourseMode from "../../../components/CourseMode";
@@ -28,13 +28,13 @@ const FeaturedCourse = ({ course, navigation }) => (
           <View>
             <CourseTitle>{course.title}</CourseTitle>
             <FlexView direction="row">
-              <FlexView direction="column">
+              <FlexView direction="column" grow="8">
                 <CourseAuthor>{course.author}</CourseAuthor>
                 <Text>{course.price}</Text>
               </FlexView>
-              <ModeView>
+              <CourseView>
                 <CourseMode course={course} />
-              </ModeView>
+              </CourseView>
             </FlexView>
           </View>
         </Card>
