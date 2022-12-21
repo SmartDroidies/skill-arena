@@ -17,6 +17,7 @@ import CourseMode from "../../../components/CourseMode";
 import { courseImage } from "../../../utils/ImageUtil";
 import CourseSection from "../components/CourseSection";
 import useHome from "../hooks/useHome";
+import { useTheme } from "styled-components";
 
 const Home = ({ navigation }) => {
   const [homeContent] = useHome();
@@ -24,6 +25,7 @@ const Home = ({ navigation }) => {
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState("");
   const [showResults, setShowResults] = useState(false);
+  const theme = useTheme();
 
   const searchCourses = (text) => {
     // Check if searched text is not blank
@@ -67,7 +69,7 @@ const Home = ({ navigation }) => {
           <IconView>
             <Icon
               name="search"
-              color="#ffffff"
+              color={theme.BACKGROUND_COLOR}
               onPress={() => swapSearchBarDisplay()}
             />
           </IconView>
