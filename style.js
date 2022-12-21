@@ -2,15 +2,10 @@ import styled from "styled-components/native";
 import Constants from "expo-constants";
 
 export const Container = styled.SafeAreaView`
-  background-color: ${(props) => props.theme.BACKGROUND_COLOR};
-  padding-top: ${Constants.statusBarHeight + "px"};
-`;
-export const CourseContainer = styled.SafeAreaView`
-  flex: 1;
+  display: flex;
   align-items: center;
-  background-color: ${(props) => props.theme.BACKGROUND_COLOR};
-  // borderRadius: 75px;
-  // border-color: ${(props) => props.theme.BORDER_COLOR};
+  background-color: ${(props) => props.theme.SECONDARY_COLOR};
+  padding-top: ${Constants.statusBarHeight + "px"};
 `;
 
 export const CategoryContainer = styled.View`
