@@ -96,7 +96,7 @@ const Home = ({ navigation }) => {
 
   const displaySearchResults = () => {
     return (
-      <HomeView style={styles.scrollView} showsVerticalScrollIndicator={false}>
+      <HomeView showsVerticalScrollIndicator={false}>
         {searchResults.map((course, i) => (
           <ListItem key={i} bottomDivider>
             <FlexWrap>
