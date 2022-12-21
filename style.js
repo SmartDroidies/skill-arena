@@ -31,38 +31,6 @@ export const CourseSectionView = styled.View`
   margin-top: 20px;
 `;
 
-export const ProfileContainer = styled.View`
-flex: 1px;
-backgroundColor: #fff;
-alignItems: center;
-justifyContent: center;
-`;
- 
- export const SignButton = styled.view`
- width: 80px;
-`;
-
-export const ForgotButton = styled.View`
-height: 30px;
-marginBottom: 30px;
-`;
-
-export const ProfileText = styled.Text`
-height: 5px;
-flex: 1px;
-padding: 10px;
-margin-Left: 20px;
-`;
- 
-export const ProfileView = styled.Text`
-    width: 70px;
-    marginBottom: 20,
-    height: 45px;
-    margin-Bottom: 20px;
-    align-Items: center;
-    background-color: ${(props) => props.theme.BACKGROUND_COLOR};
-`;
-
 export const CourseImage = styled.Image`
   align-items: center;
   width: 240px;
@@ -99,3 +67,35 @@ export const CourseView = styled.View`
   left: 60px;
   // margin: auto;
 `;
+
+// export const ProfileContainer = styled.View`
+//   flex: 1px;
+//   background-color: #fff;
+//   align-items: center;
+//   justify-content: center;
+// `;
+
+// export const SignButton = styled.view`
+//   width: 80px;
+// `;
+
+// export const ForgotButton = styled.View`
+//   height: 30px;
+//   margin-bottom: 30px;
+// `;
+
+// export const ProfileText = styled.Text`
+//   height: 5px;
+//   flex: 1px;
+//   padding: 10px;
+//   margin-left: 20px;
+// `;
+
+// export const ProfileView = styled.Text`
+//     width: 70px;
+//     marginBottom: 20,
+//     height: 45px;
+//     margin-Bottom: 20px;
+//     align-Items: center;
+//     background-color: ${(props) => props.theme.BACKGROUND_COLOR};
+// `;
