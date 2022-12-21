@@ -32,19 +32,35 @@ export const CourseSectionView = styled.View`
 `;
 
 export const ProfileContainer = styled.View`
-  justify-content: center;
-  align-items: center;
+flex: 1px;
+backgroundColor: #fff;
+alignItems: center;
+justifyContent: center;
+`;
+ 
+ export const SignButton = styled.view`
+ width: 80px;
 `;
 
-export const ProfileTitle = styled.View`
-  width: 400px;
-  height: 65px;
-  background-color: ${(props) => props.theme.BACKGROUND_COLOR};
-  margin: 20px;
-  color: ${(props) => props.theme.TITLE_COLOR};
-  padding: 20px;
-  font-size: 10px;
-  font-weight: 400px;
+export const ForgotButton = styled.View`
+height: 30px;
+marginBottom: 30px;
+`;
+
+export const ProfileText = styled.Text`
+height: 5px;
+flex: 1px;
+padding: 10px;
+margin-Left: 20px;
+`;
+ 
+export const ProfileView = styled.Text`
+    width: 70px;
+    marginBottom: 20,
+    height: 45px;
+    margin-Bottom: 20px;
+    align-Items: center;
+    background-color: ${(props) => props.theme.BACKGROUND_COLOR};
 `;
 
 export const CourseImage = styled.Image`
