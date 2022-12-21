@@ -1,7 +1,7 @@
 import { Icon } from "@rneui/base";
 import { Card, ListItem, SearchBar } from "@rneui/themed";
 import React, { useState } from "react";
-import { StyleSheet, TouchableOpacity, View, Text } from "react-native";
+import { TouchableOpacity, View, Text } from "react-native";
 import {
   CourseAuthor,
   CourseImage,
@@ -82,11 +82,14 @@ const Home = ({ navigation }) => {
     if (showSearchBarFlag) {
       return (
         <SearchBar
+          lightTheme
+          // platform="android"
           placeholder="Type Here..."
           onChangeText={(text) => searchCourses(text)}
           onClear={() => searchCourses("")}
           value={search}
-          inputContainerStyle={styles.SearchBarView}
+          containerStyle={{ backgroundColor: theme.BACKGROUND_COLOR }}
+          inputStyle={{ backgroundColor: theme.BACKGROUND_COLOR }}
         />
       );
     } else {
@@ -153,15 +156,5 @@ const Home = ({ navigation }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  // FIXME -  Move this to styled components
-
-  // FIXME - Pull the color from theme
-  // eslint-disable-next-line react-native/no-color-literals
-  SearchBarView: {
-    backgroundColor: "#fffaf0",
-  },
-});
 
 export default Home;
