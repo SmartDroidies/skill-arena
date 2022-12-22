@@ -2,16 +2,9 @@ import styled from "styled-components/native";
 import Constants from "expo-constants";
 
 export const Container = styled.SafeAreaView`
-  display: flex;
-  align-items: center;
+  flex: 1;
   background-color: ${(props) => props.theme.SECONDARY_COLOR};
   padding-top: ${Constants.statusBarHeight + "px"};
-`;
-
-export const CourseContainer = styled.SafeAreaView`
-  flex: 1;
-  align-items: center;
-  background-color: ${(props) => props.theme.BACKGROUND_COLOR};
 `;
 
 export const CategoryContainer = styled.View`
@@ -42,11 +35,6 @@ export const CourseImage = styled.Image`
   width: 240px;
   height: 150px;
 `;
-export const ListCourseImage = styled.Image`
-  align-items: center;
-  width: 280px;
-  height: 150px;
-`;
 
 export const CourseTitle = styled.Text`
   color: ${(props) => props.theme.TITLE_COLOR};
@@ -66,11 +54,6 @@ export const CourseDesc = styled.Text`
 
 export const FlexWrap = styled.View`
   width: 300px;
-  height: 300px;
-`;
-
-export const CourseFlex = styled.View`
-  width: 350px;
   height: 300px;
 `;
 
@@ -95,3 +78,20 @@ export const PriceView = styled.View`
 // export const PriceBadge = styled.Badge`
 //   padding: 8px;
 // `;
+
+export const CourseContainer = styled.SafeAreaView`
+  display: flex;
+  align-items: center;
+  background-color: ${(props) => props.theme.SECONDARY_COLOR};
+`;
+
+export const ListCourseImage = styled.Image`
+  align-items: center;
+  width: 280px;
+  height: 150px;
+`;
+
+export const CourseFlex = styled.View`
+  width: 350px;
+  height: 300px;
+`;
