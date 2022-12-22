@@ -5,7 +5,7 @@ import { View } from "react-native";
 import {
   CourseAuthor,
   CourseDesc,
-  CourseImage,
+  CourseDetailImage,
   CourseTitle,
   CourseView,
   FlexView,
@@ -23,7 +23,7 @@ const CourseDetail = ({ route }) => {
 
   return (
     <Card>
-      <CourseImage
+      <CourseDetailImage
         source={{
           uri: courseImage(courseDetail.image),
         }}

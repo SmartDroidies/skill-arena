@@ -36,21 +36,27 @@ export const CourseImage = styled.Image`
   width: 240px;
   height: 150px;
 `;
+export const CourseDetailImage = styled.Image`
+  width: 300px;
+  height: 150px;
+  align-self: center;
+`;
 
 export const CourseTitle = styled.Text`
   color: ${(props) => props.theme.TITLE_COLOR};
-  font-size: 16px;
+  font-size: 20px;
+  font-weight: bold;
 `;
 
 export const CourseAuthor = styled.Text`
-  font-size: 14px;
+  font-size: 18px;
 `;
 export const FrequencyView = styled.View`
   font-size: 12px;
 `;
 
 export const CourseDesc = styled.Text`
-  font-size: 18px;
+  font-size: 14px;
 `;
 
 export const FlexWrap = styled.View`
@@ -78,9 +84,9 @@ export const IconView = styled.View`
   // color: ${(props) => props.theme.PRIMARY_COLOR};
 `;
 
-export const HomeView = styled.View`
-  margin-horizontal: 20px;
-`;
+// export const HomeView = styled.View`
+//   margin-horizontal: 20px;
+//   `;
 
 // export const PriceBadge = styled.Badge`
 //   padding: 8px;
