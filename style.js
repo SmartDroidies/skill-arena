@@ -8,6 +8,12 @@ export const Container = styled.SafeAreaView`
   padding-top: ${Constants.statusBarHeight + "px"};
 `;
 
+export const CourseContainer = styled.SafeAreaView`
+  flex: 1;
+  align-items: center;
+  background-color: ${(props) => props.theme.BACKGROUND_COLOR};
+`;
+
 export const CategoryContainer = styled.View`
   flex: 1;
   align-items: center;
