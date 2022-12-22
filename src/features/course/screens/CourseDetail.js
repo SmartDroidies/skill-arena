@@ -8,9 +8,13 @@ import {
   CourseImage,
   CourseTitle,
   CourseView,
+  FlexView,
+  FrequencyView,
 } from "../../../../style";
 import CourseMode from "../../../components/CourseMode";
 import { courseImage } from "../../../utils/ImageUtil";
+import CourseFrequency from "../../../components/CourseFrequency";
+import Course from "../components/Course";
 
 const CourseDetail = ({ route }) => {
   const [courseDetail] = useCourseDetail(route.params.id);
@@ -29,11 +33,18 @@ const CourseDetail = ({ route }) => {
           {courseDetail.header} {courseDetail.Category}
         </Text>
         <CourseTitle>{courseDetail.title}</CourseTitle>
-        <CourseDesc>{courseDetail.desc}</CourseDesc>
-        <CourseAuthor>{courseDetail.author}</CourseAuthor>
-        <CourseView>
-          <CourseMode course={courseDetail} />
-        </CourseView>
+        <FlexView direction="row">
+          <FlexView direction="column">
+            <CourseDesc>{courseDetail.desc}</CourseDesc>
+            <CourseAuthor>{courseDetail.author}</CourseAuthor>
+            <FrequencyView>
+              <CourseFrequency course={Course} />
+            </FrequencyView>
+          </FlexView>
+          <CourseView>
+            <CourseMode course={courseDetail} />
+          </CourseView>
+        </FlexView>
       </View>
     </Card>
   );
