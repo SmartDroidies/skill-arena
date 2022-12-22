@@ -83,13 +83,16 @@ const Home = ({ navigation }) => {
       return (
         <SearchBar
           lightTheme
-          // platform="android"
           placeholder="Type Here..."
           onChangeText={(text) => searchCourses(text)}
           onClear={() => searchCourses("")}
           value={search}
-          containerStyle={{ backgroundColor: theme.BACKGROUND_COLOR }}
-          inputStyle={{ backgroundColor: theme.BACKGROUND_COLOR }}
+          containerStyle={{ backgroundColor: theme.SECONDARY_COLOR }}
+          inputStyle={{
+            color: theme.SECONDARY_COLOR,
+            backgroundColor: theme.BACKGROUND_COLOR,
+          }}
+          inputContainerStyle={{ backgroundColor: theme.BACKGROUND_COLOR }}
         />
       );
     } else {
