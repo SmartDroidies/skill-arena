@@ -1,107 +1,60 @@
 import React, { useState } from "react";
-import { StyleSheet, TextInput } from "react-native";
+import {
+  StyleSheet,
+  TextInput,
+  Button,
+  Text,
+  TouchableOpacity,
+} from "react-native";
 import { Container } from "../../../../style";
 
 const SignIn = ({ navigation }) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [setUsername] = useState("");
+  const [setPassword] = useState("");
+  const [loading] = useState(false);
   // const [google, setGoogle] = useState("");
   // const [apple, setApple] = useState("");
 
   return (
     <Container>
+      <Text>Sign in To Proceed</Text>
       <TextInput
-        style={styles.TextInput}
         placeholder="Username"
         label="Username*"
         onChangeText={(username) => setUsername(username)}
       />
 
       <TextInput
-        style={styles.TextInput}
         placeholder="Password"
         secureTextEntry={true}
         onChangeText={(password) => setPassword(password)}
       />
+      <Button
+        title="Sign In"
+        onPress={SignIn}
+        buttonStyle={styles.button}
+        loading={loading}
+      />
+      <TouchableOpacity>
+        <Text>Forget password</Text>
+      </TouchableOpacity>
+      <Text>Don't have an account?</Text>
+      <TouchableOpacity onPress={() => navigation.replace("RegisterScreen")}>
+        <Text>Sign up</Text>
+      </TouchableOpacity>
     </Container>
-    // <ProfileContainer>
-    //   <View style={styles.inputView}>
-    //   </View>
-
-    //   <View style={styles.inputView}>
-    //   </View>
-
-    //   <View>
-    //     <Button
-    //       titleStyle={styles.link}
-    //       title="Froget Password"
-    //       onPress={() => navigation.navigate("ForgetPassword")}
-    //     />
-    //   </View>
-
-    //   <View style={styles.inputView}>
-    //     <TextInput
-    //       style={styles.TextInput}
-    //       placeholder="Sign In With Google"
-    //       placeholderTextColor="#003f5c"
-    //       secureTextEntry={true}
-    //       onChangeText={(google) => setGoogle(google)}
-    //     />
-    //   </View>
-
-    //   <View style={styles.inputView}>
-    //     <TextInput
-    //       style={styles.TextInput}
-    //       placeholder="Sign In With Apple"
-    //       placeholderTextColor="#003f5c"
-    //       secureTextEntry={true}
-    //       onChangeText={(apple) => setApple(apple)}
-    //     />
-    //   </View>
-
-    //   <TouchableOpacity style={styles.loginBtn}>
-    //     <Text style={styles.loginText}>SignIn</Text>
-    //   </TouchableOpacity>
-
-    //   <View>
-    //     <Button
-    //       type="clear"
-    //       titleStyle={styles.link}
-    //       title="Don't have an account? Sign Up"
-    //       onPress={() => navigation.navigate("SignUp")}
-    //     />
-    //   </View>
-    // </ProfileContainer>
   );
 };
 
 const styles = StyleSheet.create({
-  // inputView: {
-  //   backgroundColor: "#FFC0CB",
-  //   borderRadius: 30,
-  //   width: "70%",
-  //   height: 45,
-  //   marginBottom: 20,
-  //   alignItems: "center",
+  // forgotPassword: {
+  //   width: '100%',
+  //   alignItems: 'flex-end',
+  //   marginBottom: 24,
   // },
-  // TextInput: {
-  //   height: 50,
-  //   flex: 1,
-  //   padding: 10,
-  //   marginLeft: 20,
-  // },
-  // forgot_button: {
-  //   height: 30,
-  //   marginBottom: 30,
-  // },
-  // loginBtn: {
-  //   width: "80%",
-  //   borderRadius: 25,
-  //   height: 50,
-  //   alignItems: "center",
-  //   justifyContent: "center",
-  //   marginTop: 40,
-  //   backgroundColor: "#FF1493",
+  // row: {
+  //   flexDirection: 'row',
+  //   marginTop: 4,
   // },
 });
 
