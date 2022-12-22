@@ -16,7 +16,7 @@ export default function App() {
   return (
     <ThemeProvider theme={lightTheme}>
       <NavigationContainer>
-        <Tab.Navigator>
+        <Tab.Navigator barStyle={{ backgroundColor: lightTheme.PRIMARY_COLOR }}>
           <Tab.Screen
             name="HomeStack"
             component={HomeNavigator}

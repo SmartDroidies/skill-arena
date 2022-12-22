@@ -1,27 +1,23 @@
 import { Icon } from "@rneui/base";
 import { Card, ListItem, SearchBar } from "@rneui/themed";
 import React, { useState } from "react";
+import { TouchableOpacity, View, Text } from "react-native";
 import {
-  StyleSheet,
-  ScrollView,
-  TouchableOpacity,
-  View,
-  Text,
-} from "react-native";
-import {
-  Container,
   CourseAuthor,
   CourseImage,
   CourseTitle,
   CourseView,
   FlexView,
   FlexWrap,
+  HomeView,
+  IconView,
 } from "../../../../style";
 import courseClient from "../../../api/courseClient";
+import CourseMode from "../../../components/CourseMode";
 import { courseImage } from "../../../utils/ImageUtil";
 import CourseSection from "../components/CourseSection";
 import useHome from "../hooks/useHome";
-import CourseMode from "../../../components/CourseMode";
+import { useTheme } from "styled-components";
 
 const Home = ({ navigation }) => {
   const [homeContent] = useHome();
@@ -29,6 +25,7 @@ const Home = ({ navigation }) => {
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState("");
   const [showResults, setShowResults] = useState(false);
+  const theme = useTheme();
 
   const searchCourses = (text) => {
     // Check if searched text is not blank
@@ -69,11 +66,13 @@ const Home = ({ navigation }) => {
     navigation.setOptions({
       headerRight: () => (
         <TouchableOpacity>
-          <Icon
-            name="search"
-            style={styles.icon}
-            onPress={() => swapSearchBarDisplay()}
-          />
+          <IconView>
+            <Icon
+              name="search"
+              color={theme.BACKGROUND_COLOR}
+              onPress={() => swapSearchBarDisplay()}
+            />
+          </IconView>
         </TouchableOpacity>
       ),
     });
@@ -83,11 +82,18 @@ const Home = ({ navigation }) => {
     if (showSearchBarFlag) {
       return (
         <SearchBar
+          lightTheme
           placeholder="Type Here..."
           onChangeText={(text) => searchCourses(text)}
-          onClear={(text) => searchCourses("")}
+          onClear={() => searchCourses("")}
           value={search}
-        ></SearchBar>
+          containerStyle={{ backgroundColor: theme.SECONDARY_COLOR }}
+          inputStyle={{
+            color: theme.SECONDARY_COLOR,
+            backgroundColor: theme.BACKGROUND_COLOR,
+          }}
+          inputContainerStyle={{ backgroundColor: theme.BACKGROUND_COLOR }}
+        />
       );
     } else {
       return <></>;
@@ -96,10 +102,7 @@ const Home = ({ navigation }) => {
 
   const displaySearchResults = () => {
     return (
-      <ScrollView
-        style={styles.scrollView}
-        showsVerticalScrollIndicator={false}
-      >
+      <HomeView showsVerticalScrollIndicator={false}>
         {searchResults.map((course, i) => (
           <ListItem key={i} bottomDivider>
             <FlexWrap>
@@ -131,16 +134,13 @@ const Home = ({ navigation }) => {
             </FlexWrap>
           </ListItem>
         ))}
-      </ScrollView>
+      </HomeView>
     );
   };
 
   const displayHomeContent = () => {
     return (
-      <ScrollView
-        style={styles.scrollView}
-        showsVerticalScrollIndicator={false}
-      >
+      <HomeView showsVerticalScrollIndicator={false}>
         {homeContent.map((courseSec) => (
           <CourseSection
             content={courseSec}
@@ -148,26 +148,16 @@ const Home = ({ navigation }) => {
             navigation={navigation}
           />
         ))}
-      </ScrollView>
+      </HomeView>
     );
   };
 
   return (
-    <Container>
+    <View>
       {renderSearchBar(showSearchBar)}
       {showResults ? displaySearchResults() : displayHomeContent()}
-    </Container>
+    </View>
   );
 };
-
-const styles = StyleSheet.create({
-  scrollView: {
-    marginHorizontal: 20,
-  },
-  // FIXME -  Move this to styled components
-  icon: {
-    marginRight: 20,
-  },
-});
 
 export default Home;

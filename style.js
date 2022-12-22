@@ -17,7 +17,7 @@ export const CategoryContainer = styled.View`
 
 export const AvatarContainer = styled.View`
   align-self: center;
-  background-color: blue;
+  background-color: ${(props) => props.theme.PRIMARY_COLOR};
 `;
 
 export const CategoryTitle = styled.Text`
@@ -39,18 +39,18 @@ export const CourseImage = styled.Image`
 
 export const CourseTitle = styled.Text`
   color: ${(props) => props.theme.TITLE_COLOR};
-  font-size: 14px;
+  font-size: 16px;
 `;
 
 export const CourseAuthor = styled.Text`
-  font-size: 16px;
+  font-size: 14px;
 `;
 export const FrequencyView = styled.View`
-  font-size: 16px;
+  font-size: 12px;
 `;
 
 export const CourseDesc = styled.Text`
-  font-size: 14px;
+  font-size: 18px;
 `;
 
 export const FlexWrap = styled.View`
@@ -61,19 +61,25 @@ export const FlexWrap = styled.View`
 export const FlexView = styled.View`
   display: flex;
   flex-direction: ${(props) => props.direction || "row"};
+  flex-grow: ${(props) => props.grow || 1};
 `;
 
 export const CourseView = styled.View`
-  width: 70px;
-  top: 10px;
   display: flex;
-  left: 60px;
-  // margin: auto;
 `;
 
 export const PriceView = styled.View`
   margin-left: 8px;
   margin-top: 4px;
+`;
+
+export const IconView = styled.View`
+  margin-right: 20px;
+  // color: ${(props) => props.theme.PRIMARY_COLOR};
+`;
+
+export const HomeView = styled.View`
+  margin-horizontal: 20px;
 `;
 
 // export const PriceBadge = styled.Badge`
