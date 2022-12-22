@@ -3,6 +3,7 @@ import Global from "../../../utils/Global";
 import Home from "../screens/Home";
 import SearchBar from "../../searchbar/SearchBar";
 import CourseDetail from "../../course/screens/CourseDetail";
+import { SignUp } from "../../security/screens/SignUp";
 
 export const HomeStack = createStackNavigator();
 export const SearchStack = createStackNavigator();
@@ -29,12 +30,20 @@ export const HomeNavigator = ({ navigation }) => {
         component={CourseDetail}
         options={{ title: Global.Constant.appName }}
       />
+
       <HomeStack.Screen
         screenOptions={{ headerShown: true }}
         name="SearchBar"
         component={SearchBar}
         options={{
           title: "SearchBar",
+        }}
+      />
+      <HomeStack.Screen
+        name="SignUp"
+        component={SignUp}
+        options={{
+          title: Global.Constant.appName,
         }}
       />
     </HomeStack.Navigator>

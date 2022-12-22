@@ -14,6 +14,13 @@ export const AppNavigator = () => {
           title: Global.Constant.appName,
         }}
       />
+      {/* <AppStack.Screen
+        name="SignUp"
+        component={SignUp}
+        options={{
+          title: Global.Constant.appName,
+        }}
+      /> */}
     </AppStack.Navigator>
   );
 };

@@ -74,3 +74,12 @@ export const ProfileButton = styled.Text`
   // padding: 10px;
   margin-left: 20px;
 `;
+
+// export const ProfileLink = styled.view`
+// color: red;
+// marginHorizontal: 10px;
+// `;
+
+export const ProfileTitle = styled.Text`
+  font-size: 20px;
+`;
