@@ -3,7 +3,7 @@ import Constants from "expo-constants";
 
 export const Container = styled.SafeAreaView`
   flex: 1;
-  background-color: ${(props) => props.theme.SECONDARY_COLOR};
+  background-color: ${(props) => props.theme.BACKGROUND_COLOR};
   padding-top: ${Constants.statusBarHeight + "px"};
 `;
 
@@ -39,6 +39,7 @@ export const CourseImage = styled.Image`
 export const CourseTitle = styled.Text`
   color: ${(props) => props.theme.TITLE_COLOR};
   font-size: 16px;
+  font-weight: bold;
 `;
 
 export const CourseAuthor = styled.Text`
@@ -67,6 +68,9 @@ export const CourseView = styled.View`
   top: 10px;
   display: flex;
   left: 60px;
+  flex-direction: ${(props) => props.direction || "column"};
+  flex-grow: ${(props) => props.grow || 1};
+
   // margin: auto;
 `;
 
@@ -82,16 +86,16 @@ export const PriceView = styled.View`
 export const CourseContainer = styled.SafeAreaView`
   display: flex;
   align-items: center;
-  background-color: ${(props) => props.theme.SECONDARY_COLOR};
+  background-color: ${(props) => props.theme.BACKGROUND_COLOR};
 `;
 
 export const ListCourseImage = styled.Image`
   align-items: center;
-  width: 280px;
+  width: 100%;
   height: 150px;
 `;
 
 export const CourseFlex = styled.View`
-  width: 350px;
-  height: 300px;
+  width: 390px;
+  height: 280px;
 `;

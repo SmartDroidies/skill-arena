@@ -25,6 +25,7 @@ const ListCourse = ({ route, navigation }) => {
     <CourseContainer>
       <FlatList
         data={courses}
+        showsVerticalScrollIndicator={false}
         renderItem={renderCourseCard}
         keyExtractor={(item) => item.course_id}
       />

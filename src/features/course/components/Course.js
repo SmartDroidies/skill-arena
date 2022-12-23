@@ -34,6 +34,7 @@ const Course = ({ course, navigation }) => (
               <FrequencyView>
                 <CourseFrequency course={course} />
               </FrequencyView>
+
               {/* <Text>{course.price}</Text> */}
             </FlexView>
             <CourseView>
