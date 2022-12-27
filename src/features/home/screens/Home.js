@@ -1,7 +1,13 @@
 import { Icon } from "@rneui/base";
 import { Card, ListItem, SearchBar } from "@rneui/themed";
 import React, { useState } from "react";
-import { TouchableOpacity, View, Text } from "react-native";
+import {
+  TouchableOpacity,
+  View,
+  Text,
+  ScrollView,
+  StyleSheet,
+} from "react-native";
 import {
   CourseAuthor,
   CourseImage,
@@ -9,7 +15,6 @@ import {
   CourseView,
   FlexView,
   FlexWrap,
-  HomeView,
   IconView,
 } from "../../../../style";
 import courseClient from "../../../api/courseClient";
@@ -102,7 +107,10 @@ const Home = ({ navigation }) => {
 
   const displaySearchResults = () => {
     return (
-      <HomeView showsVerticalScrollIndicator={false}>
+      <ScrollView
+        style={styles.scrollView}
+        showsVerticalScrollIndicator={false}
+      >
         {searchResults.map((course, i) => (
           <ListItem key={i} bottomDivider>
             <FlexWrap>
@@ -134,13 +142,16 @@ const Home = ({ navigation }) => {
             </FlexWrap>
           </ListItem>
         ))}
-      </HomeView>
+      </ScrollView>
     );
   };
 
   const displayHomeContent = () => {
     return (
-      <HomeView showsVerticalScrollIndicator={false}>
+      <ScrollView
+        style={styles.scrollView}
+        showsVerticalScrollIndicator={false}
+      >
         {homeContent.map((courseSec) => (
           <CourseSection
             content={courseSec}
@@ -148,7 +159,7 @@ const Home = ({ navigation }) => {
             navigation={navigation}
           />
         ))}
-      </HomeView>
+      </ScrollView>
     );
   };
 
@@ -161,3 +172,10 @@ const Home = ({ navigation }) => {
 };
 
 export default Home;
+
+const styles = StyleSheet.create({
+  scrollView: {
+    marginHorizontal: 20,
+    marginBottom: 25,
+  },
+});
