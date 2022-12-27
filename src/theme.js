@@ -5,17 +5,15 @@ const darkTheme = {
   BACKGROUND_COLOR: "#111216",
   BUTTON_COLOR: "#fff",
   FONT_FAMILY: "Roboto-Regular",
-  // BORDER_COLOR: "#fff",
 };
 
 const lightTheme = {
-  PRIMARY_COLOR: "#4169E1",
+  PRIMARY_COLOR: "rgba(0, 122, 255, 1)",
   SECONDARY_COLOR: "#73737d",
   TITLE_COLOR: "#000",
   BACKGROUND_COLOR: "#fff",
   BUTTON_COLOR: "#000",
   FONT_FAMILY: "Roboto-Regular",
-  // BORDER_COLOR: "#fff",
 };
 
 export { lightTheme, darkTheme };

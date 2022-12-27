@@ -1,5 +1,5 @@
 import { View, TouchableOpacity } from "react-native";
-import { Text, Card } from "@rneui/themed";
+import { Card } from "@rneui/themed";
 import {
   CourseAuthor,
   CourseImage,
