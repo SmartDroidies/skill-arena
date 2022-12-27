@@ -6,8 +6,8 @@ import {
   CourseAuthor,
   CourseDesc,
   CourseDetailImage,
+  CourseDetailModeView,
   CourseTitle,
-  CourseView,
   FlexView,
   FrequencyView,
 } from "../../../../style";
@@ -41,9 +41,9 @@ const CourseDetail = ({ route }) => {
               <CourseFrequency course={Course} />
             </FrequencyView>
           </FlexView>
-          <CourseView>
+          <CourseDetailModeView>
             <CourseMode course={courseDetail} />
-          </CourseView>
+          </CourseDetailModeView>
         </FlexView>
       </View>
     </Card>
