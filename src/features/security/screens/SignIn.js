@@ -11,6 +11,11 @@ const SignIn = ({ navigation }) => {
   const [loginError] = useState("");
   const [loading] = useState(false);
 
+  const performSignIn = () => {
+    console.log("Perform signin action");
+    // FIXME Validate fields here
+  };
+
   return (
     <Container>
       <View style={styles.container}>
@@ -41,7 +46,7 @@ const SignIn = ({ navigation }) => {
           <Text style={styles.textError}>{loginError}</Text>
           <Button
             title="Sign In"
-            onPress={SignIn}
+            onPress={performSignIn}
             buttonStyle={styles.button}
             loading={loading}
           />

@@ -9,8 +9,21 @@ import { lightTheme } from "./src/theme";
 import { ThemeProvider } from "styled-components";
 import { Icon } from "@rneui/themed";
 import SignIn from "./src/features/security/screens/SignIn";
+import Amplify from "@aws-amplify/core";
 
 const Tab = createMaterialBottomTabNavigator();
+
+// FIXME - Move it into a separate file
+Amplify.configure({
+  Auth: {
+    region: "ap-south-1",
+    userPoolId: "ap-south-1_J7feAL3nk",
+    userPoolWebClientId: "15a5h8m9p295ig4h9ut7rrhdqs",
+  },
+  Analytics: {
+    disabled: true,
+  },
+});
 
 export default function App() {
   return (
