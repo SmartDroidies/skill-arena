@@ -6,7 +6,7 @@ const CourseFrequency = ({ course }) => {
   let frequencyName = null;
   switch (course.frequency) {
   case "single":
-    frequencyName = "Single Session";
+    frequencyName = "1 Session";
     break;
   case "multi":
     frequencyName = "4 Sessions";

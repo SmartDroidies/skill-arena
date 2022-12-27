@@ -2,10 +2,9 @@ import styled from "styled-components/native";
 import Constants from "expo-constants";
 
 export const Container = styled.SafeAreaView`
+  flex: 1;
   background-color: ${(props) => props.theme.BACKGROUND_COLOR};
   padding-top: ${Constants.statusBarHeight + "px"};
-  justify-content: center;
-  flex: 1;
 `;
 
 export const CategoryContainer = styled.View`
@@ -91,3 +90,20 @@ export const IconView = styled.View`
 // export const PriceBadge = styled.Badge`
 //   padding: 8px;
 // `;
+
+export const CourseContainer = styled.SafeAreaView`
+  display: flex;
+  align-items: center;
+  background-color: ${(props) => props.theme.BACKGROUND_COLOR};
+`;
+
+export const ListCourseImage = styled.Image`
+  align-items: center;
+  width: 100%;
+  height: 150px;
+`;
+
+export const CourseFlex = styled.View`
+  width: 390px;
+  height: 280px;
+`;

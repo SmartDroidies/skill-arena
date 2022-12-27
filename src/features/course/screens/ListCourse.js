@@ -1,6 +1,6 @@
 import { React, useEffect } from "react";
 import { FlatList } from "react-native";
-import { Container } from "../../../../style";
+import { CourseContainer } from "../../../../style";
 import Course from "../components/Course";
 import useCourse from "../hooks/useCourse";
 
@@ -22,13 +22,14 @@ const ListCourse = ({ route, navigation }) => {
   }, []);
 
   return (
-    <Container>
+    <CourseContainer>
       <FlatList
         data={courses}
+        showsVerticalScrollIndicator={false}
         renderItem={renderCourseCard}
         keyExtractor={(item) => item.course_id}
       />
-    </Container>
+    </CourseContainer>
   );
 };
 
