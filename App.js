@@ -8,8 +8,8 @@ import React from "react";
 import { lightTheme } from "./src/theme";
 import { ThemeProvider } from "styled-components";
 import { Icon } from "@rneui/themed";
-import SignIn from "./src/features/security/screens/SignIn";
 import Amplify from "@aws-amplify/core";
+import { AppNavigator } from "./src/features/home/components/ProfileStack";
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -68,7 +68,7 @@ export default function App() {
           />
           <Tab.Screen
             name="Profile"
-            component={SignIn}
+            component={AppNavigator}
             options={{
               tabBarLabel: "Account",
               tabBarIcon: ({ color }) => (
