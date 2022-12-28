@@ -41,10 +41,10 @@ const CourseDetail = ({ route }) => {
               <CourseFrequency course={Course} />
             </FrequencyView>
           </FlexView>
-          <CourseDetailModeView>
-            <CourseMode course={courseDetail} />
-          </CourseDetailModeView>
         </FlexView>
+        <CourseDetailModeView>
+          <CourseMode course={courseDetail} />
+        </CourseDetailModeView>
       </View>
     </Card>
   );

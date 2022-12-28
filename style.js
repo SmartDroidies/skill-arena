@@ -74,8 +74,10 @@ export const CourseView = styled.View`
 `;
 
 export const CourseDetailModeView = styled.View`
-  display: flex;
-  padding-top: ${Constants.statusBarHeight + "px"};
+  margin-left: 300px;
+  margin-bottom: 40px;
+  flex-direction: ${(props) => props.direction || "row"};
+  flex-grow: ${(props) => props.grow || 1};
 `;
 
 export const PriceView = styled.View`
