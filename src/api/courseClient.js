@@ -2,7 +2,7 @@ import axios from "axios";
 import { API_URL } from "@env";
 
 const courseClient = axios.create({
-  baseURL: API_URL,
+  baseURL: API_URL.trim(),
 });
 
 courseClient.interceptors.request.use((request) => {
