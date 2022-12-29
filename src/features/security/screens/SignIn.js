@@ -2,18 +2,44 @@ import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Input, Text, Button } from "@rneui/themed";
 import { Container } from "../../../../style";
+import Auth from "@aws-amplify/auth";
 
-const SignIn = ({ navigation }) => {
-  const [setUsername] = useState("");
-  const [setPassword] = useState("");
-  const [usernameError] = useState("");
-  const [passwordError] = useState("");
-  const [loginError] = useState("");
-  const [loading] = useState(false);
+const SignIn = ({ navigation, updateAuthState }) => {
+  const [Username, setUsername] = useState("");
+  const [Password, setPassword] = useState("");
+  const [usernameError, setUsernameError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [loginError, setLoginError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const performSignIn = () => {
-    console.log("Perform signin action");
-    // FIXME Validate fields here
+  const SignIn = () => {
+    setLoginError("");
+
+    if (!Username || Username.length === 0) {
+      setUsernameError("Enter Username");
+    } else {
+      setUsernameError("");
+    }
+
+    if (!Password || Password.length === 0) {
+      setPasswordError("Enter Password");
+    } else {
+      setPasswordError("");
+    }
+
+    if (Username && Username.length > 0 && Password && Password.length > 0) {
+      setLoading(true);
+      Auth.signIn(Username, Password)
+        .then((user) => {
+          // console.log(user);
+          setLoading(false);
+          updateAuthState("loggedIn");
+        })
+        .catch((error) => {
+          setLoading(false);
+          setLoginError(error.message);
+        });
+    }
   };
 
   return (
@@ -43,25 +69,23 @@ const SignIn = ({ navigation }) => {
             labelStyle={styles.textLabel}
             onChangeText={(text) => setPassword(text)}
           />
-          <Text style={styles.textError}>{loginError}</Text>
           <Button
             title="Sign In"
-            onPress={performSignIn}
+            onPress={SignIn}
             buttonStyle={styles.button}
             loading={loading}
           />
           <Button
-            titleStyle={styles.link}
             title="Forget Password"
             onPress={() => navigation.navigate("ForgotPassword")}
             type="clear"
           />
+          <Button
+            title="Don't have an account? Sign Up"
+            onPress={() => navigation.navigate("SignUp")}
+            type="clear"
+          />
         </View>
-        <Button
-          title="Don't have an account? Sign Up"
-          onPress={() => navigation.navigate("SignUp")}
-          type="clear"
-        />
       </View>
     </Container>
   );
@@ -76,10 +100,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flex: 1,
   },
-
-  link: {
-    marginHorizontal: 10,
-  },
   sectionLogin: {
     marginTop: 30,
     paddingHorizontal: 20,
@@ -90,10 +110,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 30,
     marginTop: 50,
     width: "100%",
-  },
-  textError: {
-    alignSelf: "center",
-    marginVertical: 5,
   },
   textFieldError: {},
   textLabel: {

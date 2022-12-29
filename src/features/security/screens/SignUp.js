@@ -3,22 +3,97 @@ import { StyleSheet, View } from "react-native";
 import { Input, Text, Button } from "@rneui/themed";
 import { ScrollView } from "react-native-gesture-handler";
 import { Container } from "../../../../style";
+import Auth from "@aws-amplify/auth";
+
 
 export const SignUp = ({ navigation }) => {
-  const [setUsername] = useState("");
-  const [setPassword] = useState("");
-  const [setFirstname] = useState("");
-  const [setLastname] = useState("");
-  const [setEmail] = useState("");
-  const [setPhone] = useState("");
-  const [usernameError] = useState("");
-  const [passwordError] = useState("");
-  const [emailError] = useState("");
-  const [phoneError] = useState("");
-  const [firstnameError] = useState("");
-  const [lastnameError] = useState("");
-  const [signupError] = useState("");
-  const [loading] = useState(false);
+  const [Username, SetUsername] = useState("");
+  const [Password, SetPassword] = useState("");
+  const [Firstname, SetFirstname] = useState("");
+  const [Lastname, SetLastname] = useState("");
+  const [Email, SetEmail] = useState("");
+  const [Phone, SetPhone] = useState("");
+  const [usernameError, SetUsernameError] = useState("");
+  const [passwordError, SetPasswordError] = useState("");
+  const [emailError, SetEmailError] = useState("");
+  const [phoneError, SetPhoneError] = useState("");
+  const [firstnameError, SetFirstnameError] = useState("");
+  const [lastnameError, SetLastnameError] = useState("");
+  const [signupError, SetSignupError] = useState("");
+  const [loading, SetLoadingError] = useState(false);
+
+  const regPhone = /^[0]?[789]\d{9}$/;
+
+  const SignUp = () => {
+    let bFieldsValid = true;
+
+    if (!Username || Username.length === 0) {
+      ("Enter Username");
+      bFieldsValid = false;
+    } else {
+      SetUsernameError("");
+    }
+    if (!Password || Password.length === 0) {
+      SetPasswordError("Enter Password");
+      bFieldsValid = false;
+    } else {
+      SetPasswordError("");
+    }
+    if (!Firstname || Firstname.length === 0) {
+      SetFirstnameError("Enter First Name");
+      bFieldsValid = false;
+    } else {
+      SetFirstnameError("");
+    }
+
+    if (!Lastname || Lastname.length === 0) {
+      SetLastnameError("Enter Last Name");
+      bFieldsValid = false;
+    } else {
+      SetLastnameError("");
+    }
+
+    if (!Email || Email.length === 0) {
+      SetEmailError("");
+    } else {
+      SetEmailError("");
+    }
+
+    if (!Phone || Phone.length === 0) {
+      SetPhoneError("Enter Phone");
+      bFieldsValid = false;
+    } else if (regPhone.test(Phone) === false) {
+      SetPhoneError("Enter 10 digit phone no");
+      bFieldsValid = false;
+    } else {
+      SetPhoneError("");
+    }
+
+    if (bFieldsValid) {
+      SetLoadingError(true);
+      const prefixPhoneNumber = "+91" + Phone;
+      Auth.signUp({
+        Username,
+        Password,
+        attributes: {
+          Email,
+          phone_number: prefixPhoneNumber,
+          name: Firstname,
+        },
+      })
+        .then((user) => {
+          SetLoadingError(false);
+          navigation.navigate({
+            name: "ConfirmSignup",
+            params: { user: user.user.username },
+          });
+        })
+        .catch((error) => {
+          SetSignupError(error.message);
+          SetLoadingError(false);
+        });
+    }
+  };
 
   return (
     <Container>
@@ -33,7 +108,7 @@ export const SignUp = ({ navigation }) => {
             style={styles.input}
             errorStyle={styles.textError}
             labelStyle={styles.textLabel}
-            onChangeText={(text) => setUsername(text)}
+            onChangeText={(text) => SetUsername(text)}
           />
           <Input
             placeholder="Password"
@@ -43,7 +118,7 @@ export const SignUp = ({ navigation }) => {
             secureTextEntry={true}
             errorStyle={styles.textError}
             labelStyle={styles.textLabel}
-            onChangeText={(text) => setPassword(text)}
+            onChangeText={(text) => SetPassword(text)}
           />
           <Input
             placeholder="First Name"
@@ -52,7 +127,7 @@ export const SignUp = ({ navigation }) => {
             renderErrorMessage={false}
             errorStyle={styles.textError}
             labelStyle={styles.textLabel}
-            onChangeText={(text) => setFirstname(text)}
+            onChangeText={(text) => SetFirstname(text)}
           />
           <Input
             placeholder="Last Name"
@@ -61,7 +136,7 @@ export const SignUp = ({ navigation }) => {
             renderErrorMessage={false}
             errorStyle={styles.textError}
             labelStyle={styles.textLabel}
-            onChangeText={(text) => setLastname(text)}
+            onChangeText={(text) => SetLastname(text)}
           />
           <Input
             placeholder="Email"
@@ -70,7 +145,7 @@ export const SignUp = ({ navigation }) => {
             renderErrorMessage={false}
             errorStyle={styles.textError}
             labelStyle={styles.textLabel}
-            onChangeText={(text) => setEmail(text)}
+            onChangeText={(text) => SetEmail(text)}
           />
           <Input
             placeholder="Phone Number"
@@ -79,7 +154,7 @@ export const SignUp = ({ navigation }) => {
             renderErrorMessage={false}
             errorStyle={styles.textError}
             labelStyle={styles.textLabel}
-            onChangeText={(text) => setPhone(text)}
+            onChangeText={(text) => SetPhone(text)}
           />
           {signupError.trim().length > 0 && (
             <Text style={styles.textError}>{signupError}</Text>
