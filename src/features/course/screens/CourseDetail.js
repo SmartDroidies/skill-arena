@@ -15,6 +15,7 @@ import CourseMode from "../../../components/CourseMode";
 import { courseImage } from "../../../utils/ImageUtil";
 import CourseFrequency from "../../../components/CourseFrequency";
 import Course from "../components/Course";
+import Loader from "../../../activity indicator/Loader";
 
 const CourseDetail = ({ route }) => {
   const [courseDetail] = useCourseDetail(route.params.id);
@@ -23,6 +24,7 @@ const CourseDetail = ({ route }) => {
 
   return (
     <Card>
+      <Loader></Loader>
       <CourseDetailImage
         source={{
           uri: courseImage(courseDetail.image),
