@@ -1,6 +1,6 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import Global from "../../../utils/Global";
-import { ForgetPassword } from "../../security/screens/ForgetPassword";
+import ForgotPassword from "../../security/screens/ForgetPassword";
 import SignIn from "../../security/screens/SignIn";
 import SignUp from "../../security/screens/SignUp";
 
@@ -23,9 +23,9 @@ export const AppNavigator = () => {
           title: Global.Constant.appName,
         }}
       />
-        <AppStack.Screen
+      <AppStack.Screen
         name="ForgetPassword"
-        component={ForgetPassword}
+        component={ForgotPassword}
         options={{
           title: Global.Constant.appName,
         }}

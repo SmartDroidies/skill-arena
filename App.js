@@ -13,7 +13,6 @@ import { AppNavigator } from "./src/features/home/components/ProfileStack";
 
 const Tab = createMaterialBottomTabNavigator();
 
-// FIXME - Move it into a separate file
 Amplify.configure({
   Auth: {
     region: "ap-south-1",
