@@ -1,4 +1,4 @@
-import { React } from "react";
+import { React, useState } from "react";
 import { Text, Card } from "@rneui/themed";
 import useCourseDetail from "../hooks/useCourseDetail";
 import { View } from "react-native";
@@ -16,19 +16,47 @@ import { courseImage } from "../../../utils/ImageUtil";
 import CourseFrequency from "../../../components/CourseFrequency";
 import Course from "../components/Course";
 import Loader from "../../../activity indicator/Loader";
+import useCourse from "../hooks/useCourse";
 
 const CourseDetail = ({ route }) => {
   const [courseDetail] = useCourseDetail(route.params.id);
+  const [courses] = useCourse(route.params.code);
+  const [isLoading, errormessage] = useCourse();
+  const [viewPreference] = useState("List");
 
+  const SkillActivityIndicator = () => {
+    return <Loader />;
+  };
+
+  const skillMessage = () => {
+    return <Message type="error" text={errormessage} />;
+  };
+
+  const displayResult = () => {
+    return errormessage === "" ? courseDetailing() : skillMessage();
+  };
+
+  const courseDetailing = () => {
+    return viewPreference === "courseDetail"
+      ? renderListView()
+      : renderGridView();
+  };
+  const renderGridView = () => {
+    return <courseDetail courses={courses}></courseDetail>;
+  };
+
+  const renderListView = () => {
+    return <courseDetail courses={courses}></courseDetail>;
+  };
   // const singleShare = async (customOptions) => {
 
   return (
     <Card>
-      <Loader></Loader>
       <CourseDetailImage
         source={{
           uri: courseImage(courseDetail.image),
         }}
+        PlaceholderContent={<SkillActivityIndicator />}
       />
       <View>
         <Text>
@@ -44,9 +72,11 @@ const CourseDetail = ({ route }) => {
             </FrequencyView>
           </FlexView>
         </FlexView>
+
         <CourseDetailModeView>
           <CourseMode course={courseDetail} />
         </CourseDetailModeView>
+        {isLoading ? SkillActivityIndicator() : displayResult()}
       </View>
     </Card>
   );
