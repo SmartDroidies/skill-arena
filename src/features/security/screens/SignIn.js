@@ -5,31 +5,31 @@ import { Container } from "../../../../style";
 import Auth from "@aws-amplify/auth";
 
 const SignIn = ({ navigation, updateAuthState }) => {
-  const [Email, SetEmail] = useState("");
-  const [Password, setPassword] = useState("");
-  const [EmailError, setEmailError] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  const [setLoginError] = useState("");
+  // const [loginError, setLoginError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const SignIn = () => {
-    setLoginError("");
+    // setLoginError("");
 
-    if (!Email || Email.length === 0) {
-      setEmailError("Enter Username");
+    if (!email || email.length === 0) {
+      setEmailError("Enter E-mail");
     } else {
       setEmailError("");
     }
 
-    if (!Password || Password.length === 0) {
+    if (!password || password.length === 0) {
       setPasswordError("Enter Password");
     } else {
       setPasswordError("");
     }
 
-    if (Email && Email.length > 0 && Password && Password.length > 0) {
+    if (email && email.length > 0 && password && password.length > 0) {
       setLoading(true);
-      Auth.signIn(Email, Password)
+      Auth.signIn(email, password)
         .then((user) => {
           // console.log(user);
           setLoading(false);
@@ -37,7 +37,8 @@ const SignIn = ({ navigation, updateAuthState }) => {
         })
         .catch((error) => {
           setLoading(false);
-          setLoginError(error.message);
+          console.log(error);
+          // setLoginError(error.message);
         });
     }
   };
@@ -50,14 +51,14 @@ const SignIn = ({ navigation, updateAuthState }) => {
         </View>
         <View style={styles.sectionLogin}>
           <Input
-            placeholder="Enter your Email"
-            label="Email *"
-            errorMessage={EmailError}
+            placeholder="Enter your e-mail"
+            label="E-mail *"
+            errorMessage={emailError}
             renderErrorMessage={false}
             style={styles.input}
             errorStyle={styles.textFieldError}
             labelStyle={styles.textLabel}
-            onChangeText={(text) => SetEmail(text)}
+            onChangeText={(text) => setEmail(text)}
           />
           <Input
             placeholder="Enter your password"
