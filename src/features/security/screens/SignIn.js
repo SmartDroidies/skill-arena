@@ -5,20 +5,20 @@ import { Container } from "../../../../style";
 import Auth from "@aws-amplify/auth";
 
 const SignIn = ({ navigation, updateAuthState }) => {
-  const [Username, setUsername] = useState("");
+  const [Email, SetEmail] = useState("");
   const [Password, setPassword] = useState("");
-  const [usernameError, setUsernameError] = useState("");
+  const [EmailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  const [loginError, setLoginError] = useState("");
+  const [setLoginError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const SignIn = () => {
     setLoginError("");
 
-    if (!Username || Username.length === 0) {
-      setUsernameError("Enter Username");
+    if (!Email || Email.length === 0) {
+      setEmailError("Enter Username");
     } else {
-      setUsernameError("");
+      setEmailError("");
     }
 
     if (!Password || Password.length === 0) {
@@ -27,9 +27,9 @@ const SignIn = ({ navigation, updateAuthState }) => {
       setPasswordError("");
     }
 
-    if (Username && Username.length > 0 && Password && Password.length > 0) {
+    if (Email && Email.length > 0 && Password && Password.length > 0) {
       setLoading(true);
-      Auth.signIn(Username, Password)
+      Auth.signIn(Email, Password)
         .then((user) => {
           // console.log(user);
           setLoading(false);
@@ -50,14 +50,14 @@ const SignIn = ({ navigation, updateAuthState }) => {
         </View>
         <View style={styles.sectionLogin}>
           <Input
-            placeholder="Enter your username"
-            label="Username *"
-            errorMessage={usernameError}
+            placeholder="Enter your Email"
+            label="Email *"
+            errorMessage={EmailError}
             renderErrorMessage={false}
             style={styles.input}
             errorStyle={styles.textFieldError}
             labelStyle={styles.textLabel}
-            onChangeText={(text) => setUsername(text)}
+            onChangeText={(text) => SetEmail(text)}
           />
           <Input
             placeholder="Enter your password"

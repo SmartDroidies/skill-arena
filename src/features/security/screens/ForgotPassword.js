@@ -5,25 +5,25 @@ import Auth from "@aws-amplify/auth";
 import { Container } from "../../../../style";
 
 const ForgotPassword = ({ navigation }) => {
-  const [username, setUsername] = useState("");
-  const [usernameError, setUsernameError] = useState("");
+  const [Email, SetEmail] = useState("");
+  const [EmailError, setEmailError] = useState("");
   const [resetError, setResetError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const reset = () => {
-    if (!username || username.length === 0) {
-      setUsernameError("Enter Username");
+    if (!Email || Email.length === 0) {
+      setEmailError("Enter Email");
     } else {
-      setUsernameError("");
+      setEmailError("");
     }
 
-    if (username && username.length > 0) {
+    if (Email && Email.length > 0) {
       setLoading(true);
-      Auth.forgotPassword(username)
+      Auth.forgotPassword(Email)
         .then(() => {
           setLoading(false);
           navigation.navigate("ForgotPasswordSubmit", {
-            username,
+            Email,
           });
         })
         .catch((error) => {
@@ -41,23 +41,23 @@ const ForgotPassword = ({ navigation }) => {
         </View>
         <View style={styles.sectionFields}>
           <Input
-            placeholder="Enter your username"
-            label="Username *"
-            errorMessage={usernameError}
+            placeholder="Enter your Email"
+            label="Email *"
+            errorMessage={EmailError}
             renderErrorMessage={false}
             style={styles.input}
             errorStyle={styles.textFieldError}
             labelStyle={styles.textLabel}
-            onChangeText={(text) => setUsername(text)}
+            onChangeText={(text) => SetEmail(text)}
           />
           <Text style={styles.textError}>{resetError}</Text>
           <Button title="Send" onPress={reset} loading={loading} />
           <Button
             title="Have a code, verify now"
-            disabled={username === ""}
+            disabled={Email === ""}
             onPress={() =>
               navigation.navigate("ForgotPasswordSubmit", {
-                username,
+                Email,
               })
             }
             type="clear"
