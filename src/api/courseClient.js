@@ -5,6 +5,16 @@ const courseClient = axios.create({
   baseURL: API_URL.trim(),
 });
 
+courseClient.interceptors.request.use(
+  function (config) {
+    console.log(config);
+    config.headers.test = "I am only a header!";
+    return config;
+  },
+  null,
+  { synchronous: true }
+);
+
 courseClient.interceptors.request.use((request) => {
   // replace console with our logger of choice
   console.log("Request Base & Url : ", request.baseURL, request.url);
