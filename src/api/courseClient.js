@@ -1,19 +1,21 @@
 import axios from "axios";
-import { API_URL } from "@env";
+import { API_URL, API_USERNAME, API_PASSWORD } from "@env";
+import { Buffer } from "buffer";
 
 const courseClient = axios.create({
   baseURL: API_URL.trim(),
 });
 
-courseClient.interceptors.request.use(
-  function (config) {
-    console.log(config);
-    config.headers.test = "I am only a header!";
-    return config;
-  },
-  null,
-  { synchronous: true }
-);
+courseClient.interceptors.request.use((request) => {
+  // replace console with our logger of choice
+  // global.Buffer = Buffer;
+  console.log("Request Base & Url : ", request.baseURL, request.url);
+  const token = API_USERNAME + ":" + API_PASSWORD;
+  const encodedToken = Buffer.from(token).toString("base64");
+  request.headers.Authorization = "Basic " + encodedToken;
+  console.log(request);
+  return request;
+});
 
 courseClient.interceptors.request.use((request) => {
   // replace console with our logger of choice
