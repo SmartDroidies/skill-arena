@@ -7,78 +7,77 @@ import Auth from "@aws-amplify/auth";
 
 
 export const SignUp = ({ navigation }) => {
-  const [Username, SetUsername] = useState("");
-  const [Password, SetPassword] = useState("");
-  const [Firstname, SetFirstname] = useState("");
-  const [Lastname, SetLastname] = useState("");
-  const [Email, SetEmail] = useState("");
-  const [Phone, SetPhone] = useState("");
+  const [username, SetUsername] = useState("");
+  const [password, SetPassword] = useState("");
+  const [firstname, SetFirstname] = useState("");
+  const [lastname, SetLastname] = useState("");
+  const [email, SetEmail] = useState("");
+  // const [phone, SetPhone] = useState("");
   const [usernameError, SetUsernameError] = useState("");
   const [passwordError, SetPasswordError] = useState("");
   const [emailError, SetEmailError] = useState("");
-  const [phoneError, SetPhoneError] = useState("");
+  // const [phoneError, SetPhoneError] = useState("");
   const [firstnameError, SetFirstnameError] = useState("");
   const [lastnameError, SetLastnameError] = useState("");
   const [signupError, SetSignupError] = useState("");
   const [loading, SetLoadingError] = useState(false);
 
-  const regPhone = /^[0]?[789]\d{9}$/;
+  // const regPhone = /^[0]?[789]\d{9}$/;
 
   const SignUp = () => {
     let bFieldsValid = true;
-
-    if (!Username || Username.length === 0) {
+    if (!username || username.length === 0) {
       ("Enter Username");
       bFieldsValid = false;
     } else {
       SetUsernameError("");
     }
-    if (!Password || Password.length === 0) {
+    if (!password || password.length === 0) {
       SetPasswordError("Enter Password");
       bFieldsValid = false;
     } else {
       SetPasswordError("");
     }
-    if (!Firstname || Firstname.length === 0) {
+    if (!firstname || firstname.length === 0) {
       SetFirstnameError("Enter First Name");
       bFieldsValid = false;
     } else {
       SetFirstnameError("");
     }
 
-    if (!Lastname || Lastname.length === 0) {
+    if (!lastname || lastname.length === 0) {
       SetLastnameError("Enter Last Name");
       bFieldsValid = false;
     } else {
       SetLastnameError("");
     }
 
-    if (!Email || Email.length === 0) {
+    if (!email || email.length === 0) {
       SetEmailError("");
     } else {
       SetEmailError("");
     }
 
-    if (!Phone || Phone.length === 0) {
-      SetPhoneError("Enter Phone");
-      bFieldsValid = false;
-    } else if (regPhone.test(Phone) === false) {
-      SetPhoneError("Enter 10 digit phone no");
-      bFieldsValid = false;
-    } else {
-      SetPhoneError("");
-    }
+    // if (!phone || phone.length === 0) {
+    //   SetPhoneError("Enter Phone");
+    //   bFieldsValid = false;
+    // } else if (regPhone.test(phone) === false) {
+    //   SetPhoneError("Enter 10 digit phone no");
+    //   bFieldsValid = false;
+    // } else {
+    //   SetPhoneError("");
+    // }
 
     if (bFieldsValid) {
       SetLoadingError(true);
-      const prefixPhoneNumber = "+91" + Phone;
+      // const prefixPhoneNumber = "+91" + phone;
       Auth.signUp({
-        Username,
-        Password,
+        username,
+        password,
         attributes: {
-          Email,
-          phone_number: prefixPhoneNumber,
-          name: Firstname,
+          email,
+          // phone_number: prefixPhoneNumber,
+          name: firstname,
         },
       })
         .then((user) => {
@@ -140,14 +139,14 @@ export const SignUp = ({ navigation }) => {
           />
           <Input
             placeholder="Email"
-            label="Email"
+            label="E-mail"
             errorMessage={emailError}
             renderErrorMessage={false}
             errorStyle={styles.textError}
             labelStyle={styles.textLabel}
             onChangeText={(text) => SetEmail(text)}
           />
-          <Input
+          {/* <Input
             placeholder="Phone Number"
             label="Phone Number *"
             errorMessage={phoneError}
@@ -155,7 +154,7 @@ export const SignUp = ({ navigation }) => {
             errorStyle={styles.textError}
             labelStyle={styles.textLabel}
             onChangeText={(text) => SetPhone(text)}
-          />
+          /> */}
           {signupError.trim().length > 0 && (
             <Text style={styles.textError}>{signupError}</Text>
           )}

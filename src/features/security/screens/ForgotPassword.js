@@ -42,7 +42,7 @@ const ForgotPassword = ({ navigation }) => {
         <View style={styles.sectionFields}>
           <Input
             placeholder="Enter your Email"
-            label="Email *"
+            label="E-mail *"
             errorMessage={EmailError}
             renderErrorMessage={false}
             style={styles.input}
