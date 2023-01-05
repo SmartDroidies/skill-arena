@@ -15,7 +15,9 @@ const useCategory = () => {
       .get("/category")
       .then((response) => {
         setCategory(sortCategory(response.data));
+        console.log(response.data);
       })
+
       .catch((error) => {
         console.log("Error :", error);
       });

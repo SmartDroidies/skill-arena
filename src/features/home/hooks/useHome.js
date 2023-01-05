@@ -15,6 +15,7 @@ const useHome = () => {
       .get("/home")
       .then((response) => {
         setHomeContent(sortSection(response.data));
+        console.log(response.data);
       })
       .catch((error) => {
         console.log("Error :", error);

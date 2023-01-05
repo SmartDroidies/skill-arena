@@ -15,7 +15,9 @@ const useCourse = (category) => {
       .get("/course", { params: { ctgry: category } })
       .then((response) => {
         setCourses(sortCourses(response.data));
+        console.log(response.data);
       })
+
       .catch((error) => {
         console.log("Error :", error);
       });
