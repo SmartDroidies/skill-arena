@@ -9,11 +9,11 @@ const SignIn = ({ navigation, updateAuthState }) => {
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  // const [loginError, setLoginError] = useState("");
+  const [loginError, setLoginError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const SignIn = () => {
-    // setLoginError("");
+    setLoginError("");
 
     if (!email || email.length === 0) {
       setEmailError("Enter E-mail");
@@ -38,7 +38,7 @@ const SignIn = ({ navigation, updateAuthState }) => {
         .catch((error) => {
           setLoading(false);
           console.log(error);
-          // setLoginError(error.message);
+          setLoginError(error.message);
         });
     }
   };
@@ -70,6 +70,7 @@ const SignIn = ({ navigation, updateAuthState }) => {
             labelStyle={styles.textLabel}
             onChangeText={(text) => setPassword(text)}
           />
+          <Text style={styles.textError}>{loginError}</Text>
           <Button
             title="Sign In"
             onPress={SignIn}
