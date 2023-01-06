@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Input, Text, Button } from "@rneui/themed";
 import { Container } from "../../../../style";
-import Auth from "@aws-amplify/auth";
+import { Auth } from "aws-amplify";
 
 const SignIn = ({ navigation, updateAuthState }) => {
   const [email, setEmail] = useState("");
