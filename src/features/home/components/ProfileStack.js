@@ -3,6 +3,7 @@ import Global from "../../../utils/Global";
 import SignIn from "../../security/screens/SignIn";
 import ForgotPassword from "../../security/screens/ForgotPassword";
 import SignUp from "../../security/screens/SignUp";
+import ForgotPasswordSubmit from "../../security/screens/ForgetPasswordSudmit";
 
 export const AppStack = createStackNavigator();
 
@@ -26,6 +27,13 @@ export const AppNavigator = () => {
       <AppStack.Screen
         name="ForgotPassword"
         component={ForgotPassword}
+        options={{
+          title: Global.Constant.appName,
+        }}
+      />
+      <AppStack.Screen
+        name="ForgotPasswordSubmit"
+        component={ForgotPasswordSubmit}
         options={{
           title: Global.Constant.appName,
         }}
