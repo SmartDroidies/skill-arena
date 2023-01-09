@@ -8,16 +8,16 @@ import { Auth } from "@aws-amplify/auth";
 export const SignUp = ({ navigation }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [usernameError, setUsernameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [phoneError, setPhoneError] = useState("");
-  const [firstnameError, setFirstnameError] = useState("");
-  const [lastnameError, setLastnameError] = useState("");
+  const [firstNameError, setFirstNameError] = useState("");
+  const [lastNameError, setLastNameError] = useState("");
   const [signupError, setSignupError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -38,18 +38,18 @@ export const SignUp = ({ navigation }) => {
     } else {
       setPasswordError("");
     }
-    if (!firstname || firstname.length === 0) {
-      setFirstnameError("Enter First Name");
+    if (!firstName || firstName.length === 0) {
+      setFirstNameError("Enter First Name");
       bFieldsValid = false;
     } else {
-      setFirstnameError("");
+      setFirstNameError("");
     }
 
-    if (!lastname || lastname.length === 0) {
-      setLastnameError("Enter Last Name");
+    if (!lastName || lastName.length === 0) {
+      setLastNameError("Enter Last Name");
       bFieldsValid = false;
     } else {
-      setLastnameError("");
+      setLastNameError("");
     }
 
     if (!email || email.length === 0) {
@@ -79,7 +79,7 @@ export const SignUp = ({ navigation }) => {
         attributes: {
           email,
           phone_number: prefixPhoneNumber,
-          name: firstname,
+          name: firstName,
         },
       })
         .then((user) => {
@@ -125,20 +125,20 @@ export const SignUp = ({ navigation }) => {
           <Input
             placeholder="First Name"
             label="First Name *"
-            errorMessage={firstnameError}
+            errorMessage={firstNameError}
             renderErrorMessage={false}
             errorStyle={styles.textError}
             labelStyle={styles.textLabel}
-            onChangeText={(text) => setFirstname(text)}
+            onChangeText={(text) => setFirstName(text)}
           />
           <Input
             placeholder="Last Name"
             label="Last Name *"
-            errorMessage={lastnameError}
+            errorMessage={lastNameError}
             renderErrorMessage={false}
             errorStyle={styles.textError}
             labelStyle={styles.textLabel}
-            onChangeText={(text) => setLastname(text)}
+            onChangeText={(text) => setLastName(text)}
           />
           <Input
             placeholder="Email"

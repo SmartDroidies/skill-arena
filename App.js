@@ -15,6 +15,7 @@ const Tab = createMaterialBottomTabNavigator();
 
 Amplify.configure({
   Auth: {
+    identityPoolId: "ap-south-1_J7feAL3nk",
     region: "ap-south-1",
     userPoolId: "ap-south-1_J7feAL3nk",
     userPoolWebClientId: "15a5h8m9p295ig4h9ut7rrhdqs",
