@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API_URL } from "@env";
+import { API_URL, API_USERNAME, API_PASSWORD } from "@env";
 
 const courseClient = axios.create({
   baseURL: API_URL,
@@ -8,7 +8,10 @@ const courseClient = axios.create({
 courseClient.interceptors.request.use((request) => {
   // replace console with our logger of choice
   console.log("Request Base & Url : ", request.baseURL, request.url);
-  // console.log(request);
+  const token = API_USERNAME + ":" + API_PASSWORD;
+  const encodedToken = Buffer.from(token).toString("base64");
+  request.headers.Authorization = "Basic " + encodedToken;
+  console.log(request);
   return request;
 });
 
