@@ -1,29 +1,29 @@
 import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Input, Text, Button } from "@rneui/themed";
-import Auth from "@aws-amplify/auth";
 import { Container } from "../../../../style";
+import { Auth } from "aws-amplify";
 
 const ForgotPassword = ({ navigation }) => {
-  const [Email, SetEmail] = useState("");
-  const [EmailError, setEmailError] = useState("");
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
   const [resetError, setResetError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const reset = () => {
-    if (!Email || Email.length === 0) {
+    if (!email || email.length === 0) {
       setEmailError("Enter Email");
     } else {
       setEmailError("");
     }
 
-    if (Email && Email.length > 0) {
+    if (email && email.length > 0) {
       setLoading(true);
-      Auth.forgotPassword(Email)
+      Auth.forgotPassword(email)
         .then(() => {
           setLoading(false);
           navigation.navigate("ForgotPasswordSubmit", {
-            Email,
+            email,
           });
         })
         .catch((error) => {
@@ -43,21 +43,21 @@ const ForgotPassword = ({ navigation }) => {
           <Input
             placeholder="Enter your Email"
             label="E-mail *"
-            errorMessage={EmailError}
+            errorMessage={emailError}
             renderErrorMessage={false}
             style={styles.input}
             errorStyle={styles.textFieldError}
             labelStyle={styles.textLabel}
-            onChangeText={(text) => SetEmail(text)}
+            onChangeText={(text) => setEmail(text)}
           />
           <Text style={styles.textError}>{resetError}</Text>
           <Button title="Send" onPress={reset} loading={loading} />
           <Button
             title="Have a code, verify now"
-            disabled={Email === ""}
+            disabled={email === ""}
             onPress={() =>
               navigation.navigate("ForgotPasswordSubmit", {
-                Email,
+                email,
               })
             }
             type="clear"
