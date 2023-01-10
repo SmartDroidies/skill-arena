@@ -8,8 +8,9 @@ import React from "react";
 import { lightTheme } from "./src/theme";
 import { ThemeProvider } from "styled-components";
 import { Icon } from "@rneui/themed";
-import Amplify from "@aws-amplify/core";
 import { AppNavigator } from "./src/features/home/components/ProfileStack";
+import { Amplify } from "aws-amplify";
+import { Authenticator, useAuthenticator } from "@aws-amplify/ui-react-native";
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -25,7 +26,22 @@ Amplify.configure({
   },
 });
 
+function SignOutButton() {
+  const { signOut } = useAuthenticator();
+  return <Button title="Sign Out" onPress={signOut} />;
+}
+
 export default function App() {
+  return (
+    <Authenticator.Provider>
+      <Authenticator>
+        <SignOutButton />
+      </Authenticator>
+    </Authenticator.Provider>
+  );
+}
+
+export function BadApp() {
   return (
     <ThemeProvider theme={lightTheme}>
       <NavigationContainer>
