@@ -1,21 +1,10 @@
 import React from "react";
-import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
+import { ActivityIndicator, StyleSheet, View } from "react-native";
 
 const Loader = () => {
-  // const [loading, setloading] = useState(true);
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setloading(!loading);
-  //   }, 1500);
-  // }, []);
-
   return (
     <View style={[styles.container, styles.horizontal]}>
-      {/* {loading ? ( */}
-      <ActivityIndicator size="large" color="skyblue" />
-      {/* ) : ( */}
-      <Text></Text>
-      {/* )} */}
+      <ActivityIndicator size="large" />
     </View>
   );
 };
@@ -27,10 +16,7 @@ const styles = StyleSheet.create({
   },
   horizontal: {
     flexDirection: "row",
-    // marginTop: 300,
     justifyContent: "space-around",
-    // padding: 10,
-    // marginTop: 100,
   },
 });
 

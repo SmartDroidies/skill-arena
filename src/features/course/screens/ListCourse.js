@@ -1,14 +1,12 @@
-import { React, useEffect, useState } from "react";
-import { FlatList } from "react-native";
+import { Text } from "@rneui/themed";
+import { React, useEffect } from "react";
+import { StyleSheet, FlatList } from "react-native";
 import { Container, CourseContainer } from "../../../../style";
-import Loader from "../../../activity indicator/Loader";
 import Course from "../components/Course";
 import useCourse from "../hooks/useCourse";
 
 const ListCourse = ({ route, navigation }) => {
-  const [courses] = useCourse(route.params.code);
-  const [isLoading, errormessage] = useCourse();
-  const [viewPreference] = useState("List");
+  const [courses, isLoading, errorMessage] = useCourse(route.params.code);
 
   const renderCourseCard = ({ item }) => (
     <Course course={item} navigation={navigation} />
@@ -19,9 +17,10 @@ const ListCourse = ({ route, navigation }) => {
       title: route.params.title,
     });
   };
-  const SkillActivityIndicator = () => {
+
+  const skillActivityIndicator = () => {
     return (
-      <Container>
+      <Container style={styles.container}>
         <Loader />
       </Container>
     );
@@ -30,24 +29,25 @@ const ListCourse = ({ route, navigation }) => {
   const skillMessage = () => {
     return (
       <Container>
-        <Message type="error" text={errormessage} />
+        <Text>{errorMessage}</Text>
+        {/* <Message type="error" text={errorMessage} /> */}
       </Container>
     );
   };
 
   const displayResult = () => {
-    return errormessage === "" ? courseListing() : skillMessage();
+    return errorMessage === "" ? renderCourseList() : skillMessage();
   };
 
-  const courseListing = () => {
-    return viewPreference === "List" ? renderListView() : renderGridView();
-  };
-  const renderGridView = () => {
-    return <ListCourse courses={courses}></ListCourse>;
-  };
-
-  const renderListView = () => {
-    return <ListCourse courses={courses}></ListCourse>;
+  const renderCourseList = () => {
+    return (
+      <FlatList
+        data={courses}
+        showsVerticalScrollIndicator={false}
+        renderItem={renderCourseCard}
+        keyExtractor={(item) => item.course_id}
+      />
+    );
   };
 
   useEffect(() => {
@@ -56,15 +56,15 @@ const ListCourse = ({ route, navigation }) => {
 
   return (
     <CourseContainer>
-      <FlatList
-        data={courses}
-        showsVerticalScrollIndicator={false}
-        renderItem={renderCourseCard}
-        keyExtractor={(item) => item.course_id}
-      />
-      {isLoading ? SkillActivityIndicator() : displayResult()}
+      {isLoading ? skillActivityIndicator() : displayResult()}
     </CourseContainer>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    marginTop: "200",
+  },
+});
 
 export default ListCourse;
