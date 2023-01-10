@@ -1,7 +1,8 @@
-import { Text } from "@rneui/themed";
 import { React, useEffect } from "react";
-import { StyleSheet, FlatList } from "react-native";
+import { FlatList } from "react-native";
 import { Container, CourseContainer } from "../../../../style";
+import Loader from "../../../activity indicator/Loader";
+import Message from "../../../activity indicator/Message";
 import Course from "../components/Course";
 import useCourse from "../hooks/useCourse";
 
@@ -20,7 +21,7 @@ const ListCourse = ({ route, navigation }) => {
 
   const skillActivityIndicator = () => {
     return (
-      <Container style={styles.container}>
+      <Container>
         <Loader />
       </Container>
     );
@@ -28,10 +29,10 @@ const ListCourse = ({ route, navigation }) => {
 
   const skillMessage = () => {
     return (
-      <Container>
-        <Text>{errorMessage}</Text>
+      <CourseContainer>
+        <Message>{errorMessage}</Message>
         {/* <Message type="error" text={errorMessage} /> */}
-      </Container>
+      </CourseContainer>
     );
   };
 
@@ -52,6 +53,7 @@ const ListCourse = ({ route, navigation }) => {
 
   useEffect(() => {
     loadCourses();
+    console.log(loadCourses);
   }, []);
 
   return (
@@ -60,11 +62,5 @@ const ListCourse = ({ route, navigation }) => {
     </CourseContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: "200",
-  },
-});
 
 export default ListCourse;
