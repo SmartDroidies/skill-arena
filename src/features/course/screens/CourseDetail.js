@@ -1,8 +1,9 @@
-import { React, useState } from "react";
+import { React } from "react";
 import { Text, Card } from "@rneui/themed";
 import useCourseDetail from "../hooks/useCourseDetail";
 import { View } from "react-native";
 import {
+  Container,
   CourseAuthor,
   CourseDesc,
   CourseDetailImage,
@@ -16,70 +17,63 @@ import { courseImage } from "../../../utils/ImageUtil";
 import CourseFrequency from "../../../components/CourseFrequency";
 import Course from "../components/Course";
 
-import useCourse from "../hooks/useCourse";
 import Loader from "../../../activity indicator/Loader";
+import Message from "../../../activity indicator/Message";
 
 const CourseDetail = ({ route }) => {
-  const [courseDetail] = useCourseDetail(route.params.id);
-  const [courses] = useCourse(route.params.code);
-  const [isLoading, errormessage] = useCourse();
-  const [viewPreference] = useState("List");
+  const [courseDetail, isLoading, errorMessage] = useCourseDetail();
 
   const SkillActivityIndicator = () => {
-    return <Loader />;
+    return (
+      <Container>
+        <Loader />
+      </Container>
+    );
   };
 
   const skillMessage = () => {
-    return <Message type="error" text={errormessage} />;
+    return <Message type="error" text={errorMessage} />;
   };
 
   const displayResult = () => {
-    return errormessage === "" ? courseDetailing() : skillMessage();
+    return errorMessage === "" ? renderCourseCard() : skillMessage();
   };
 
-  const courseDetailing = () => {
-    return viewPreference === "courseDetail"
-      ? renderListView()
-      : renderGridView();
-  };
-  const renderGridView = () => {
-    return <courseDetail courses={courses}></courseDetail>;
-  };
-
-  const renderListView = () => {
-    return <courseDetail courses={courses}></courseDetail>;
-  };
   // const singleShare = async (customOptions) => {
-
-  return (
-    <Card>
-      <CourseDetailImage
-        source={{
-          uri: courseImage(courseDetail.image),
-        }}
-        PlaceholderContent={<SkillActivityIndicator />}
-      />
-      <View>
-        <Text>
-          {courseDetail.header} {courseDetail.Category}
-        </Text>
-        <CourseTitle>{courseDetail.title}</CourseTitle>
-        <FlexView direction="row">
-          <FlexView direction="column">
-            <CourseDesc>{courseDetail.desc}</CourseDesc>
-            <CourseAuthor>{courseDetail.author}</CourseAuthor>
-            <FrequencyView>
-              <CourseFrequency course={Course} />
-            </FrequencyView>
+  const renderCourseCard = () => {
+    return (
+      <Card>
+        <CourseDetailImage
+          source={{
+            uri: courseImage(courseDetail.image),
+          }}
+        />
+        <View>
+          <Text>
+            {courseDetail.header} {courseDetail.Category}
+          </Text>
+          <CourseTitle>{courseDetail.title}</CourseTitle>
+          <FlexView direction="row">
+            <FlexView direction="column">
+              <CourseDesc>{courseDetail.desc}</CourseDesc>
+              <CourseAuthor>{courseDetail.author}</CourseAuthor>
+              <FrequencyView>
+                <CourseFrequency course={Course} />
+              </FrequencyView>
+            </FlexView>
           </FlexView>
-        </FlexView>
 
-        <CourseDetailModeView>
-          <CourseMode course={courseDetail} />
-        </CourseDetailModeView>
-        {isLoading ? SkillActivityIndicator() : displayResult()}
-      </View>
-    </Card>
+          <CourseDetailModeView>
+            <CourseMode course={courseDetail} />
+          </CourseDetailModeView>
+        </View>
+      </Card>
+    );
+  };
+  return (
+    <Container>
+      {isLoading ? SkillActivityIndicator() : displayResult()}
+    </Container>
   );
 };
 
