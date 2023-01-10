@@ -73,6 +73,7 @@ export const SignUp = ({ navigation }) => {
       setLoading(true);
       const prefixPhoneNumber = "+91" + phone;
       setUsername(email);
+      console.log(username);
       Auth.signUp({
         username,
         password,
